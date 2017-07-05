@@ -8,6 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
 
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+
+        <item name="ms_stepperStyle">@style/DotStepperStyle</item>
     </style>
 
     <style name="TextLabel" parent="TextAppearance.AppCompat">
@@ -22,6 +24,13 @@
 
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="color">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="DotStepperStyle">
+        <item name="ms_stepperType">tabs</item>
+        <item name="ms_activeStepColor">#FFFFFF</item>
+        <item name="ms_inactiveStepColor">@color/colorAccent2</item>
+        <item name="ms_bottomNavigationBackground">?attr/colorAccent</item>
     </style>
 
 </resources>
