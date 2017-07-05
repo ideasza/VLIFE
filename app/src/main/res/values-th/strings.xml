@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">VLIFE</string>
+
+    <string name="openDrawer"></string>
+    <string name="closeDrawer"></string>
+
+    /********************Authentication page********************/
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="buttonsignin">Log in</string>
+    <string name="rememberme">Remember me</string>
+    <string name="forgetpassword">Forget password?</string>
+    <string name="or">or</string>
+    <string name="buttonsignup">Register</string>
+    /********************Authentication page********************/
+
+    /***********************Dialog alert************************/
+    <string name="dialog_title_error">พบข้อผิพลาด</string>
+    <string name="dialog_title_warning">คำเตือน</string>
+
+    <string name="dialog_msg_network_error">ไม่สามารถเชื่อมต่อเครือข่ายได้</string>
+    <string name="dialog_msg_login_empty">ไม่ได้กรอกชื่อผุ้ใช้หรือรหัสผ่าน</string>
+    <string name="dialog_msg_login_fail">ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</string>
+
+    <string name="dialog_btn_cancel">ยกเลิก</string>
+    <string name="dialog_btn_ok">ตกลง</string>
+    <string name="dialog_btn_settings">ตั้งค่า</string>
+    /***********************Dialog alert************************/
+    
+    /*************************Menu title************************/
+    <string name="main_menu_home">หน้าแรก</string>
+    <string name="main_menu_profile">ข้อมูลส่วนตัว</string>
+    <string name="main_menu_register">สมัครสมาชิก</string>
+    <string name="main_menu_news">ข่าวสารและโปรโมชั่น</string>
+    <string name="main_menu_product">ผลิตภํณฑ์</string>
+    <string name="main_menu_purchase">แจ้งการชำระเงิน</string>
+    <string name="main_menu_settings">การตั้งค่า</string>
+    <string name="main_menu_logout">ออกจากระบบ</string>
+    /*************************Menu title************************/
+
+</resources>
