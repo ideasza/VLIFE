@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">VLIFE</string>
+
+    /********************Authentication page********************/
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="buttonsignin">Log in</string>
+    <string name="rememberme">Remember me</string>
+    <string name="forgetpassword">Forget password?</string>
+    <string name="or">or</string>
+    <string name="buttonsignup">Register</string>
+    /********************Authentication page********************/
+
+
 </resources>
