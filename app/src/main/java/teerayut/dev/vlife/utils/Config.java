@@ -7,4 +7,6 @@ package teerayut.dev.vlife.utils;
 public class Config {
 
     public static final int REQUEST_SETTINGS = 01;
+
+    public static final String KEY_LANGUAGE = "LANGUAGE";
 }
