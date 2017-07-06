@@ -38,4 +38,6 @@
     <string name="main_menu_logout">ออกจากระบบ</string>
     /*************************Menu title************************/
 
+    <string name="try_again">ลองอีกครั้ง</string>
+
 </resources>

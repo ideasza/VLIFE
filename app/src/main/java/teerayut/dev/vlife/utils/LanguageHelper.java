@@ -38,9 +38,9 @@ public class LanguageHelper {
         res.updateConfiguration(config, res.getDisplayMetrics());
     }
 
-    /*public static void loadLocale(Resources res) {
+    public static void loadLocale(Resources res) {
         try {
-            Locale local = new Locale(MyApplication.getInstance().getPrefManager().getLanguage());
+            Locale local = new Locale(MyApplication.getInstance().getPrefManager().getPreferrence(Config.KEY_LANGUAGE));
             Locale.setDefault(local);
             Configuration config = new Configuration();
             config.locale = local;
@@ -48,5 +48,5 @@ public class LanguageHelper {
         } catch (Exception ex) {
             Log.e(LanguageHelper.class.getSimpleName(), "Get settings : " + ex.toString());
         }
-    }*/
+    }
 }

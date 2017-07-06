@@ -20,6 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import teerayut.dev.vlife.R;
 import teerayut.dev.vlife.base.BaseMvpActivity;
+import teerayut.dev.vlife.main.MainActivity;
 import teerayut.dev.vlife.utils.Config;
 import teerayut.dev.vlife.utils.LanguageHelper;
 import teerayut.dev.vlife.utils.MyApplication;
@@ -47,6 +48,7 @@ public class AuthenticationActivity extends BaseMvpActivity<AuthenticationInterf
     @BindView(R.id.register) TextView buttonRegister;
     @Override
     public void bindView() {
+        LanguageHelper.loadLocale(getBaseContext().getResources());
         ButterKnife.bind(this);
         activeEvent();
     }
@@ -58,6 +60,7 @@ public class AuthenticationActivity extends BaseMvpActivity<AuthenticationInterf
 
     @Override
     public void setupView() {
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         buttonLanguage.setOnClickListener( onLanguageChange() );
         buttonLogin.setOnClickListener( onLogIn() );
         forgetPassword.setOnClickListener( onForget() );
@@ -88,12 +91,12 @@ public class AuthenticationActivity extends BaseMvpActivity<AuthenticationInterf
         super.onRestoreInstanceState(savedInstanceState);
         if (savedInstanceState.getString(Config.KEY_LANGUAGE).equals("en")) {
             setButtonTH();
-            LanguageHelper.changeLocale(this.getResources(), savedInstanceState.getString(Config.KEY_LANGUAGE));
+            LanguageHelper.changeLocale(getBaseContext().getResources(), savedInstanceState.getString(Config.KEY_LANGUAGE));
             MyApplication.getInstance().getPrefManager().setPreferrence(Config.KEY_LANGUAGE, savedInstanceState.getString(Config.KEY_LANGUAGE));
             reload();
         } else {
             setButtonEN();
-            LanguageHelper.changeLocale(this.getResources(), savedInstanceState.getString(Config.KEY_LANGUAGE));
+            LanguageHelper.changeLocale(getBaseContext().getResources(), savedInstanceState.getString(Config.KEY_LANGUAGE));
             MyApplication.getInstance().getPrefManager().setPreferrence(Config.KEY_LANGUAGE, savedInstanceState.getString(Config.KEY_LANGUAGE));
             reload();
         }
@@ -138,7 +141,7 @@ public class AuthenticationActivity extends BaseMvpActivity<AuthenticationInterf
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         };
     }
@@ -226,13 +229,13 @@ public class AuthenticationActivity extends BaseMvpActivity<AuthenticationInterf
         switch (status) {
             case 0 :
                 setButtonEN();
-                LanguageHelper.changeLocale(this.getResources(), "th");
+                LanguageHelper.changeLocale(getBaseContext().getResources(), "th");
                 MyApplication.getInstance().getPrefManager().setPreferrence(Config.KEY_LANGUAGE, "th");
                 reload();
                 break;
             case 1 :
                 setButtonTH();
-                LanguageHelper.changeLocale(this.getResources(), "en");
+                LanguageHelper.changeLocale(getBaseContext().getResources(), "en");
                 MyApplication.getInstance().getPrefManager().setPreferrence(Config.KEY_LANGUAGE, "en");
                 reload();
                 break;
