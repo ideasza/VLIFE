@@ -42,6 +42,11 @@
     <string name="edittext_hint_forget">อีเมล</string>
     /*************************Forget password*********************/
 
+    /**************************Service unvailable*********************/
+    <string name="service_unvailable">ขออภัยในความไม่สะดวก \nพบข้อผิดพลาดบางประการ กรุณาลองใหม่อีกครั้ง.</string>
+    /**************************Service unvailable*********************/
+
+    <string name="menu_group_system">ระบบ</string>
     <string name="try_again">ลองอีกครั้ง</string>
 
 </resources>

@@ -12,6 +12,21 @@
     tools:context=".authentication.AuthenticationActivity">
 
     <RelativeLayout
+        android:id="@+id/layout_skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:padding="4dp">
+
+        <ImageView
+            android:id="@+id/button_skip"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:src="@drawable/ic_arrow_back_white_48dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/change_language"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

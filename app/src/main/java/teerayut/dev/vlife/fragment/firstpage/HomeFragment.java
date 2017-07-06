@@ -14,10 +14,13 @@ import android.widget.Button;
 
 import com.thekhaeng.recyclerviewmargin.StaggeredGridLayoutMargin;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import teerayut.dev.vlife.R;
 import teerayut.dev.vlife.base.BaseMvpFragment;
+import teerayut.dev.vlife.fragment.firstpage.item.Item;
 import teerayut.dev.vlife.utils.Config;
 
 /**
@@ -87,4 +90,8 @@ public class HomeFragment extends BaseMvpFragment<HomeFragmentInterface.Presente
         };
     }
 
+    @Override
+    public void setProductList(List<Item> itemList) {
+
+    }
 }

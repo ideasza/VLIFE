@@ -3,6 +3,8 @@ package teerayut.dev.vlife.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import teerayut.dev.vlife.authentication.model.AuthenModel;
+
 
 /**
  * Created by teera-s on 5/19/2016 AD.
@@ -25,7 +27,8 @@ public class MyPreferenceManager {
     // Sharedpref file name
     private static final String PREF_NAME = "APP";
 
-    private static final String KEY_LANGUAGE = "language";
+    private static final String KEY_USERNAME = "USERNAME";
+    private static final String KEY_PASSWORD = "PASSWORD";
 
     // Constructor
     public MyPreferenceManager(Context context) {
@@ -43,29 +46,31 @@ public class MyPreferenceManager {
         return pref.getString(key, null);
     }
 
-    /*public void storeUser(Users user) {
-        editor.putString(KEY_DEVICE_ID, user.getDevice_id());
-        editor.putString(KEY_EMAIL_ACCOUNT, user.getEmail());
-        editor.putString(KEY_TOKEN, user.getToken());
+    public void setPreferrenceBoolean(String key, boolean value) {
+        editor.putBoolean(key, value);
         editor.commit();
-
-        Log.e(TAG, "User is stored in shared preferences. " + user.getDevice_id() + ", " + user.getEmail() + ", " + user.getToken());
     }
 
-    public Users getUser() {
-        if (pref.getString(KEY_DEVICE_ID, null) != null) {
-            String device_id, email, token;
-            device_id = pref.getString(KEY_DEVICE_ID, null);
-            email = pref.getString(KEY_EMAIL_ACCOUNT, null);
-            token = pref.getString(KEY_TOKEN, null);
+    public boolean getPreferrenceBoolean(String key) {
+        return pref.getBoolean(key, false);
+    }
 
-            Users user = new Users(device_id, email, token);
-            return user;
+    public void setAuthen(AuthenModel authen) {
+        editor.putString(KEY_USERNAME, authen.getUsername());
+        editor.putString(KEY_PASSWORD, authen.getPassword());
+        editor.commit();
+    }
+
+    public AuthenModel getAuthen() {
+        if (pref.getString(KEY_USERNAME, null) != null) {
+            return new AuthenModel()
+                    .setUsername(pref.getString(KEY_USERNAME, null))
+                    .setPassword(pref.getString(KEY_PASSWORD, null));
         }
         return null;
     }
 
-    public void addNotificationToken(String token) {
+    /*public void addNotificationToken(String token) {
         editor.putString(KEY_TOKEN, token);
         editor.commit();
     }

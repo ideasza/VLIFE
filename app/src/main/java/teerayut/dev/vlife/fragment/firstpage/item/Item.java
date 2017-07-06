@@ -16,6 +16,7 @@ public class Item extends BaseItem implements Parcelable {
     private String id;
     private String name;
     private String image;
+    private int pv;
     private int price;
     private String volume;
     private int amount = 1;
@@ -108,6 +109,7 @@ public class Item extends BaseItem implements Parcelable {
         Item that = (Item) o;
 
         if( price != that.price ) return false;
+        if( pv != that.pv ) return false;
         if( amount != that.amount ) return false;
         if( isAdded != that.isAdded ) return false;
         if( id != null ? !id.equals( that.id ) : that.id != null ) return false;
@@ -125,6 +127,7 @@ public class Item extends BaseItem implements Parcelable {
         result = 31 * result + ( image != null ? image.hashCode() : 0 );
         result = 31 * result + ( name != null ? name.hashCode() : 0 );
         result = 31 * result + price;
+        result = 31 * result + pv;
         result = 31 * result + ( volume != null ? volume.hashCode() : 0 );
         result = 31 * result + amount;
         result = 31 * result + ( isAdded ? 1 : 0 );
@@ -138,6 +141,7 @@ public class Item extends BaseItem implements Parcelable {
                 .setImage( image )
                 .setName( name )
                 .setPrice( price )
+                .setPv( pv )
                 .setVolume( volume )
                 .setAmount( amount );
         item.setAdded( isAdded );
@@ -156,6 +160,7 @@ public class Item extends BaseItem implements Parcelable {
         dest.writeString( this.image );
         dest.writeString( this.name );
         dest.writeInt( this.price );
+        dest.writeInt( this.pv );
         dest.writeString( this.volume );
         dest.writeInt( this.amount );
         dest.writeByte( this.isAdded ? (byte) 1 : (byte) 0 );
@@ -167,6 +172,7 @@ public class Item extends BaseItem implements Parcelable {
         this.image = in.readString();
         this.name = in.readString();
         this.price = in.readInt();
+        this.pv = in.readInt();
         this.volume = in.readString();
         this.amount = in.readInt();
         this.isAdded = in.readByte() != 0;
@@ -183,4 +189,13 @@ public class Item extends BaseItem implements Parcelable {
             return new Item[size];
         }
     };
+
+    public int getPv() {
+        return pv;
+    }
+
+    public Item setPv(int pv) {
+        this.pv = pv;
+        return this;
+    }
 }

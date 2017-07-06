@@ -42,6 +42,14 @@
     <string name="edittext_hint_forget">Email</string>
     /*************************Forget password*********************/
 
+    /**************************Service unvailable*********************/
+    <string name="service_unvailable">Sorry, something went wrong. Please try again.</string>
+    /**************************Service unvailable*********************/
+
+    <string name="menu_group_system">System</string>
     <string name="try_again">Try again</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

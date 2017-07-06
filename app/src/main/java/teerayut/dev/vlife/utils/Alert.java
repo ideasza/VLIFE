@@ -2,6 +2,7 @@ package teerayut.dev.vlife.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import teerayut.dev.vlife.R;
@@ -51,5 +52,13 @@ public class Alert {
                     }
                 })
                 .show();
+    }
+
+    public static void dialogLoading(final Context context) {
+        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(context, SweetAlertDialog.PROGRESS_TYPE);
+        sweetAlertDialog.getProgressHelper().setBarColor(context.getResources().getColor(R.color.colorPrimaryDark));
+        sweetAlertDialog.setTitleText("Loading...");
+        sweetAlertDialog.setCancelable(false);
+        sweetAlertDialog.show();
     }
 }

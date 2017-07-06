@@ -12,6 +12,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Locale;
@@ -50,6 +51,7 @@ public class AuthenticationActivity extends BaseMvpActivity<AuthenticationInterf
     @BindView(R.id.remember) CheckBox rememberMe;
     @BindView(R.id.forgetpassword) TextView forgetPassword;
     @BindView(R.id.register) TextView buttonRegister;
+    @BindView(R.id.button_skip) ImageView buttonSkip;
     @Override
     public void bindView() {
         ButterKnife.bind(this);
@@ -69,6 +71,7 @@ public class AuthenticationActivity extends BaseMvpActivity<AuthenticationInterf
         forgetPassword.setOnClickListener( onForget() );
         buttonRegister.setOnClickListener( onSignUP() );
         rememberMe.setOnClickListener( onChecking() );
+        buttonSkip.setOnClickListener( onSkipStep() );
     }
 
     @Override
@@ -195,6 +198,16 @@ public class AuthenticationActivity extends BaseMvpActivity<AuthenticationInterf
                     REMEMBER = false;
 
                 Log.e("Remember", REMEMBER + "");
+            }
+        };
+    }
+
+    private View.OnClickListener onSkipStep() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setResult(RESULT_CANCELED);
+                finish();
             }
         };
     }
