@@ -9,6 +9,7 @@ public class Config {
     public static final int COLUMN_COUNT = 2;
 
     public static final int REQUEST_SETTINGS = 01;
+    public static final int REQUEST_FORGET = 02;
 
     public static final String KEY_LANGUAGE = "LANGUAGE";
 }

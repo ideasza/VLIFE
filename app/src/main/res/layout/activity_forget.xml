@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    android:fitsSystemWindows="true"
+    android:windowSoftInputMode="adjustPan|adjustResize"
+    tools:context="teerayut.dev.vlife.forget.ForgetActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:padding="8dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:src="@drawable/forget"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel_Forget">
+
+                <EditText
+                    android:id="@+id/forget_input"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:hint="@string/edittext_hint_forget"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:inputType="text|textNoSuggestions|textCapCharacters"
+                    android:imeOptions="actionDone"/>
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

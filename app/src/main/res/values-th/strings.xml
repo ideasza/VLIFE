@@ -5,13 +5,13 @@
     <string name="closeDrawer"></string>
 
     /********************Authentication page********************/
-    <string name="username">Username</string>
-    <string name="password">Password</string>
-    <string name="buttonsignin">Log in</string>
-    <string name="rememberme">Remember me</string>
-    <string name="forgetpassword">Forget password?</string>
-    <string name="or">or</string>
-    <string name="buttonsignup">Register</string>
+    <string name="username">ชื่อผู้ใช้</string>
+    <string name="password">รหัสผ่าน</string>
+    <string name="buttonsignin">เข้าสู่ระบบ</string>
+    <string name="rememberme">จำการเข้าสู่ระบบ</string>
+    <string name="forgetpassword">ลืมรหัสผ่าน</string>
+    <string name="or">หรือ</string>
+    <string name="buttonsignup">สมัครสมาชิก</string>
     /********************Authentication page********************/
 
     /***********************Dialog alert************************/
@@ -37,6 +37,10 @@
     <string name="main_menu_settings">การตั้งค่า</string>
     <string name="main_menu_logout">ออกจากระบบ</string>
     /*************************Menu title************************/
+
+    /*************************Forget password*********************/
+    <string name="edittext_hint_forget">อีเมล</string>
+    /*************************Forget password*********************/
 
     <string name="try_again">ลองอีกครั้ง</string>
 

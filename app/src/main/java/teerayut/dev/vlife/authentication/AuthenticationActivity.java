@@ -20,7 +20,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import teerayut.dev.vlife.R;
 import teerayut.dev.vlife.base.BaseMvpActivity;
+import teerayut.dev.vlife.forget.ForgetActivity;
+import teerayut.dev.vlife.fragment.firstpage.HomeFragmentInterface;
 import teerayut.dev.vlife.main.MainActivity;
+import teerayut.dev.vlife.utils.AnimateButton;
 import teerayut.dev.vlife.utils.Config;
 import teerayut.dev.vlife.utils.LanguageHelper;
 import teerayut.dev.vlife.utils.MyApplication;
@@ -28,6 +31,7 @@ import teerayut.dev.vlife.utils.MyApplication;
 public class AuthenticationActivity extends BaseMvpActivity<AuthenticationInterface.Presenter> implements AuthenticationInterface.View {
 
     private String DEFUALT_LANGUAGE;
+    private boolean REMEMBER = false;
 
     @Override
     public AuthenticationInterface.Presenter createPresenter() {
@@ -48,7 +52,6 @@ public class AuthenticationActivity extends BaseMvpActivity<AuthenticationInterf
     @BindView(R.id.register) TextView buttonRegister;
     @Override
     public void bindView() {
-        LanguageHelper.loadLocale(getBaseContext().getResources());
         ButterKnife.bind(this);
         activeEvent();
     }
@@ -65,6 +68,7 @@ public class AuthenticationActivity extends BaseMvpActivity<AuthenticationInterf
         buttonLogin.setOnClickListener( onLogIn() );
         forgetPassword.setOnClickListener( onForget() );
         buttonRegister.setOnClickListener( onSignUP() );
+        rememberMe.setOnClickListener( onChecking() );
     }
 
     @Override
@@ -75,6 +79,7 @@ public class AuthenticationActivity extends BaseMvpActivity<AuthenticationInterf
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        LanguageHelper.loadLocale(getBaseContext().getResources());
         if (savedInstanceState == null) {
             loadLanguageSettings();
         }
@@ -107,6 +112,10 @@ public class AuthenticationActivity extends BaseMvpActivity<AuthenticationInterf
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Config.REQUEST_SETTINGS) {
+
+        }
+
+        if (requestCode == Config.REQUEST_FORGET) {
 
         }
     }
@@ -150,7 +159,8 @@ public class AuthenticationActivity extends BaseMvpActivity<AuthenticationInterf
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                forgetPassword.startAnimation(new AnimateButton().animbutton());
+                startActivityForResult(new Intent(getApplicationContext(), ForgetActivity.class), Config.REQUEST_FORGET);
             }
         };
     }
@@ -159,7 +169,7 @@ public class AuthenticationActivity extends BaseMvpActivity<AuthenticationInterf
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                buttonRegister.startAnimation(new AnimateButton().animbutton());
             }
         };
     }
@@ -168,7 +178,23 @@ public class AuthenticationActivity extends BaseMvpActivity<AuthenticationInterf
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                buttonLanguage.startAnimation(new AnimateButton().animbutton());
                 changeButtonLanguage(view);
+            }
+        };
+    }
+
+    private View.OnClickListener onChecking() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rememberMe.startAnimation(new AnimateButton().animbutton());
+                if (rememberMe.isChecked())
+                    REMEMBER = true;
+                else
+                    REMEMBER = false;
+
+                Log.e("Remember", REMEMBER + "");
             }
         };
     }
