@@ -5,7 +5,6 @@ import android.os.Parcelable;
 
 import teerayut.dev.vlife.base.adapter.BaseItem;
 
-import static teerayut.dev.vlife.fragment.firstpage.adapter.ItemAdapter.TYPE_PRODUCT;
 
 /**
  * Created by teerayut.k on 7/6/2017.
@@ -23,7 +22,7 @@ public class Item extends BaseItem implements Parcelable {
     private boolean isAdded = false;
 
     public Item() {
-        super( TYPE_PRODUCT );
+        super();
     }
 
     public String getId() {

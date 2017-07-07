@@ -46,6 +46,13 @@
     <string name="service_unvailable">ขออภัยในความไม่สะดวก \nพบข้อผิดพลาดบางประการ กรุณาลองใหม่อีกครั้ง.</string>
     /**************************Service unvailable*********************/
 
+    /****************************Cart*******************************/
+    <string name="title_pv">พีวี</string>
+    <string name="price_symbol">฿</string>
+    <string name="add_to_cart">เพิ่มในตะกร้า</string>
+    <string name="added">เพิ่มแล้ว</string>
+    /****************************Cart*******************************/
+
     <string name="menu_group_system">ระบบ</string>
     <string name="try_again">ลองอีกครั้ง</string>
 

@@ -54,11 +54,16 @@ public class Alert {
                 .show();
     }
 
+    private static SweetAlertDialog sweetAlertDialog;
     public static void dialogLoading(final Context context) {
-        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(context, SweetAlertDialog.PROGRESS_TYPE);
+        sweetAlertDialog = new SweetAlertDialog(context, SweetAlertDialog.PROGRESS_TYPE);
         sweetAlertDialog.getProgressHelper().setBarColor(context.getResources().getColor(R.color.colorPrimaryDark));
         sweetAlertDialog.setTitleText("Loading...");
         sweetAlertDialog.setCancelable(false);
         sweetAlertDialog.show();
+    }
+
+    public static void dialogDimiss() {
+        sweetAlertDialog.dismiss();
     }
 }

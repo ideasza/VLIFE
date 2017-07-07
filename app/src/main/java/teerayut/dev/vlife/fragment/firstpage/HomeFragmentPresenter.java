@@ -5,6 +5,7 @@ import java.util.List;
 
 import teerayut.dev.vlife.base.BaseMvpPresenter;
 import teerayut.dev.vlife.fragment.firstpage.item.Item;
+import teerayut.dev.vlife.utils.Alert;
 import teerayut.dev.vlife.utils.Config;
 
 /**
@@ -22,7 +23,6 @@ public class HomeFragmentPresenter extends BaseMvpPresenter<HomeFragmentInterfac
 
     @Override
     public void requestProduct() {
-
         item = new Item()
                 .setId("0001")
                 .setName("I-SLYM")

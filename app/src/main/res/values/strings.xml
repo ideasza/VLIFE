@@ -46,6 +46,12 @@
     <string name="service_unvailable">Sorry, something went wrong. Please try again.</string>
     /**************************Service unvailable*********************/
 
+    /****************************Cart*******************************/
+    <string name="title_pv">PV</string>
+    <string name="price_symbol">฿</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="added">Added</string>
+    /****************************Cart*******************************/
     <string name="menu_group_system">System</string>
     <string name="try_again">Try again</string>
 
