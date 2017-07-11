@@ -11,6 +11,8 @@ public class Config {
     public static final int REQUEST_SETTINGS = 01;
     public static final int REQUEST_FORGET = 02;
     public static final int REQUEST_LOGIN = 03;
+    public static final int REQUEST_CART = 04;
+    public static final int REQUEST_PAYMENT = 05;
 
     public static final String KEY_LANGUAGE = "LANGUAGE";
     public static final String KEY_SESSION_LOGIN = "LOGEDIN";

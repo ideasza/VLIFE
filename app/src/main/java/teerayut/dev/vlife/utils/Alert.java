@@ -1,12 +1,13 @@
 package teerayut.dev.vlife.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import teerayut.dev.vlife.R;
-import teerayut.dev.vlife.authentication.AuthenticationActivity;
+import teerayut.dev.vlife.main.MainActivity;
 
 /**
  * Created by OzoeSK on 7/5/2017.
@@ -40,7 +41,7 @@ public class Alert {
                     @Override
                     public void onClick(SweetAlertDialog dialog) {
                         dialog.dismiss();
-                        ((AuthenticationActivity)context).finish();
+                        ((MainActivity)context).finish();
                     }
                 })
                 .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
@@ -48,7 +49,7 @@ public class Alert {
                     public void onClick(SweetAlertDialog dialog) {
                         dialog.dismiss();
                         Intent intent = new Intent(android.provider.Settings.ACTION_SETTINGS);
-                        ((AuthenticationActivity)context).startActivityForResult(intent, Config.REQUEST_SETTINGS);
+                        ((MainActivity)context).startActivityForResult(intent, Config.REQUEST_SETTINGS);
                     }
                 })
                 .show();

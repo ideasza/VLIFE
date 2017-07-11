@@ -6,48 +6,26 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import teerayut.dev.vlife.R;
-import teerayut.dev.vlife.base.BaseMvpFragment;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProductFragment extends BaseMvpFragment<ProductInterface.Presenter> implements ProductInterface.View {
+public class ProductFragment extends Fragment {
 
 
     public ProductFragment() {
         // Required empty public constructor
     }
 
-    @Override
-    public ProductInterface.Presenter createPresenter() {
-        return ProductPresenter.create();
-    }
 
     @Override
-    public int getLayoutView() {
-        return R.layout.fragment_product;
-    }
-
-    @Override
-    public void bindView(View view) {
-
-    }
-
-    @Override
-    public void setupInstance() {
-
-    }
-
-    @Override
-    public void setupView() {
-
-    }
-
-    @Override
-    public void initialize() {
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_product, container, false);
+        return view;
     }
 
 }

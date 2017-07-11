@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import teerayut.dev.vlife.authentication.AuthenticationActivity;
+import teerayut.dev.vlife.main.MainActivity;
 
 /**
  * Created by OzoeSK on 7/5/2017.
@@ -24,7 +24,7 @@ public class NetworkConnection extends BroadcastReceiver {
             networkChangedListener.onNetworkConnectionChanged(isConnected);
         }*/
         ComponentName comp = new ComponentName(context.getPackageName(),
-                AuthenticationActivity.class.getName());
+                MainActivity.class.getName());
         intent.putExtra("isNetworkConnected",isConnected(context));
         context.startService(intent.setComponent(comp));
     }

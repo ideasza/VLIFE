@@ -3,7 +3,6 @@ package teerayut.dev.vlife.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import teerayut.dev.vlife.authentication.model.AuthenModel;
 
 
 /**
@@ -55,7 +54,7 @@ public class MyPreferenceManager {
         return pref.getBoolean(key, false);
     }
 
-    public void setAuthen(AuthenModel authen) {
+    /*public void setAuthen(AuthenModel authen) {
         editor.putString(KEY_USERNAME, authen.getUsername());
         editor.putString(KEY_PASSWORD, authen.getPassword());
         editor.commit();
@@ -70,7 +69,7 @@ public class MyPreferenceManager {
         return null;
     }
 
-    /*public void addNotificationToken(String token) {
+    public void addNotificationToken(String token) {
         editor.putString(KEY_TOKEN, token);
         editor.commit();
     }

@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -20,16 +19,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon,android:theme">
-        <activity android:name=".authentication.AuthenticationActivity"></activity>
-        <activity android:name=".main.MainActivity" >
+        <activity
+            android:name=".main.MainActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|uiMode|screenSize|smallestScreenSize|locale">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".register.RegisterActivity" />
-        <activity android:name=".forget.ForgetActivity"></activity>
+        <!--
+        <activity android:name=".authentication.AuthenticationActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|uiMode|screenSize|smallestScreenSize|locale"></activity>
+
+        <activity android:name=".register.RegisterActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|uiMode|screenSize|smallestScreenSize|locale"/>
+        <activity android:name=".forget.ForgetActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|uiMode|screenSize|smallestScreenSize|locale"></activity>
+        -->
+        <activity android:name=".cart.CartActivity" />
+        <activity android:name=".payment.PaymentActivity"></activity>
     </application>
 
 </manifest>

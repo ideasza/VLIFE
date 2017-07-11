@@ -21,6 +21,8 @@
     <string name="dialog_msg_network_error">ไม่สามารถเชื่อมต่อเครือข่ายได้</string>
     <string name="dialog_msg_login_empty">ไม่ได้กรอกชื่อผุ้ใช้หรือรหัสผ่าน</string>
     <string name="dialog_msg_login_fail">ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</string>
+    <string name="dialog_msg_r_u_sure_for_delete">คุณต้องการลบรายการนี้หรือไม่</string>
+    <string name="dialog_msg_delete_completed">ลบแล้ว</string>
 
     <string name="dialog_btn_cancel">ยกเลิก</string>
     <string name="dialog_btn_ok">ตกลง</string>
@@ -47,13 +49,27 @@
     /**************************Service unvailable*********************/
 
     /****************************Cart*******************************/
+    <string name="cart_title">ตะกร้า</string>
     <string name="title_pv">พีวี</string>
     <string name="price_symbol">฿</string>
     <string name="add_to_cart">เพิ่มในตะกร้า</string>
     <string name="added">เพิ่มแล้ว</string>
+    <string name="total_price">รวม</string>
+    <string name="button_payment">ชำระเงิน</string>
+    <string name="cart_empty">ตะกร้าไม่มีสินค้า</string>
+    <string name="cart_amount">จำนวน</string>
     /****************************Cart*******************************/
 
+    /*****************************System*****************************/
     <string name="menu_group_system">ระบบ</string>
     <string name="try_again">ลองอีกครั้ง</string>
+    <string name="button_next">ถัดไป</string>
+    /*****************************System*****************************/
+
+    /*****************************Title*******************************/
+    <string name="title_deliver">การจัดส่งสินค้า</string>
+    <string name="title_detail">รายละเอียดสินค้า</string>
+    <string name="title_pay">ชำระเงิน</string>
+    /*****************************Title*******************************/
 
 </resources>

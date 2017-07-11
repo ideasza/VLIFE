@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="teerayut.dev.vlife.cart.CartActivity">
+
+    <LinearLayout
+        android:id="@+id/layoutTop"
+        android:layout_above="@+id/layoutBottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"/>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
+    <include layout="@layout/cart_empty"/>
+
+    <RelativeLayout
+        android:id="@+id/layoutBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:background="@color/gray_btn_bg_color"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/title_pv"/>
+
+                <TextView
+                    android:id="@+id/textViewPv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="250"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:background="@color/gray_btn_bg_color"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/total_price"/>
+
+                <TextView
+                    android:id="@+id/textViewTotal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="1,200 ฿"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/button_payment"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/colorPrimaryDark"
+                android:text="@string/button_payment"
+                android:textColor="@color/White"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
