@@ -72,4 +72,25 @@
     <string name="title_pay">ชำระเงิน</string>
     /*****************************Title*******************************/
 
+    /************************Delivery*************************/
+    <string name="delivery_choice">เลือกวิธีจัดส่ง</string>
+    <string name="delivery_address">ที่อยู่สำหรับจัดส่ง</string>
+    <string name="massenger">แมสเซ็นเจอร์ (แนะนำ)</string>
+    <string name="thai_post">ไปรษณีย์ไทย (EMS)</string>
+    <string name="address_delivery">ที่อยู่สำหรับจัดส่ง</string>
+    <string name="add_address">เพิ่มที่อยู่ใหม่</string>
+    /************************Delivery*************************/
+
+    /************************Form address*************************/
+    <string name="address_number">ที่อยู่/ห้อง</string>
+    <string name="address_building">อาคาร</string>
+    <string name="address_village">หมู่บ้าน/คอนโด</string>
+    <string name="address_soi">ตรอก/ซอย</string>
+    <string name="address_road">ถนน</string>
+    <string name="address_province">จังหวัด</string>
+    <string name="address_district">อำเภอ</string>
+    <string name="address_sub_district">ตำบล</string>
+    <string name="address_zipcode">รหัสไปรณีย์</string>
+    /************************Form address*************************/
+
 </resources>

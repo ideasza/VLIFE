@@ -71,6 +71,27 @@
     <string name="title_detail">Detail</string>
     <string name="title_pay">Payment</string>
     /*****************************Title*******************************/
+    
+    /************************Delivery*************************/
+    <string name="delivery_choice">Delivery choice</string>
+    <string name="delivery_address">Delivery address</string>
+    <string name="massenger">Massenger (Recommends)</string>
+    <string name="thai_post">Thai post (EMS)</string>
+    <string name="address_delivery">Address for delivery</string>
+    <string name="add_address">Add new address</string>
+    /************************Delivery*************************/
+
+    /************************Form address*************************/
+    <string name="address_number">Number/Room</string>
+    <string name="address_building">Building</string>
+    <string name="address_village">Village</string>
+    <string name="address_soi">Soi</string>
+    <string name="address_road">Road</string>
+    <string name="address_province">Province</string>
+    <string name="address_district">District</string>
+    <string name="address_sub_district">Sub District</string>
+    <string name="address_zipcode">Zipcode</string>
+    /************************Form address*************************/
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
