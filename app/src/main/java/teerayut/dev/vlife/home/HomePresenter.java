@@ -1,10 +1,10 @@
-package teerayut.dev.vlife.fragment.home;
+package teerayut.dev.vlife.home;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import teerayut.dev.vlife.fragment.home.Item.ProductItem;
+import teerayut.dev.vlife.home.Item.ProductItem;
 import teerayut.dev.vlife.utils.Config;
 
 /**

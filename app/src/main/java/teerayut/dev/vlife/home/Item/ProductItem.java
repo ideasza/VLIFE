@@ -1,4 +1,4 @@
-package teerayut.dev.vlife.fragment.home.Item;
+package teerayut.dev.vlife.home.Item;
 
 import com.android.tonyvu.sc.model.Saleable;
 

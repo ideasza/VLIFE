@@ -1,142 +1,150 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="teerayut.dev.vlife.payment.delivery.DeliveryFragment">
 
-    <LinearLayout
+    <android.support.v4.widget.NestedScrollView
+        android:layout_above="@+id/layoutBottom"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/delivery_choice"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="4dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
             android:orientation="vertical">
 
-            <RadioGroup
-                android:id="@+id/group_delivery"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/delivery_choice"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
-                <RadioButton
-                    android:id="@+id/radio_msn"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:text="@string/massenger"
-                    android:gravity="left|center"
-                    android:paddingLeft="8dp"
-                    style="@style/radionbutton"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:orientation="vertical">
+
+                <RadioGroup
+                    android:id="@+id/group_delivery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/radio_msn"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/massenger"
+                        android:gravity="left|center"
+                        android:paddingLeft="8dp"
+                        style="@style/radionbutton"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"/>
+
+                    <RadioButton
+                        android:id="@+id/radio_ems"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="left|center"
+                        android:paddingLeft="8dp"
+                        style="@style/radionbutton"
+                        android:text="@string/thai_post"/>
+
+                </RadioGroup>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="10dp"/>
 
-                <RadioButton
-                    android:id="@+id/radio_ems"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="left|center"
-                    android:paddingLeft="8dp"
-                    style="@style/radionbutton"
-                    android:text="@string/thai_post"/>
+                <ImageView
+                    android:id="@+id/image_delivery"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/kerry"/>
 
-            </RadioGroup>
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="10dp"/>
+                android:layout_height="20dp"/>
 
-            <ImageView
-                android:id="@+id/image_delivery"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:src="@drawable/kerry"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/delivery_address"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:orientation="vertical">
+
+                <RadioGroup
+                    android:id="@+id/group_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/radio_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/address_delivery"
+                        android:gravity="left|center"
+                        android:paddingLeft="8dp"
+                        style="@style/radionbutton"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"/>
+
+                    <RadioButton
+                        android:id="@+id/radio_add"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="left|center"
+                        android:paddingLeft="8dp"
+                        style="@style/radionbutton"
+                        android:text="@string/add_address"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+            <include
+                android:id="@+id/address"
+                android:visibility="gone"
+                layout="@layout/form_address"/>
+
+            <include
+                android:id="@+id/insert_address"
+                android:visibility="gone"
+                layout="@layout/form_insert_address"/>
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="20dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/delivery_address"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="4dp"
-            android:orientation="vertical">
-
-            <RadioGroup
-                android:id="@+id/group_address"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <RadioButton
-                    android:id="@+id/radio_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:text="@string/address_delivery"
-                    android:gravity="left|center"
-                    android:paddingLeft="8dp"
-                    style="@style/radionbutton"/>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp"/>
-
-                <RadioButton
-                    android:id="@+id/radio_add"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="left|center"
-                    android:paddingLeft="8dp"
-                    style="@style/radionbutton"
-                    android:text="@string/add_address"/>
-
-            </RadioGroup>
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="20dp"/>
-
-        <include
-            android:id="@+id/address"
-            android:visibility="gone"
-            layout="@layout/form_address"/>
-
-        <include
-            android:id="@+id/insert_address"
-            android:visibility="gone"
-            layout="@layout/form_insert_address"/>
-
-    </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 
     <RelativeLayout
+        android:id="@+id/layoutBottom"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_gravity="bottom">
+        android:layout_alignParentBottom="true">
 
         <Button
             android:id="@+id/button_delivery_next"
@@ -147,4 +155,4 @@
             android:textColor="@color/White"/>
     </RelativeLayout>
 
-</FrameLayout>
+</RelativeLayout>

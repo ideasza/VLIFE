@@ -14,8 +14,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import teerayut.dev.vlife.R;
-import teerayut.dev.vlife.fragment.home.Item.CartItem;
-import teerayut.dev.vlife.fragment.home.adapter.HomeAdapter;
+import teerayut.dev.vlife.home.Item.CartItem;
 
 /**
  * Created by teerayut.k on 7/11/2017.

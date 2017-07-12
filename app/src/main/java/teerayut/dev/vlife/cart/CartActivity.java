@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import teerayut.dev.vlife.R;
 import teerayut.dev.vlife.cart.adapter.CartAdapter;
-import teerayut.dev.vlife.fragment.home.Item.CartItem;
+import teerayut.dev.vlife.home.Item.CartItem;
 import teerayut.dev.vlife.payment.PaymentActivity;
 import teerayut.dev.vlife.utils.AnimateButton;
 import teerayut.dev.vlife.utils.Config;

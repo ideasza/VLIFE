@@ -8,12 +8,10 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,12 +30,12 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import teerayut.dev.vlife.R;
-import teerayut.dev.vlife.fragment.home.HomeFragment;
-import teerayut.dev.vlife.fragment.home.Item.CartItem;
+import teerayut.dev.vlife.home.HomeFragment;
+import teerayut.dev.vlife.home.Item.CartItem;
+import teerayut.dev.vlife.news.NewsFragment;
 import teerayut.dev.vlife.utils.ActivityResultBus;
 import teerayut.dev.vlife.utils.ActivityResultEvent;
 import teerayut.dev.vlife.utils.Config;
-import teerayut.dev.vlife.utils.ExtactCartItem;
 import teerayut.dev.vlife.utils.MyApplication;
 
 /**
@@ -95,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setToolbar() {
+        toolbar.setTitle(getResources().getString(R.string.main_menu_product));
         setSupportActionBar(toolbar);
     }
 
@@ -141,7 +140,8 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction transaction = manager.beginTransaction();
         Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.frame);
         switch (menuItem.getItemId()){
-            case R.id.menu_home:
+            case R.id.menu_product:
+                toolbar.setTitle(navigationView.getMenu().getItem(0).getTitle());
                 if (currentFragment instanceof HomeFragment) {
                     drawerLayout.closeDrawers();
                 } else {
@@ -149,26 +149,18 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case R.id.menu_profile:
-                Toast.makeText(getApplicationContext(),"Stared Selected",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Stared Selected",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.menu_news:
-                toolbar.setTitle(navigationView.getMenu().getItem(3).getTitle());
-                /*if (currentFragment instanceof NewsFragment) {
+                toolbar.setTitle(navigationView.getMenu().getItem(2).getTitle());
+                if (currentFragment instanceof NewsFragment) {
                     drawerLayout.closeDrawers();
                 } else {
                     transaction.replace(R.id.frame, new NewsFragment(), "NewsFragment").addToBackStack(null).commit();
-                }*/
-                break;
-            case R.id.menu_product:
-                toolbar.setTitle(navigationView.getMenu().getItem(4).getTitle());
-                /*if (currentFragment instanceof ProductFragment) {
-                    drawerLayout.closeDrawers();
-                } else {
-                    transaction.replace(R.id.frame, new ProductFragment(), "ProductFragment").addToBackStack(null).commit();
-                }*/
+                }
                 break;
             case R.id.menu_purchase:
-                toolbar.setTitle(navigationView.getMenu().getItem(0).getTitle());
+                toolbar.setTitle(navigationView.getMenu().getItem(3).getTitle());
                 Toast.makeText(getApplicationContext(),"Trash Selected", Toast.LENGTH_SHORT).show();
                 break;
 

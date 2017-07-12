@@ -1,4 +1,4 @@
-package teerayut.dev.vlife.fragment.home;
+package teerayut.dev.vlife.home;
 
 
 import android.content.Intent;
@@ -33,9 +33,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import teerayut.dev.vlife.R;
 import teerayut.dev.vlife.cart.CartActivity;
-import teerayut.dev.vlife.fragment.home.Item.CartItem;
-import teerayut.dev.vlife.fragment.home.Item.ProductItem;
-import teerayut.dev.vlife.fragment.home.adapter.HomeAdapter;
+import teerayut.dev.vlife.home.Item.CartItem;
+import teerayut.dev.vlife.home.Item.ProductItem;
+import teerayut.dev.vlife.home.adapter.HomeAdapter;
 import teerayut.dev.vlife.utils.ActivityResultBus;
 import teerayut.dev.vlife.utils.ActivityResultEvent;
 import teerayut.dev.vlife.utils.Config;

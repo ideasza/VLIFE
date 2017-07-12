@@ -1,4 +1,4 @@
-package teerayut.dev.vlife.fragment.home.Item;
+package teerayut.dev.vlife.home.Item;
 
 
 public class CartItem {

@@ -1,4 +1,4 @@
-package teerayut.dev.vlife.fragment.home.adapter;
+package teerayut.dev.vlife.home.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -19,7 +19,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import teerayut.dev.vlife.R;
-import teerayut.dev.vlife.fragment.home.Item.ProductItem;
+import teerayut.dev.vlife.home.Item.ProductItem;
 
 /**
  * Created by teerayut.k on 7/9/2017.
