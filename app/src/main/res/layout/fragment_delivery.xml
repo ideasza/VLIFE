@@ -55,6 +55,16 @@
 
             </RadioGroup>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+
+            <ImageView
+                android:id="@+id/image_delivery"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:src="@drawable/kerry"/>
+
         </LinearLayout>
 
         <View
@@ -111,13 +121,30 @@
             android:layout_width="match_parent"
             android:layout_height="20dp"/>
 
-        <android.support.v4.widget.NestedScrollView
-            android:id="@+id/form"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <include
+            android:id="@+id/address"
+            android:visibility="gone"
+            layout="@layout/form_address"/>
 
-        </android.support.v4.widget.NestedScrollView>
+        <include
+            android:id="@+id/insert_address"
+            android:visibility="gone"
+            layout="@layout/form_insert_address"/>
 
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom">
+
+        <Button
+            android:id="@+id/button_delivery_next"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/button_next"
+            android:textColor="@color/White"/>
+    </RelativeLayout>
 
 </FrameLayout>

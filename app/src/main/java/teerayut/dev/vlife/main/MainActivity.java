@@ -38,6 +38,7 @@ import teerayut.dev.vlife.utils.ActivityResultBus;
 import teerayut.dev.vlife.utils.ActivityResultEvent;
 import teerayut.dev.vlife.utils.Config;
 import teerayut.dev.vlife.utils.ExtactCartItem;
+import teerayut.dev.vlife.utils.MyApplication;
 
 /**
  * Created by teerayut.k on 7/9/2017.
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     private int badgeQuantity = 0;
     private Cart cart = CartHelper.getCart();
     List<CartItem> cartItemList = Collections.emptyList();
+    private RelativeLayout noneLogin;
 
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.drawer) DrawerLayout drawerLayout;
@@ -80,43 +82,10 @@ public class MainActivity extends AppCompatActivity {
         ActivityResultBus.getInstance().postQueue(new ActivityResultEvent(requestCode, resultCode, data));
     }
 
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.shopping_cart, menu);
-        MenuItem item = menu.findItem(R.id.action_cart);
-        MenuItemCompat.setActionView(item, R.layout.counter_menuitem_layout);
-        RelativeLayout badgeLayout = (RelativeLayout) MenuItemCompat.getActionView(item);
-        ImageView imageView = (ImageView) badgeLayout.findViewById(R.id.counterBackground);
-        TextView textViewCount = (TextView) badgeLayout.findViewById(R.id.count);
-
-        cartItemList = new ExtactCartItem().getCartItems(cart);
-        if (cartItemList.size() > 0) {
-            for (int i = 0; i < cartItemList.size(); i ++) {
-                final CartItem cartItem = cartItemList.get(i);
-                badgeQuantity += Integer.parseInt(cartItem.getQuantity() + "");
-                Log.e("Item cart", cartItem.getProduct().getName() + " : " + cartItem.getQuantity());
-            }
-            imageView.setImageDrawable(getResources().getDrawable(R.drawable.badge_cart_item));
-            textViewCount.setText("" + badgeQuantity);
-        } else {
-            badgeQuantity = 0;
-            imageView.setVisibility(View.GONE);
-            textViewCount.setVisibility(View.GONE);
-        }
-
-        badgeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //startActivityForResult(new Intent(getApplicationContext(), CartActivity.class), SHOPPING_CART);
-            }
-        });
-
-        return super.onCreateOptionsMenu(menu);
-    }*/
-
     private void setView() {
         setToolbar();
         setMainMenu();
+        loginSession();
     }
 
     private void loadHomePage() {
@@ -135,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
         imageView = (ImageView) header.findViewById(R.id.image_profile);
         textViewName = (TextView) header.findViewById(R.id.name);
         textViewEmail = (TextView) header.findViewById(R.id.email);
+        noneLogin = (RelativeLayout) header.findViewById(R.id.layoutNoneLogin);
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
@@ -181,9 +151,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menu_profile:
                 Toast.makeText(getApplicationContext(),"Stared Selected",Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.menu_register:
-                //startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
-                break;
             case R.id.menu_news:
                 toolbar.setTitle(navigationView.getMenu().getItem(3).getTitle());
                 /*if (currentFragment instanceof NewsFragment) {
@@ -204,12 +171,16 @@ public class MainActivity extends AppCompatActivity {
                 toolbar.setTitle(navigationView.getMenu().getItem(0).getTitle());
                 Toast.makeText(getApplicationContext(),"Trash Selected", Toast.LENGTH_SHORT).show();
                 break;
+
+            case R.id.menu_login :
+                //startActivityForResult(new Intent(getApplicationContext(), AuthenticationActivity.class), Config.REQUEST_LOGIN);
+                break;
+            case R.id.menu_register:
+                //startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+                break;
             case R.id.menu_settings:
                 snackbar = Snackbar.make(drawerLayout, "Settings", Snackbar.LENGTH_LONG);
                 snackbar.show();
-                break;
-            case R.id.menu_login :
-                //startActivityForResult(new Intent(getApplicationContext(), AuthenticationActivity.class), Config.REQUEST_LOGIN);
                 break;
             case R.id.menu_logout :
                 //startActivityForResult(new Intent(getApplicationContext(), AuthenticationActivity.class), Config.REQUEST_LOGIN);
@@ -223,5 +194,46 @@ public class MainActivity extends AppCompatActivity {
                 loadHomePage();
                 break;
         }
+    }
+
+    private void loginSession() {
+        try {
+            if (MyApplication.getInstance().getPrefManager().getPreferrenceBoolean(Config.KEY_SESSION_LOGIN)) {
+                setMenuItemWithLogin();
+            } else {
+                setMenuItemWithoutLogin();
+            }
+        } catch (Exception e) {
+            MyApplication.getInstance().getPrefManager().setPreferrenceBoolean(Config.KEY_SESSION_LOGIN, false);
+            setMenuItemWithoutLogin();
+        }
+    }
+
+    private void setMenuItemWithLogin() {
+        noneLogin.setVisibility(View.GONE);
+        Menu menu = navigationView.getMenu();
+        MenuItem menuItemLogin = menu.findItem(R.id.menu_login);
+        menuItemLogin.setVisible(false);
+
+        MenuItem menuItemProfile = menu.findItem(R.id.menu_profile);
+        menuItemProfile.setVisible(true);
+        MenuItem menuItemSettings = menu.findItem(R.id.menu_settings);
+        menuItemSettings.setVisible(true);
+        MenuItem menuItemLogout = menu.findItem(R.id.menu_logout);
+        menuItemLogout.setVisible(true);
+    }
+
+    private void setMenuItemWithoutLogin() {
+        noneLogin.setVisibility(View.VISIBLE);
+        Menu menu = navigationView.getMenu();
+        MenuItem menuItemLogin = menu.findItem(R.id.menu_login);
+        menuItemLogin.setVisible(true);
+
+        MenuItem menuItemProfile = menu.findItem(R.id.menu_profile);
+        menuItemProfile.setVisible(false);
+        MenuItem menuItemSettings = menu.findItem(R.id.menu_settings);
+        menuItemSettings.setVisible(false);
+        MenuItem menuItemLogout = menu.findItem(R.id.menu_logout);
+        menuItemLogout.setVisible(false);
     }
 }

@@ -12,17 +12,21 @@
     <string name="forgetpassword">Forget password</string>
     <string name="or">or</string>
     <string name="buttonsignup">Register</string>
+    <string name="please_log_in">Please log in.</string>
     /********************Authentication page********************/
 
     /***********************Dialog alert************************/
     <string name="dialog_title_error">Error</string>
     <string name="dialog_title_warning">Warning</string>
+    <string name="dialog_title_success">Success</string>
 
     <string name="dialog_msg_network_error">No internet connection.</string>
     <string name="dialog_msg_login_empty">Username or password empty.</string>
     <string name="dialog_msg_login_fail">Username or password invalid</string>
     <string name="dialog_msg_r_u_sure_for_delete">Do you want to delete this item?</string>
     <string name="dialog_msg_delete_completed">Deleted</string>
+    <string name="dialog_msg_apply_error">Can not send order</string>
+    <string name="dialog_msg_apply_success">Order completed</string>
 
     <string name="dialog_btn_cancel">Cancel</string>
     <string name="dialog_btn_ok">Ok</string>
@@ -64,14 +68,16 @@
     <string name="menu_group_system">System</string>
     <string name="try_again">Try again</string>
     <string name="button_next">Next</string>
+    <string name="button_apply">Apply</string>
     /*****************************System*****************************/
 
     /*****************************Title*******************************/
     <string name="title_deliver">Deliver</string>
     <string name="title_detail">Detail</string>
     <string name="title_pay">Payment</string>
+    <string name="title_summary">Summary</string>
     /*****************************Title*******************************/
-    
+
     /************************Delivery*************************/
     <string name="delivery_choice">Delivery choice</string>
     <string name="delivery_address">Delivery address</string>
@@ -94,5 +100,5 @@
     /************************Form address*************************/
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Hello Summary fragment</string>
 </resources>

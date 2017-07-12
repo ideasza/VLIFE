@@ -19,12 +19,18 @@ import butterknife.ButterKnife;
 import cn.bit.szw.widget.StepView;
 import teerayut.dev.vlife.R;
 import teerayut.dev.vlife.payment.adapter.ViewPagerAdapter;
+import teerayut.dev.vlife.payment.delivery.DeliveryFragment;
+import teerayut.dev.vlife.payment.detail.DetailFragment;
+import teerayut.dev.vlife.payment.pay.PayFragment;
+import teerayut.dev.vlife.payment.summary.SummaryFragment;
 import teerayut.dev.vlife.utils.AnimateButton;
 
-public class PaymentActivity extends AppCompatActivity {
+public class PaymentActivity extends AppCompatActivity implements PaymentInterface.View, DeliveryFragment.onClickButtonNext,
+        DetailFragment.onClickButtonNext, PayFragment.onClickButtonNext {
 
     private int currentPage = 0;
     private ViewPagerAdapter adapter;
+    private PaymentInterface.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +43,7 @@ public class PaymentActivity extends AppCompatActivity {
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.stepview) StepView stepView;
     @BindView(R.id.pager) ViewPager pager;
-    @BindView(R.id.button_next) Button buttonNext;
+    //@BindView(R.id.button_next) Button buttonNext;
     private void bindView() {
         ButterKnife.bind(this);
     }
@@ -46,10 +52,11 @@ public class PaymentActivity extends AppCompatActivity {
         setToolbar();
         setIntance();
         setStepView(1);
-        buttonNext.setOnClickListener( onNext() );
+        presenter = new PaymentPresenter(this);
     }
 
     private void setToolbar() {
+        toolbar.setTitle(getResources().getString(R.string.title_deliver));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -66,6 +73,23 @@ public class PaymentActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 setStepView(position + 1);
+                switch (position) {
+                    case 0 :
+                        toolbar.setTitle(getResources().getString(R.string.title_deliver));
+                        break;
+                    case 1 :
+                        toolbar.setTitle(getResources().getString(R.string.title_detail));
+                        break;
+                    case 2 :
+                        toolbar.setTitle(getResources().getString(R.string.title_pay));
+                        break;
+                    case 3 :
+                        toolbar.setTitle(getResources().getString(R.string.title_summary));
+                        break;
+                    default:
+                        toolbar.setTitle(getResources().getString(R.string.title_deliver));
+                        break;
+                }
             }
 
             @Override
@@ -85,34 +109,58 @@ public class PaymentActivity extends AppCompatActivity {
         stepView.setDrawableSize(38);
         stepView.setCurrentStep(page);
         stepView.setLineHeight(4);
-        stepView.setCurrentDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_brightness_1_white_36dp));
-        stepView.setDrawable(getResources().getDrawable(R.drawable.ic_brightness_1_white_36dp));
+        stepView.setCurrentDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.step_current));
+        stepView.setDrawable(getResources().getDrawable(R.drawable.step_current));
         stepView.setLineColor(getResources().getColor(R.color.colorAccent2));
         stepView.setReachedLineColor(getResources().getColor(R.color.colorAccent2));
-        stepView.setReachedDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_check_circle_white_36dp));
-        stepView.setUnreachedLineColor(getResources().getColor(R.color.colorAccent2));
-        stepView.setUnreachedDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_panorama_fish_eye_white_36dp));
+        stepView.setReachedDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_check_circle_white_48dp));
+        stepView.setUnreachedLineColor(getResources().getColor(R.color.DarkGray));
+        stepView.setUnreachedDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.step_unreached));
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            setResult(RESULT_CANCELED);
-            finish();
+            if(pager.getCurrentItem() > 0) {
+                pager.setCurrentItem(pager.getCurrentItem() - 1);
+                if (pager.getCurrentItem() < 3) {
+                    stepView.setVisibility(View.VISIBLE);
+                }
+            } else {
+                setResult(RESULT_CANCELED);
+                finish();
+            }
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private View.OnClickListener onNext() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                buttonNext.startAnimation(new AnimateButton().animbutton());
-                currentPage = pager.getCurrentItem() + 1;
-                pager.setCurrentItem(currentPage);
-                stepView.setCurrentStep(currentPage + 1);
-                Log.e("Page selected", currentPage + "");
-            }
-        };
+    @Override
+    public void OnClickButtonNext(View view) {
+        switch (view.getId()) {
+            case R.id.button_delivery_next :
+                presenter.nextViewPager(pager.getCurrentItem());
+                break;
+            case R.id.button_detail_next :
+                presenter.nextViewPager(pager.getCurrentItem());
+                break;
+            case R.id.button_pay_next :
+                presenter.nextViewPager(pager.getCurrentItem());
+                break;
+        }
+    }
+
+    @Override
+    public void onNextViewPager(int number) {
+        pager.setCurrentItem(number);
+        if (number == 3) {
+            stepView.setVisibility(View.GONE);
+        } else {
+            stepView.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void onGoToSummaryPage() {
+
     }
 }

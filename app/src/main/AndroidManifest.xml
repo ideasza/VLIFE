@@ -38,7 +38,7 @@
             android:configChanges="keyboard|keyboardHidden|screenLayout|uiMode|screenSize|smallestScreenSize|locale"></activity>
         -->
         <activity android:name=".cart.CartActivity" />
-        <activity android:name=".payment.PaymentActivity"></activity>
+        <activity android:name=".payment.PaymentActivity" />
     </application>
 
 </manifest>

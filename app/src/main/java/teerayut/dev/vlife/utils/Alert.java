@@ -30,6 +30,21 @@ public class Alert {
                 .setCancelable(false);
     }
 
+    public static void dialogSuccess(Context context, int msgID) {
+        new SweetAlertDialog(context, SweetAlertDialog.SUCCESS_TYPE)
+                .setTitleText(context.getResources().getString(R.string.dialog_title_success))
+                .setContentText(context.getResources().getString(msgID))
+                .setCancelText(context.getResources().getString(R.string.dialog_btn_ok))
+                .showCancelButton(true)
+                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog dialog) {
+                        dialog.dismiss();
+                    }
+                })
+                .setCancelable(false);
+    }
+
     public static void dialogNetworkWarning(final Context context) {
         new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE)
                 .setTitleText(context.getResources().getString(R.string.dialog_title_error))

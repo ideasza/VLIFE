@@ -4,10 +4,19 @@
     android:layout_height="match_parent"
     tools:context="teerayut.dev.vlife.payment.detail.DetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="50dp"
+        android:layout_gravity="bottom">
+
+        <Button
+            android:id="@+id/button_detail_next"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/button_next"
+            android:textColor="@color/White"/>
+
+    </RelativeLayout>
 
 </FrameLayout>

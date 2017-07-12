@@ -39,20 +39,4 @@
 
     </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/layoutBottom"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true">
-
-        <Button
-            android:id="@+id/button_next"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimaryDark"
-            android:text="@string/button_next"
-            android:textColor="@color/White"/>
-
-    </RelativeLayout>
-
 </RelativeLayout>

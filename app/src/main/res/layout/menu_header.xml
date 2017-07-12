@@ -44,4 +44,23 @@
         android:layout_alignLeft="@+id/name"
         android:layout_alignStart="@+id/name" />
 
+    <RelativeLayout
+        android:id="@+id/layoutNoneLogin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark">
+
+        <TextView
+            android:id="@+id/none_login"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/please_log_in"
+            android:textSize="16sp"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:gravity="left|center"
+            android:paddingLeft="16dp"/>
+
+    </RelativeLayout>
+
 </RelativeLayout>

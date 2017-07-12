@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="teerayut.dev.vlife.payment.pay.PayFragment">
+    tools:context="teerayut.dev.vlife.payment.summary.SummaryFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -10,11 +10,11 @@
         android:layout_gravity="bottom">
 
         <Button
-            android:id="@+id/button_pay_next"
+            android:id="@+id/button_summary_apply"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorPrimaryDark"
-            android:text="@string/button_next"
+            android:text="@string/button_apply"
             android:textColor="@color/White"/>
 
     </RelativeLayout>
