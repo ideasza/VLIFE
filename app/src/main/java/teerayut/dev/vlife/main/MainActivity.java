@@ -30,9 +30,11 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import teerayut.dev.vlife.R;
+import teerayut.dev.vlife.authentication.AuthenticationActivity;
 import teerayut.dev.vlife.home.HomeFragment;
 import teerayut.dev.vlife.home.Item.CartItem;
 import teerayut.dev.vlife.news.NewsFragment;
+import teerayut.dev.vlife.register.RegisterActivity;
 import teerayut.dev.vlife.utils.ActivityResultBus;
 import teerayut.dev.vlife.utils.ActivityResultEvent;
 import teerayut.dev.vlife.utils.Config;
@@ -78,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         ActivityResultBus.getInstance().postQueue(new ActivityResultEvent(requestCode, resultCode, data));
+        if (requestCode == Config.REQUEST_REGISTER) {
+            loginSession();
+        }
     }
 
     private void setView() {
@@ -165,17 +170,18 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.menu_login :
-                //startActivityForResult(new Intent(getApplicationContext(), AuthenticationActivity.class), Config.REQUEST_LOGIN);
+                startActivityForResult(new Intent(getApplicationContext(), AuthenticationActivity.class), Config.REQUEST_LOGIN);
                 break;
             case R.id.menu_register:
-                //startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+                startActivityForResult(new Intent(getApplicationContext(), RegisterActivity.class), Config.REQUEST_REGISTER);
                 break;
             case R.id.menu_settings:
                 snackbar = Snackbar.make(drawerLayout, "Settings", Snackbar.LENGTH_LONG);
                 snackbar.show();
                 break;
             case R.id.menu_logout :
-                //startActivityForResult(new Intent(getApplicationContext(), AuthenticationActivity.class), Config.REQUEST_LOGIN);
+                MyApplication.getInstance().getPrefManager().setPreferrenceBoolean(Config.KEY_SESSION_LOGIN, false);
+                startActivityForResult(new Intent(getApplicationContext(), AuthenticationActivity.class), Config.REQUEST_LOGIN);
                 break;
             default:
                 /*snackbar = Snackbar.make(drawerLayout, "Somethings Wrong", Snackbar.LENGTH_LONG);

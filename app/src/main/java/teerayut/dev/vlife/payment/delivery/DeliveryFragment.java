@@ -196,16 +196,17 @@ public class DeliveryFragment extends Fragment implements DeliveryInterface.View
     private void viewCurrentAddress() {
         textViewSummary = (TextView) existAddress.findViewById(R.id.textViewSum);
         StringBuilder sb = new StringBuilder();
-        sb.append("\t" + "Name: " + "\n\n");
-        sb.append("\t" + "Phone: " + "\n\n");
-        sb.append("\t" + "Address: " + "\n\n");
-        sb.append("\t" + "Building: " + "\n\n");
-        sb.append("\t" + "Village:" + "\n\n");
-        sb.append("\t" + "Road: " + "\n\n");
-        sb.append("\t" + "Sub District: " + "\n\n");
-        sb.append("\t" + "District: " + "\n\n");
-        sb.append("\t" + "Province: " + "\n\n");
-        sb.append("\t" + "Zipcode: ");
+        sb.append("\t" + getActivity().getResources().getString(R.string.address_name) + ": " + "\n\n");
+        sb.append("\t" + getActivity().getResources().getString(R.string.address_phone) + ": " + "\n\n");
+        sb.append("\t" + getActivity().getResources().getString(R.string.address_number) + ": " + "\n\n");
+        sb.append("\t" + getActivity().getResources().getString(R.string.address_building) + ": " + "\n\n");
+        sb.append("\t" + getActivity().getResources().getString(R.string.address_village) + ":" + "\n\n");
+        sb.append("\t" + getActivity().getResources().getString(R.string.address_soi) + ":" + "\n\n");
+        sb.append("\t" + getActivity().getResources().getString(R.string.address_road) + ": " + "\n\n");
+        sb.append("\t" + getActivity().getResources().getString(R.string.address_sub_district) + ": " + "\n\n");
+        sb.append("\t" + getActivity().getResources().getString(R.string.address_district) + ": " + "\n\n");
+        sb.append("\t" + getActivity().getResources().getString(R.string.address_province) + ": " + "\n\n");
+        sb.append("\t" + getActivity().getResources().getString(R.string.address_zipcode) + ": ");
         textViewSummary.setText(sb.toString());
     }
 

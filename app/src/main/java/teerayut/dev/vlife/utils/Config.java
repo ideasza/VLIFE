@@ -15,7 +15,9 @@ public class Config {
     public static final int REQUEST_CART = 04;
     public static final int REQUEST_PAYMENT = 05;
     public static final int REQUEST_NEWS_DETAIL = 06;
+    public static final int REQUEST_REGISTER = 07;
 
+    public static final String KEY_REMEMBER = "REMEMBER";
     public static final String KEY_LANGUAGE = "LANGUAGE";
     public static final String KEY_SESSION_LOGIN = "LOGEDIN";
     public static final String KEY_NEWS_ITEM_DETAIL = "NEWS_DETAIL";

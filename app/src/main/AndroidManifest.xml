@@ -39,7 +39,10 @@
         -->
         <activity android:name=".cart.CartActivity" />
         <activity android:name=".payment.PaymentActivity" />
-        <activity android:name=".news.detail.NewsDetailActivity"></activity>
+        <activity android:name=".news.detail.NewsDetailActivity" />
+        <activity android:name=".authentication.AuthenticationActivity" />
+        <activity android:name=".register.RegisterActivity" />
+        <activity android:name=".forgetpassword.ForgetActivity"></activity>
     </application>
 
 </manifest>

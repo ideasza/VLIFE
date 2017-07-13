@@ -16,18 +16,18 @@ import teerayut.dev.vlife.main.MainActivity;
 public class Alert {
 
     public static void dialogError(Context context, int msgID) {
-        new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
-                .setTitleText(context.getResources().getString(R.string.dialog_title_error))
-                .setContentText(context.getResources().getString(msgID))
-                .setCancelText(context.getResources().getString(R.string.dialog_btn_ok))
-                .showCancelButton(true)
-                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+        sweetAlertDialog = new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE);
+        sweetAlertDialog.setTitleText(context.getResources().getString(R.string.dialog_title_error));
+        sweetAlertDialog.setContentText(context.getResources().getString(msgID));
+        //sweetAlertDialog.setCancelText(context.getResources().getString(R.string.dialog_btn_ok));
+        sweetAlertDialog.setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
                     @Override
                     public void onClick(SweetAlertDialog dialog) {
                         dialog.dismiss();
                     }
-                })
-                .setCancelable(false);
+                });
+        sweetAlertDialog.setCancelable(false);
+        sweetAlertDialog.show();
     }
 
     public static void dialogSuccess(Context context, int msgID) {
@@ -35,7 +35,7 @@ public class Alert {
                 .setTitleText(context.getResources().getString(R.string.dialog_title_success))
                 .setContentText(context.getResources().getString(msgID))
                 .setCancelText(context.getResources().getString(R.string.dialog_btn_ok))
-                .showCancelButton(true)
+                .showCancelButton(false)
                 .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
                     @Override
                     public void onClick(SweetAlertDialog dialog) {
