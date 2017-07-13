@@ -88,6 +88,8 @@
     /************************Delivery*************************/
 
     /************************Form address*************************/
+    <string name="address_name">Full name</string>
+    <string name="address_phone">Phone/Mobile</string>
     <string name="address_number">Number/Room</string>
     <string name="address_building">Building</string>
     <string name="address_village">Village</string>
@@ -101,4 +103,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello Summary fragment</string>
+
+    <string-array name="edits_array_2">
+        <item>text one</item>
+        <item>text two</item>
+        <item>text three</item>
+        <item>custom text</item>
+    </string-array>
 </resources>

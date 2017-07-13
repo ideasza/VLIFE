@@ -10,12 +10,45 @@
     android:visibility="gone"
     tools:visibility="visible"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/TextLabel_Form">
+            android:theme="@style/TextLabel_Forget">
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/address_name"
+                android:textColor="@color/colorPrimaryDark"
+                android:imeOptions="actionNext"
+                android:inputType="text|textNoSuggestions|textCapCharacters"
+                android:singleLine="true"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextLabel_Forget">
+
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/address_phone"
+                android:textColor="@color/colorPrimaryDark"
+                android:imeOptions="actionNext"
+                android:inputType="text|textNoSuggestions|textCapCharacters"
+                android:singleLine="true"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextLabel_Forget">
 
             <EditText
                 android:id="@+id/number"
@@ -31,7 +64,7 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/TextLabel_Form">
+            android:theme="@style/TextLabel_Forget">
 
             <EditText
                 android:id="@+id/building"
@@ -47,7 +80,7 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/TextLabel_Form">
+            android:theme="@style/TextLabel_Forget">
 
             <EditText
                 android:id="@+id/village"
@@ -63,7 +96,7 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/TextLabel_Form">
+            android:theme="@style/TextLabel_Forget">
 
             <EditText
                 android:id="@+id/soi"
@@ -79,7 +112,7 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/TextLabel_Form">
+            android:theme="@style/TextLabel_Forget">
 
             <EditText
                 android:id="@+id/road"
@@ -89,6 +122,88 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:imeOptions="actionNext"
                 android:inputType="text|textNoSuggestions|textCapCharacters"
+                android:singleLine="true"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextLabel_Forget">
+
+            <com.reginald.editspinner.EditSpinner
+                android:id="@+id/province_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:theme="@style/TextLabel_Forget"
+                android:hint="@string/address_province"
+                android:editable="false"
+                android:focusable="false"
+                android:inputType="none"
+                android:textColor="@color/colorPrimaryDark"
+                app:dropDownDrawable="@drawable/ic_arrow_drop_down_white_24dp"
+                android:drawableTint="@color/colorPrimaryDark"
+                app:dropDownDrawableSpacing="15dp"
+                app:dropDownDrawableWidth="25dp"
+                app:dropDownDrawableHeight="25dp"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextLabel_Forget">
+
+            <com.reginald.editspinner.EditSpinner
+                android:id="@+id/district_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:theme="@style/TextLabel_Forget"
+                android:hint="@string/address_district"
+                android:editable="false"
+                android:focusable="false"
+                android:inputType="none"
+                android:textColor="@color/colorPrimaryDark"
+                app:dropDownDrawable="@drawable/ic_arrow_drop_down_white_24dp"
+                android:drawableTint="@color/colorPrimaryDark"
+                app:dropDownDrawableSpacing="15dp"
+                app:dropDownDrawableWidth="25dp"
+                app:dropDownDrawableHeight="25dp"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextLabel_Forget">
+
+            <com.reginald.editspinner.EditSpinner
+                android:id="@+id/sub_district_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:theme="@style/TextLabel_Forget"
+                android:hint="@string/address_sub_district"
+                android:editable="false"
+                android:focusable="false"
+                android:inputType="none"
+                android:textColor="@color/colorPrimaryDark"
+                app:dropDownDrawable="@drawable/ic_arrow_drop_down_white_24dp"
+                android:drawableTint="@color/colorPrimaryDark"
+                app:dropDownDrawableSpacing="15dp"
+                app:dropDownDrawableWidth="25dp"
+                app:dropDownDrawableHeight="25dp"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextLabel_Forget">
+
+            <EditText
+                android:id="@+id/zipcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/address_zipcode"
+                android:textColor="@color/colorPrimaryDark"
+                android:imeOptions="actionDone"
+                android:inputType="number"
                 android:singleLine="true"/>
         </android.support.design.widget.TextInputLayout>
 

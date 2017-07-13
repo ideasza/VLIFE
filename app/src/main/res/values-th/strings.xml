@@ -88,6 +88,8 @@
     /************************Delivery*************************/
 
     /************************Form address*************************/
+    <string name="address_name">ชื่อ-นามสกุล</string>
+    <string name="address_phone">โทรศัพท์/มือถือ</string>
     <string name="address_number">ที่อยู่/ห้อง</string>
     <string name="address_building">อาคาร</string>
     <string name="address_village">หมู่บ้าน/คอนโด</string>
