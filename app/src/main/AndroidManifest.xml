@@ -42,7 +42,8 @@
         <activity android:name=".news.detail.NewsDetailActivity" />
         <activity android:name=".authentication.AuthenticationActivity" />
         <activity android:name=".register.RegisterActivity" />
-        <activity android:name=".forgetpassword.ForgetActivity"></activity>
+        <activity android:name=".forgetpassword.ForgetActivity" />
+        <activity android:name=".profile.profile.ProfileActivity"></activity>
     </application>
 
 </manifest>

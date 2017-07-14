@@ -50,6 +50,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
 
         Glide.with( context )
                 .load( item.getImage() )
+                .placeholder(R.drawable.no_image)
                 .into( holder.imageViewProduct );
 
         holder.setOnClickItemListener(onClick(item));

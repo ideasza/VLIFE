@@ -34,14 +34,22 @@
     /***********************Dialog alert************************/
     
     /*************************Menu title************************/
-    <string name="main_menu_home">หน้าแรก</string>
     <string name="main_menu_profile">ข้อมูลส่วนตัว</string>
     <string name="main_menu_register">สมัครสมาชิก</string>
     <string name="main_menu_news">ข่าวสารและโปรโมชั่น</string>
-    <string name="main_menu_product">ผลิตภํณฑ์</string>
+    <string name="main_menu_product">ผลิตภัณฑ์</string>
     <string name="main_menu_purchase">แจ้งการชำระเงิน</string>
     <string name="main_menu_settings">การตั้งค่า</string>
     <string name="main_menu_logout">ออกจากระบบ</string>
+
+        /****************Profile menu******************/
+    <string name="profile_menu_home">หน้าแรก</string>
+    <string name="profile_menu_buy_history">ประวัติการสั่งซื้อสินค้า</string>
+    <string name="profile_menu_bill_hold">แจงยอดบิลโฮล์ด</string>
+    <string name="profile_menu_point">คะแนนของฉัน</string>
+    <string name="profile_menu_redeem_history">ประวัติการแลกของรางวัล</string>
+    <string name="profile_menu_recomend">โครงสร้างผู้แนะนำ</string>
+    <string name="profile_menu_upline">โครงสร้างอัพไลน์</string>
     /*************************Menu title************************/
 
     /*************************Forget password*********************/
@@ -66,6 +74,7 @@
 
     /*****************************System*****************************/
     <string name="menu_group_system">ระบบ</string>
+    <string name="menu_group_member">ระบบสมาชิก</string>
     <string name="try_again">ลองอีกครั้ง</string>
     <string name="button_next">ถัดไป</string>
     <string name="button_apply">ยืนยันการสั่งซื้อ</string>

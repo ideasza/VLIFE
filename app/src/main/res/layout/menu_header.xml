@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="190dp"
+    android:layout_height="160dp"
     android:background="@color/colorPrimaryDark"
     android:orientation="vertical">
 
@@ -21,46 +21,15 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Akash Bangad"
+        android:text="@string/username"
         android:textSize="14sp"
         android:textColor="#FFF"
         android:textStyle="bold"
         android:gravity="left"
-        android:paddingBottom="4dp"
-        android:layout_above="@+id/email"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/image_profile"
         android:layout_alignLeft="@+id/image_profile"
         android:layout_alignStart="@+id/image_profile" />
 
-    <TextView
-        android:id="@+id/email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Akash.bangad93@gmail.com"
-        android:gravity="left"
-        android:layout_marginBottom="8dp"
-        android:textSize="14sp"
-        android:textColor="@color/White"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/name"
-        android:layout_alignStart="@+id/name" />
-
-    <RelativeLayout
-        android:id="@+id/layoutNoneLogin"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimaryDark">
-
-        <TextView
-            android:id="@+id/none_login"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/please_log_in"
-            android:textSize="16sp"
-            android:textColor="#FFF"
-            android:textStyle="bold"
-            android:gravity="left|center"
-            android:paddingLeft="16dp"/>
-
-    </RelativeLayout>
 
 </RelativeLayout>

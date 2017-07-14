@@ -6,10 +6,6 @@
             android:icon="@drawable/ic_shopping_cart_white_48dp"
             android:title="@string/main_menu_product"/>
         <item
-            android:id="@+id/menu_profile"
-            android:icon="@drawable/ic_person_white_48dp"
-            android:title="@string/main_menu_profile"/>
-        <item
             android:id="@+id/menu_news"
             android:icon="@drawable/ic_chrome_reader_mode_white_48dp"
             android:title="@string/main_menu_news"/>
@@ -18,10 +14,14 @@
             android:icon="@drawable/ic_local_atm_white_48dp"
             android:title="@string/main_menu_purchase"/>
     </group>
-    <group android:id="@+id/system"
+    <group android:id="@+id/member"
         android:checkableBehavior="single">
-        <item android:title="@string/menu_group_system">
+        <item android:title="@string/menu_group_member">
             <menu>
+                <item
+                    android:id="@+id/menu_profile"
+                    android:icon="@drawable/ic_person_white_48dp"
+                    android:title="@string/main_menu_profile"/>
                 <item
                     android:id="@+id/menu_login"
                     android:title="@string/buttonsignin"
@@ -30,6 +30,13 @@
                     android:id="@+id/menu_register"
                     android:icon="@drawable/ic_group_add_white_48dp"
                     android:title="@string/main_menu_register"/>
+            </menu>
+        </item>
+    </group>
+    <group android:id="@+id/system"
+        android:checkableBehavior="single">
+        <item android:title="@string/menu_group_system">
+            <menu>
                 <item
                     android:id="@+id/menu_settings"
                     android:icon="@drawable/ic_settings_white_48dp"

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/profile_home"
+            android:icon="@drawable/ic_home_white_48dp"
+            android:title="@string/profile_menu_home"/>
+        <item
+            android:id="@+id/profile_profile"
+            android:icon="@drawable/ic_person_white_48dp"
+            android:title="@string/main_menu_profile"/>
+        <item
+            android:id="@+id/profile_order_history"
+            android:icon="@drawable/ic_history_white_48dp"
+            android:title="@string/profile_menu_buy_history"/>
+        <item
+            android:id="@+id/profile_bill_hold"
+            android:icon="@drawable/ic_bill_hold_48dp"
+            android:title="@string/profile_menu_bill_hold"/>
+        <item
+            android:id="@+id/profile_my_point"
+            android:icon="@drawable/ic_my_point_48dp"
+            android:title="@string/profile_menu_point"/>
+        <item
+            android:id="@+id/profile_redeem_history"
+            android:icon="@drawable/ic_history_white_48dp"
+            android:title="@string/profile_menu_redeem_history"/>
+        <item
+            android:id="@+id/profile_recomend"
+            android:icon="@drawable/ic_diagram_48dp"
+            android:title="@string/profile_menu_recomend"/>
+        <item
+            android:id="@+id/profile_upline"
+            android:icon="@drawable/ic_diagram_48dp"
+            android:title="@string/profile_menu_upline"/>
+    </group>
+</menu>

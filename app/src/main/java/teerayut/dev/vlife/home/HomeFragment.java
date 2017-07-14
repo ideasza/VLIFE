@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
@@ -66,6 +67,7 @@ public class HomeFragment extends Fragment implements HomeInterface.View {
 
     @BindView(R.id.btn_try_again) Button buttonTryAgain;
     @BindView(R.id.recyclerview) RecyclerView recyclerView;
+    @BindView(R.id.swipeRefreshLayout) SwipeRefreshLayout swipeRefreshLayout;
     @BindView(R.id.container_service_unavailable) FrameLayout containerUnvailable;
     private void bindView(View view) {
         ButterKnife.bind(this, view);
@@ -77,6 +79,19 @@ public class HomeFragment extends Fragment implements HomeInterface.View {
         buttonTryAgain.setOnClickListener( onTryAgain() );
         setHasOptionsMenu(true);
         setIntance();
+
+        swipeRefreshLayout.setColorSchemeResources(
+                R.color.colorPrimary,
+                R.color.DeepPink,
+                R.color.colorPrimaryDark,
+                R.color.LimeGreen);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                recyclerView.setAdapter(null);
+                presenter.requestItem();
+            }
+        });
     }
 
     private void setIntance() {
@@ -118,6 +133,9 @@ public class HomeFragment extends Fragment implements HomeInterface.View {
 
     @Override
     public void setItemToRecyclerView(List<ProductItem> itemModels) {
+        if (swipeRefreshLayout.isRefreshing()) {
+            swipeRefreshLayout.setRefreshing(false);
+        }
         this.itemModelList = itemModels;
         adapter = new HomeAdapter(getActivity(), itemModels);
         int itemSpace = (int) getResources().getDimension( R.dimen.default_padding_margin );

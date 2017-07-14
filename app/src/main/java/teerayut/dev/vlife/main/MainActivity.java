@@ -12,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,7 +34,9 @@ import teerayut.dev.vlife.R;
 import teerayut.dev.vlife.authentication.AuthenticationActivity;
 import teerayut.dev.vlife.home.HomeFragment;
 import teerayut.dev.vlife.home.Item.CartItem;
+import teerayut.dev.vlife.home.Item.ProductItem;
 import teerayut.dev.vlife.news.NewsFragment;
+import teerayut.dev.vlife.profile.profile.ProfileActivity;
 import teerayut.dev.vlife.register.RegisterActivity;
 import teerayut.dev.vlife.utils.ActivityResultBus;
 import teerayut.dev.vlife.utils.ActivityResultEvent;
@@ -50,12 +53,11 @@ public class MainActivity extends AppCompatActivity {
     private MenuItem menuItemClicked;
 
     private ImageView imageView;
-    private TextView textViewName, textViewEmail;
+    private TextView textViewName;
 
     private int badgeQuantity = 0;
     private Cart cart = CartHelper.getCart();
     List<CartItem> cartItemList = Collections.emptyList();
-    private RelativeLayout noneLogin;
 
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.drawer) DrawerLayout drawerLayout;
@@ -82,7 +84,10 @@ public class MainActivity extends AppCompatActivity {
         ActivityResultBus.getInstance().postQueue(new ActivityResultEvent(requestCode, resultCode, data));
         if (requestCode == Config.REQUEST_REGISTER) {
             loginSession();
+        } else if (requestCode == Config.REQUEST_LOGIN) {
+            loginSession();
         }
+
     }
 
     private void setView() {
@@ -107,8 +112,6 @@ public class MainActivity extends AppCompatActivity {
         View header = inflater.inflate(R.layout.menu_header, null, false);
         imageView = (ImageView) header.findViewById(R.id.image_profile);
         textViewName = (TextView) header.findViewById(R.id.name);
-        textViewEmail = (TextView) header.findViewById(R.id.email);
-        noneLogin = (RelativeLayout) header.findViewById(R.id.layoutNoneLogin);
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
@@ -133,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
+                menuItemClicked = null;
             }
         };
 
@@ -154,7 +158,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case R.id.menu_profile:
-                //Toast.makeText(getApplicationContext(),"Stared Selected",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+                finish();
                 break;
             case R.id.menu_news:
                 toolbar.setTitle(navigationView.getMenu().getItem(2).getTitle());
@@ -170,10 +175,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.menu_login :
-                startActivityForResult(new Intent(getApplicationContext(), AuthenticationActivity.class), Config.REQUEST_LOGIN);
+                startActivityForResult(new Intent(MainActivity.this, AuthenticationActivity.class), Config.REQUEST_LOGIN);
                 break;
             case R.id.menu_register:
-                startActivityForResult(new Intent(getApplicationContext(), RegisterActivity.class), Config.REQUEST_REGISTER);
+                startActivityForResult(new Intent(MainActivity.this, RegisterActivity.class), Config.REQUEST_REGISTER);
                 break;
             case R.id.menu_settings:
                 snackbar = Snackbar.make(drawerLayout, "Settings", Snackbar.LENGTH_LONG);
@@ -181,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.menu_logout :
                 MyApplication.getInstance().getPrefManager().setPreferrenceBoolean(Config.KEY_SESSION_LOGIN, false);
-                startActivityForResult(new Intent(getApplicationContext(), AuthenticationActivity.class), Config.REQUEST_LOGIN);
+                startActivityForResult(new Intent(MainActivity.this, AuthenticationActivity.class), Config.REQUEST_LOGIN);
                 break;
             default:
                 /*snackbar = Snackbar.make(drawerLayout, "Somethings Wrong", Snackbar.LENGTH_LONG);
@@ -208,7 +213,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setMenuItemWithLogin() {
-        noneLogin.setVisibility(View.GONE);
         Menu menu = navigationView.getMenu();
         MenuItem menuItemLogin = menu.findItem(R.id.menu_login);
         menuItemLogin.setVisible(false);
@@ -222,7 +226,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setMenuItemWithoutLogin() {
-        noneLogin.setVisibility(View.VISIBLE);
         Menu menu = navigationView.getMenu();
         MenuItem menuItemLogin = menu.findItem(R.id.menu_login);
         menuItemLogin.setVisible(true);
