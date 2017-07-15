@@ -17,7 +17,7 @@ public class AuthenticationPresenter implements AuthenticationInterface.Presente
 
     @Override
     public void authen(Context context, String username, String password) {
-        if (username.isEmpty() || password.isEmpty()) {
+        if (username.equals("") || password.equals("")) {
             view.onFail(context.getResources().getString(R.string.dialog_msg_login_empty));
         } else {
             if (!username.equals("0000018") && !password.equals("1234")) {

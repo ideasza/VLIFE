@@ -30,8 +30,8 @@ public class ProfileActivity extends AppCompatActivity {
         bindView();
     }
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
-    @BindView(R.id.drawer) DrawerLayout drawerLayout;
+    @BindView(R.id.toolbarProfile) Toolbar toolbar;
+    @BindView(R.id.drawerProfile) DrawerLayout drawerLayout;
     @BindView(R.id.navigation_view) NavigationView navigationView;
     private void bindView() {
         ButterKnife.bind(this);
@@ -53,9 +53,9 @@ public class ProfileActivity extends AppCompatActivity {
                 return true;
             }
         });
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawerProfile);
         navigationView.inflateMenu(R.menu.profile_menu);
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout, toolbar,R.string.openDrawer, R.string.closeDrawer){
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout, toolbar, R.string.openDrawer, R.string.closeDrawer){
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
@@ -69,7 +69,6 @@ public class ProfileActivity extends AppCompatActivity {
                 menuItemClicked = null;
             }
         };
-
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
     }

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -43,7 +44,6 @@ public class PaymentActivity extends AppCompatActivity implements PaymentInterfa
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.stepview) StepView stepView;
     @BindView(R.id.pager) ViewPager pager;
-    //@BindView(R.id.button_next) Button buttonNext;
     private void bindView() {
         ButterKnife.bind(this);
     }
@@ -162,5 +162,23 @@ public class PaymentActivity extends AppCompatActivity implements PaymentInterfa
     @Override
     public void onGoToSummaryPage() {
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)){
+            if(pager.getCurrentItem() > 0) {
+                pager.setCurrentItem(pager.getCurrentItem() - 1);
+                if (pager.getCurrentItem() < 3) {
+                    stepView.setVisibility(View.VISIBLE);
+                }
+                return true;
+            } else {
+                setResult(RESULT_CANCELED);
+                finish();
+                return true;
+            }
+        }
+        return false;
     }
 }

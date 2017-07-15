@@ -53,6 +53,16 @@
 
     <style name="radionbutton"
         parent="Base.Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:button">@drawable/radiobutton_register_drawable</item>
+    </style>
+
+    <style name="radionbutton_black"
+        parent="Base.Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:button">@drawable/radiobutton_drawable_black</item>
+    </style>
+
+    <style name="radionbutton_register"
+        parent="Base.Widget.AppCompat.CompoundButton.RadioButton">
         <item name="android:button">@drawable/radiobutton_drawable</item>
     </style>
 

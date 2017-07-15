@@ -1,0 +1,302 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:fitsSystemWindows="true"
+    android:windowSoftInputMode="adjustPan|adjustResize"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="teerayut.dev.vlife.register.register_partner.RegisterPartnerFragment">
+
+    <TextView
+        android:id="@+id/layoutHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/register_partner_title"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"/>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_below="@+id/layoutHeader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/layoutBottom">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:orientation="vertical">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel_Form">
+
+                <com.reginald.editspinner.EditSpinner
+                    android:id="@+id/prefix_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:theme="@style/TextLabel_Form"
+                    android:hint="@string/register_main_prefix_name"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:inputType="none"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:dropDownDrawable="@drawable/ic_arrow_drop_down_black_24dp"
+                    android:drawableTint="@color/Black"
+                    app:dropDownDrawableSpacing="15dp"
+                    app:dropDownDrawableWidth="25dp"
+                    app:dropDownDrawableHeight="25dp"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel_Form">
+
+                <EditText
+                    android:id="@+id/register_name"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:hint="@string/register_main_name"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:inputType="text|textNoSuggestions|textCapCharacters"
+                    android:imeOptions="actionNext"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/register_main_gender"
+                android:textColor="@color/Black"/>
+
+            <RadioGroup
+                android:id="@+id/group_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_male"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/register_main_gender_male"
+                    android:gravity="left|center"
+                    android:paddingLeft="8dp"
+                    style="@style/radionbutton_black"
+                    android:textColor="@color/Black"/>
+
+                <RadioButton
+                    android:id="@+id/radio_female"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left|center"
+                    android:paddingLeft="8dp"
+                    style="@style/radionbutton_black"
+                    android:text="@string/register_main_gender_female"
+                    android:textColor="@color/Black"/>
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.8"
+                    android:theme="@style/TextLabel_Form">
+
+                    <EditText
+                        android:id="@+id/birth_date"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:hint="@string/register_main_birthdate"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:inputType="none"
+                        android:imeOptions="actionDone"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/datePicker"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_date_range_white_48dp"
+                    android:tint="@color/Black"/>
+
+            </LinearLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel_Form">
+
+                <com.reginald.editspinner.EditSpinner
+                    android:id="@+id/nationality_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableTint="@color/Black"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:hint="@string/register_main_nationality"
+                    android:inputType="none"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:dropDownDrawable="@drawable/ic_arrow_drop_down_black_24dp"
+                    app:dropDownDrawableHeight="25dp"
+                    app:dropDownDrawableSpacing="15dp"
+                    app:dropDownDrawableWidth="25dp"
+                    app:theme="@style/TextLabel_Form" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel_Form">
+
+                <EditText
+                    android:id="@+id/register_idcard"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:hint="@string/register_main_id"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:inputType="number"
+                    android:imeOptions="actionNext"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel_Form">
+
+                <EditText
+                    android:id="@+id/register_phone"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:hint="@string/register_main_phone"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:inputType="phone"
+                    android:imeOptions="actionNext"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel_Form">
+
+                <EditText
+                    android:id="@+id/register_mobile"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:hint="@string/register_main_mobile"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:inputType="phone"
+                    android:imeOptions="actionNext"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel_Form">
+
+                <EditText
+                    android:id="@+id/register_email"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:hint="@string/register_main_email"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:inputType="textEmailAddress"
+                    android:imeOptions="actionNext"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel_Form">
+
+                <EditText
+                    android:id="@+id/register_line_id"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:hint="@string/register_main_line_id"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel_Form">
+
+                <EditText
+                    android:id="@+id/register_facebook"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:hint="@string/register_main_facebook"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel_Form">
+
+                <EditText
+                    android:id="@+id/register_we_chat"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:hint="@string/register_main_wechat"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"/>
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+    <RelativeLayout
+        android:id="@+id/layoutBottom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/button_partner_next"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/button_next"
+            android:textColor="@color/White"/>
+    </RelativeLayout>
+
+</RelativeLayout>

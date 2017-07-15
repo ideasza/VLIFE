@@ -13,6 +13,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -237,4 +238,13 @@ public class MainActivity extends AppCompatActivity {
         MenuItem menuItemLogout = menu.findItem(R.id.menu_logout);
         menuItemLogout.setVisible(false);
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)){
+            return false;
+        }
+        return true;
+    }
+
 }

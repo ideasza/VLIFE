@@ -78,6 +78,7 @@
     <string name="try_again">ลองอีกครั้ง</string>
     <string name="button_next">ถัดไป</string>
     <string name="button_apply">ยืนยันการสั่งซื้อ</string>
+    <string name="button_confirm">ยืนยันการสมัครสมาชิก</string>
     /*****************************System*****************************/
 
     /*****************************Title*******************************/
@@ -109,5 +110,38 @@
     <string name="address_sub_district">ตำบล</string>
     <string name="address_zipcode">รหัสไปรณีย์</string>
     /************************Form address*************************/
+
+    /************************Register title**************************/
+    <string name="register_main_title">ผู้สมัครหลัก</string>
+    <string name="register_partner_title">ผู้สมัครร่วม</string>
+    <string name="register_address">ที่อยู่ตามบัตรประชาชน</string>
+    <string name="register_sending_address">ที่อยู่สำหรับจัดส่ง/ส่งเอกสาร</string>
+    <string name="register_same_address">ที่อยู่เดียวกับที่อยู่ตามบัตรประชาชน</string>
+    /************************Register title**************************/
+
+    /************************Register form1***************************/
+    <string name="register_main_recommend_code">รหัสผู้แนะนำ</string>
+    <string name="register_main_recommend_name">ชื่อผู้แนะนำ</string>
+    <string name="register_main_upline_code">รหัสอัพไลน์</string>
+    <string name="register_main_upline_name">ชื่ออัพไลน์</string>
+    <string name="register_main_type">ประเภท</string>
+    <string name="register_main_side">ด้าน</string>
+    <string name="register_main_side_right">ขวา</string>
+    <string name="register_main_side_left">ซ้าย</string>
+    <string name="register_main_prefix_name">คำนำหน้าชื่อ</string>
+    <string name="register_main_name">ชื่อ-นามสกุล/นิติบุคคล</string>
+    <string name="register_main_gender">เพศ</string>
+    <string name="register_main_gender_male">ชาย</string>
+    <string name="register_main_gender_female">หญิง</string>
+    <string name="register_main_birthdate">วัน/เดือน/ปีเกิด</string>
+    <string name="register_main_nationality">สัญชาติ</string>
+    <string name="register_main_id">เลขที่บัตรประชาชน/เลขทะเบียนนิติบุคคล</string>
+    <string name="register_main_phone">เบอร์โทรศัพท์</string>
+    <string name="register_main_mobile">มือถือ</string>
+    <string name="register_main_email">อีเมล</string>
+    <string name="register_main_line_id">ไลน์ ไอดี</string>
+    <string name="register_main_facebook">เฟซบุ๊ค</string>
+    <string name="register_main_wechat">วีแชท</string>
+    /************************Register form1***************************/
 
 </resources>
