@@ -24,6 +24,8 @@ public class HomePresenter implements HomeInterface.Presenter {
 
     @Override
     public void requestItem() {
+        itemModelList.clear();
+
         itemModel = new ProductItem();
         itemModel.setId("0001");
         itemModel.setName("I-SLYM");

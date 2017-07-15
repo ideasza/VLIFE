@@ -144,4 +144,9 @@
     <string name="register_main_wechat">วีแชท</string>
     /************************Register form1***************************/
 
+    /************************Tab***************************/
+    <string name="tab1_title">ข้อมูลส่วนตัว</string>
+    <string name="tab2_title">ที่อยู่สำหรับจัดส่ง</string>
+    /************************Tab***************************/
+
 </resources>

@@ -12,14 +12,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,9 +33,8 @@ import teerayut.dev.vlife.R;
 import teerayut.dev.vlife.authentication.AuthenticationActivity;
 import teerayut.dev.vlife.home.HomeFragment;
 import teerayut.dev.vlife.home.Item.CartItem;
-import teerayut.dev.vlife.home.Item.ProductItem;
 import teerayut.dev.vlife.news.NewsFragment;
-import teerayut.dev.vlife.profile.profile.ProfileActivity;
+import teerayut.dev.vlife.profile.ProfileActivity;
 import teerayut.dev.vlife.register.RegisterActivity;
 import teerayut.dev.vlife.utils.ActivityResultBus;
 import teerayut.dev.vlife.utils.ActivityResultEvent;
@@ -88,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
         } else if (requestCode == Config.REQUEST_LOGIN) {
             loginSession();
         }
-
     }
 
     private void setView() {

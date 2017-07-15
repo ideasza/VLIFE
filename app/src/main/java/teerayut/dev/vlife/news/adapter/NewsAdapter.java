@@ -44,6 +44,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         NewsItem item = newsItemList.get(position);
         Glide.with( context )
                 .load( item.getNewsImage() )
+                .placeholder( context.getResources().getDrawable(R.drawable.no_image) )
                 .into( holder.imageView );
         holder.newsTitle.setText(item.getNewsTitle());
         holder.newsExcerpt.setText(item.getNewsDescription());

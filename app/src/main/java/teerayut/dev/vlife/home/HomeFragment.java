@@ -81,10 +81,10 @@ public class HomeFragment extends Fragment implements HomeInterface.View {
         setIntance();
 
         swipeRefreshLayout.setColorSchemeResources(
-                R.color.colorPrimary,
-                R.color.DeepPink,
                 R.color.colorPrimaryDark,
-                R.color.LimeGreen);
+                R.color.darker_blue,
+                R.color.colorPrimaryDark,
+                R.color.Green);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

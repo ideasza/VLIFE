@@ -8,7 +8,7 @@
     android:background="@color/colorPrimaryDark"
     android:gravity="center"
     android:orientation="vertical"
-    app:titleTextColor="@color/colorPrimaryDark"
+    app:titleTextColor="@color/White"
     app:navigationIcon="@drawable/ic_arrow_back_white_36dp"
     app:theme="@style/DrawerArrowStyle"
     android:backgroundTintMode="multiply">

@@ -62,6 +62,19 @@ public class NewsFragment extends Fragment implements NewsInterface.View, NewsAd
     private void setView() {
         serviceUnvailable.setVisibility(View.VISIBLE);
         buttonTryAgain.setOnClickListener( onTryAgain() );
+
+        swipeRefreshLayout.setColorSchemeResources(
+                R.color.colorPrimaryDark,
+                R.color.darker_blue,
+                R.color.colorPrimaryDark,
+                R.color.Green);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                recyclerView.setAdapter(null);
+                presenter.requestNews();
+            }
+        });
     }
 
     private void setInstance() {
@@ -71,6 +84,9 @@ public class NewsFragment extends Fragment implements NewsInterface.View, NewsAd
 
     @Override
     public void setItemToRecyclerView(List<NewsItem> modelList) {
+        if (swipeRefreshLayout.isRefreshing()) {
+            swipeRefreshLayout.setRefreshing(false);
+        }
         this.newsItemList = modelList;
         adapter = new NewsAdapter(getActivity(), newsItemList);
         int itemSpace = (int) getResources().getDimension( R.dimen.default_padding_margin );

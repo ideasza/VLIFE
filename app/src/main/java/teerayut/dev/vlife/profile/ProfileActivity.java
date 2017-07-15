@@ -1,23 +1,26 @@
-package teerayut.dev.vlife.profile.profile;
+package teerayut.dev.vlife.profile;
 
+import android.content.Intent;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import teerayut.dev.vlife.R;
+import teerayut.dev.vlife.main.MainActivity;
+import teerayut.dev.vlife.profile.profile.ProfileFragment;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -28,18 +31,30 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         bindView();
+
+        if (savedInstanceState == null) {
+            loadHomePage();
+        }
     }
 
-    @BindView(R.id.toolbarProfile) Toolbar toolbar;
-    @BindView(R.id.drawerProfile) DrawerLayout drawerLayout;
+    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.drawer) DrawerLayout drawerLayout;
     @BindView(R.id.navigation_view) NavigationView navigationView;
     private void bindView() {
         ButterKnife.bind(this);
-        setView();
+        setToolbar();
+        setProfileMenu();
     }
 
-    private void setView() {
-        setProfileMenu();
+    private void setToolbar() {
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
+    }
+
+    private void loadHomePage() {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.frame, new ProfileFragment()).addToBackStack(null).commit();
     }
 
     private void setProfileMenu() {
@@ -53,9 +68,11 @@ public class ProfileActivity extends AppCompatActivity {
                 return true;
             }
         });
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawerProfile);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
         navigationView.inflateMenu(R.menu.profile_menu);
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout, toolbar, R.string.openDrawer, R.string.closeDrawer){
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar, R.string.open_Drawer, R.string.close_Drawer)
+                {
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
@@ -69,6 +86,14 @@ public class ProfileActivity extends AppCompatActivity {
                 menuItemClicked = null;
             }
         };
+        actionBarDrawerToggle.setDrawerIndicatorEnabled(false);
+        actionBarDrawerToggle.setHomeAsUpIndicator(R.drawable.ic_menu_white_36dp);
+        actionBarDrawerToggle.setToolbarNavigationClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
     }
@@ -79,8 +104,15 @@ public class ProfileActivity extends AppCompatActivity {
         Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.frame);
         switch (menuItem.getItemId()){
             case R.id.profile_home :
+                startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+                finish();
                 break;
             case R.id.profile_profile :
+                if (currentFragment instanceof ProfileFragment) {
+                    drawerLayout.closeDrawers();
+                } else {
+                    transaction.replace(R.id.frame, new ProfileFragment(), "ProfileFragment").addToBackStack(null).commit();
+                }
                 break;
             case R.id.profile_order_history :
                 break;

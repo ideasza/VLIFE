@@ -21,6 +21,8 @@ public class NewsPresenter implements NewsInterface.Presenter {
 
     @Override
     public void requestNews() {
+        newsItemList.clear();
+
         item = new NewsItem();
         item.setNewsTitle("LOREM IPSUM DOLOR SIT AMET");
         item.setNewsDescription("Lorem ipsum dolor sit amet sectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt Lorem ipsum Lorem ipsum dolor sit amet sectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt Lorem ipsum Lorem ipsum dolor sit amet sectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt Lorem ipsum");
