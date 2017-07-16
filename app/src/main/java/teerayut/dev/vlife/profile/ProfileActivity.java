@@ -21,6 +21,8 @@ import butterknife.ButterKnife;
 import teerayut.dev.vlife.R;
 import teerayut.dev.vlife.main.MainActivity;
 import teerayut.dev.vlife.profile.profile.ProfileFragment;
+import teerayut.dev.vlife.utils.ActivityResultBus;
+import teerayut.dev.vlife.utils.ActivityResultEvent;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -129,5 +131,11 @@ public class ProfileActivity extends AppCompatActivity {
             default:
                 break;
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        ActivityResultBus.getInstance().postQueue(new ActivityResultEvent(requestCode, resultCode, data));
     }
 }

@@ -19,6 +19,7 @@
     <string name="dialog_title_error">พบข้อผิพลาด</string>
     <string name="dialog_title_warning">คำเตือน</string>
     <string name="dialog_title_success">สำเร็จ</string>
+    <string name="dialog_title_chooser">เลือกรูปภาพ</string>
 
     <string name="dialog_msg_network_error">ไม่สามารถเชื่อมต่อเครือข่ายได้</string>
     <string name="dialog_msg_login_empty">ไม่ได้กรอกชื่อผุ้ใช้หรือรหัสผ่าน</string>
@@ -27,10 +28,13 @@
     <string name="dialog_msg_delete_completed">ลบแล้ว</string>
     <string name="dialog_msg_apply_error">ไม่สามารถส่งรายการสั่งซื้อได้</string>
     <string name="dialog_msg_apply_success">ทำรายการสั่งซื้อแล้ว</string>
+    <string name="dialog_choose_gallery_or_camera">เลือกจากแกลลอรี่หรือถ่ายรูป</string>
 
     <string name="dialog_btn_cancel">ยกเลิก</string>
     <string name="dialog_btn_ok">ตกลง</string>
     <string name="dialog_btn_settings">ตั้งค่า</string>
+    <string name="dialog_btn_gallery">แกลลอรี่</string>
+    <string name="dialog_btn_camera">กล้อง</string>
     /***********************Dialog alert************************/
     
     /*************************Menu title************************/

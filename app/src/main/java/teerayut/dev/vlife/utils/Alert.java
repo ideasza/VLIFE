@@ -30,6 +30,31 @@ public class Alert {
         sweetAlertDialog.show();
     }
 
+    public static void dialogChooser(final Activity context, int title, int msg, int cancelButton, int confirmButton,
+                                     final Intent intent1, final int result1, final Intent intent2, final int result2) {
+        new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText(context.getResources().getString(title))
+                .setContentText(context.getResources().getString(msg))
+                .setCancelText(context.getResources().getString(cancelButton))
+                .setConfirmText(context.getResources().getString(confirmButton))
+                .showCancelButton(false)
+                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        sDialog.dismiss();
+                        context.startActivityForResult(intent1, result1);
+                    }
+                })
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                        sweetAlertDialog.dismiss();
+                        context.startActivityForResult(intent2, result2);
+                    }
+                })
+                .show();
+    }
+
     public static void dialogSuccess(Context context, int msgID) {
         new SweetAlertDialog(context, SweetAlertDialog.SUCCESS_TYPE)
                 .setTitleText(context.getResources().getString(R.string.dialog_title_success))

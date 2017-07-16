@@ -17,6 +17,9 @@ public class Config {
     public static final int REQUEST_NEWS_DETAIL = 06;
     public static final int REQUEST_REGISTER = 07;
 
+    public static final int REQUEST_GALLERY = 11;
+    public static final int REQUEST_CAMERA = 12;
+
     public static final String KEY_REMEMBER = "REMEMBER";
     public static final String KEY_LANGUAGE = "LANGUAGE";
     public static final String KEY_SESSION_LOGIN = "LOGEDIN";
