@@ -12,6 +12,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import teerayut.dev.vlife.R;
 import teerayut.dev.vlife.main.MainActivity;
+import teerayut.dev.vlife.profile.order_history.OrderHistoryFragment;
 import teerayut.dev.vlife.profile.profile.ProfileFragment;
 import teerayut.dev.vlife.utils.ActivityResultBus;
 import teerayut.dev.vlife.utils.ActivityResultEvent;
@@ -117,6 +119,11 @@ public class ProfileActivity extends AppCompatActivity {
                 }
                 break;
             case R.id.profile_order_history :
+                if (currentFragment instanceof OrderHistoryFragment) {
+                    drawerLayout.closeDrawers();
+                } else {
+                    transaction.replace(R.id.frame, new OrderHistoryFragment(), "OrderHistoryFragment").addToBackStack(null).commit();
+                }
                 break;
             case R.id.profile_bill_hold :
                 break;
@@ -128,6 +135,8 @@ public class ProfileActivity extends AppCompatActivity {
                 break;
             case R.id.profile_upline :
                 break;
+            case R.id.profile_com :
+                break;
             default:
                 break;
         }
@@ -137,5 +146,22 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         ActivityResultBus.getInstance().postQueue(new ActivityResultEvent(requestCode, resultCode, data));
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)){
+            FragmentManager manager = getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.frame);
+            if (currentFragment instanceof ProfileFragment) {
+                startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+                finish();
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return true;
     }
 }

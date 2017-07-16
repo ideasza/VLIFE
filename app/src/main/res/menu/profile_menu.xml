@@ -33,5 +33,9 @@
             android:id="@+id/profile_upline"
             android:icon="@drawable/ic_diagram_48dp"
             android:title="@string/profile_menu_upline"/>
+        <item
+            android:id="@+id/profile_com"
+            android:icon="@drawable/ic_monetization_on_white_48dp"
+            android:title="@string/profile_menu_comission"/>
     </group>
 </menu>

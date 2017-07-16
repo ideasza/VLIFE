@@ -2,6 +2,7 @@ package teerayut.dev.vlife.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -52,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView imageView;
     private TextView textViewName;
+
+    private boolean clickBackAain = false;
 
     private int badgeQuantity = 0;
     private Cart cart = CartHelper.getCart();
@@ -238,6 +241,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK)){
+            if (clickBackAain) {
+                finish();
+                return true;
+            }
+            this.clickBackAain = true;
+            Toast.makeText(this, "Please click back again to exit", Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    clickBackAain=false;
+                }
+            }, 2000);
             return false;
         }
         return true;

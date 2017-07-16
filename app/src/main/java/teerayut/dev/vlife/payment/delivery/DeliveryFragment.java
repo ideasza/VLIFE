@@ -141,7 +141,7 @@ public class DeliveryFragment extends Fragment implements DeliveryInterface.View
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.e("Test", districtSpinner.getText().toString());
+                //Log.e("Test", districtSpinner.getText().toString());
                 clickButtonNext.OnClickButtonNext(view);
             }
         };

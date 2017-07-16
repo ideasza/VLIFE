@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,10 +38,27 @@ public class DetailFragment extends Fragment {
     }
 
     private onClickButtonNext clickButtonNext;
+    @BindView(R.id.sumTitle) TextView textViewSumTitle;
+    @BindView(R.id.sumValues) TextView textViewSumValus;
     @BindView(R.id.button_detail_next) Button buttonNext;
     private void bindView(View view) {
         ButterKnife.bind(this, view);
         buttonNext.setOnClickListener( onNext() );
+    }
+
+    private void setView() {
+        StringBuilder sb1 = new StringBuilder();
+        StringBuilder sb2 = new StringBuilder();
+
+        sb1.append(getResources().getString(R.string.title_sum_point) + "\n");
+        sb1.append(getResources().getString(R.string.title_sum_total) + "\n");
+        sb1.append(getResources().getString(R.string.title_send) + "\n");
+        sb1.append(getResources().getString(R.string.title_net_price) +"\n");
+
+        sb2.append("" + "\n");
+        sb2.append("" + "\n");
+        sb2.append("" + "\n");
+        sb2.append("" + "\n");
     }
 
     private View.OnClickListener onNext() {

@@ -1,13 +1,208 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="teerayut.dev.vlife.profile.profile.viewpager.tab1.PersonalFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v4.widget.NestedScrollView
+        android:layout_above="@+id/layoutBottom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_marginTop="8dp">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:orientation="vertical">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel_Form">
+
+                <EditText
+                    android:id="@+id/member_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/member_code"
+                    android:textColor="@color/Black"
+                    android:inputType="none"
+                    android:editable="false"
+                    android:text="0000018"
+                    android:singleLine="true"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel_Form">
+
+                <EditText
+                    android:id="@+id/member_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/address_name"
+                    android:textColor="@color/Black"
+                    android:text="@string/address_name"
+                    android:inputType="none"
+                    android:editable="false"
+                    android:singleLine="true"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel_Form">
+
+                <EditText
+                    android:id="@+id/member_brithdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/register_main_birthdate"
+                    android:textColor="@color/Black"
+                    android:text="2017-05-27"
+                    android:inputType="none"
+                    android:editable="false"
+                    android:singleLine="true"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel_Forget">
+
+                <EditText
+                    android:id="@+id/member_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/address_phone"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="021234567"
+                    android:inputType="phone"
+                    android:singleLine="true"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel_Forget">
+
+                <EditText
+                    android:id="@+id/member_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/register_main_email"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="mail@email.com"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel_Form">
+
+                <EditText
+                    android:id="@+id/member_recommend_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/register_main_recommend_code"
+                    android:textColor="@color/Black"
+                    android:text="0000017"
+                    android:inputType="none"
+                    android:editable="false"
+                    android:singleLine="true"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel_Form">
+
+                <EditText
+                    android:id="@+id/member_recommend_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/register_main_recommend_name"
+                    android:textColor="@color/Black"
+                    android:text="2121212"
+                    android:inputType="none"
+                    android:editable="false"
+                    android:singleLine="true"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel_Form">
+
+                <EditText
+                    android:id="@+id/member_upline_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/register_main_recommend_name"
+                    android:textColor="@color/Black"
+                    android:text="0000017"
+                    android:inputType="none"
+                    android:editable="false"
+                    android:singleLine="true"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel_Form">
+
+                <EditText
+                    android:id="@+id/member_upline_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/register_main_recommend_name"
+                    android:textColor="@color/Black"
+                    android:text="2121212"
+                    android:inputType="none"
+                    android:editable="false"
+                    android:singleLine="true"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel_Form">
+
+                <EditText
+                    android:id="@+id/member_side"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/register_main_side"
+                    android:textColor="@color/Black"
+                    android:text="@string/register_main_side_left"
+                    android:inputType="none"
+                    android:editable="false"
+                    android:singleLine="true"/>
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:id="@+id/layoutBottom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/personal_data_update"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:text="@string/button_update"
+            android:textColor="@color/White"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

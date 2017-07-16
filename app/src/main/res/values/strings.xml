@@ -55,6 +55,7 @@
     <string name="profile_menu_redeem_history">Redeem History</string>
     <string name="profile_menu_recomend">Recomend Diagram</string>
     <string name="profile_menu_upline">Upline Diagram</string>
+    <string name="profile_menu_comission">Comission</string>
     /*************************Menu title************************/
 
     /*************************Forget password*********************/
@@ -63,6 +64,7 @@
 
     /**************************Service unvailable*********************/
     <string name="service_unvailable">Sorry, something went wrong. Please try again.</string>
+    <string name="unvailable_item">Sorry, No items yet.</string>
     /**************************Service unvailable*********************/
 
     /****************************Cart*******************************/
@@ -84,6 +86,7 @@
     <string name="button_next">Next</string>
     <string name="button_apply">Apply</string>
     <string name="button_confirm">Confirm</string>
+    <string name="button_update">Update</string>
     /*****************************System*****************************/
 
     /*****************************Title*******************************/
@@ -91,7 +94,20 @@
     <string name="title_detail">Detail</string>
     <string name="title_pay">Payment</string>
     <string name="title_summary">Summary</string>
+    <string name="title_order_for">Order for code</string>
+    <string name="title_bil_type">Bill Type</string>
+    <string name="title_order_list">Order List</string>
+    <string name="title_sum_point">Total Points</string>
+    <string name="title_sum_total">Total Price</string>
+    <string name="title_send">Delivery Charge</string>
+    <string name="title_net_price">Total to pay</string>
     /*****************************Title*******************************/
+
+    /****************************Bill Type************************/
+    <string name="bill_type_normal">Normal</string>
+    <string name="bill_type_keep">Keep</string>
+    <string name="bill_type_hold">Hold</string>
+    /****************************Bill Type************************/
 
     /************************Delivery*************************/
     <string name="delivery_choice">Delivery choice</string>
@@ -155,5 +171,9 @@
     <string name="tab1_title">Personal Data</string>
     <string name="tab2_title">Sending Address</string>
     /************************Tab***************************/
+
+    /***********************Member**************************/
+    <string name="member_code">Member Code</string>
+    /***********************Member**************************/
 
 </resources>

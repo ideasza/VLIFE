@@ -35,6 +35,7 @@
     <string name="dialog_btn_settings">ตั้งค่า</string>
     <string name="dialog_btn_gallery">แกลลอรี่</string>
     <string name="dialog_btn_camera">กล้อง</string>
+    <string name="profile_menu_comission">คอมมิชชั่น</string>
     /***********************Dialog alert************************/
     
     /*************************Menu title************************/
@@ -62,6 +63,7 @@
 
     /**************************Service unvailable*********************/
     <string name="service_unvailable">ขออภัยในความไม่สะดวก \nพบข้อผิดพลาดบางประการ กรุณาลองใหม่อีกครั้ง.</string>
+    <string name="unvailable_item">ขออภัย \nยังไม่มีรายการ</string>
     /**************************Service unvailable*********************/
 
     /****************************Cart*******************************/
@@ -83,6 +85,7 @@
     <string name="button_next">ถัดไป</string>
     <string name="button_apply">ยืนยันการสั่งซื้อ</string>
     <string name="button_confirm">ยืนยันการสมัครสมาชิก</string>
+    <string name="button_update">อัพเดท</string>
     /*****************************System*****************************/
 
     /*****************************Title*******************************/
@@ -90,7 +93,20 @@
     <string name="title_detail">รายละเอียดสินค้า</string>
     <string name="title_pay">การชำระเงิน</string>
     <string name="title_summary">สรุปรายการสั่งซื้อ</string>
+    <string name="title_order_for">สั่งซื้อให้กับรหัส</string>
+    <string name="title_bil_type">ประเภทบิล</string>
+    <string name="title_order_list">รายการสั่งซื้อ</string>
+    <string name="title_sum_point">คะแนนรวม</string>
+    <string name="title_sum_total">ราคารวม</string>
+    <string name="title_send">ค่าจัดส่งสินค้า</string>
+    <string name="title_net_price">ยอดรวมสินค้าที่ต้องชำระ</string>
     /*****************************Title*******************************/
+
+    /****************************Bill Type************************/
+    <string name="bill_type_normal">บิลปกติ</string>
+    <string name="bill_type_keep">บิลรักษายอด</string>
+    <string name="bill_type_hold">บิลโฮล์ด</string>
+    /****************************Bill Type************************/
 
     /************************Delivery*************************/
     <string name="delivery_choice">เลือกวิธีจัดส่ง</string>
@@ -152,5 +168,9 @@
     <string name="tab1_title">ข้อมูลส่วนตัว</string>
     <string name="tab2_title">ที่อยู่สำหรับจัดส่ง</string>
     /************************Tab***************************/
+
+    /***********************Member**************************/
+    <string name="member_code">รหัสสมาชิก</string>
+    /***********************Member**************************/
 
 </resources>
