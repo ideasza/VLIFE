@@ -43,6 +43,7 @@ public class DetailFragment extends Fragment {
     @BindView(R.id.button_detail_next) Button buttonNext;
     private void bindView(View view) {
         ButterKnife.bind(this, view);
+        setView();
         buttonNext.setOnClickListener( onNext() );
     }
 
@@ -53,12 +54,14 @@ public class DetailFragment extends Fragment {
         sb1.append(getResources().getString(R.string.title_sum_point) + "\n");
         sb1.append(getResources().getString(R.string.title_sum_total) + "\n");
         sb1.append(getResources().getString(R.string.title_send) + "\n");
-        sb1.append(getResources().getString(R.string.title_net_price) +"\n");
+        sb1.append(getResources().getString(R.string.title_net_price));
+        textViewSumTitle.setText(sb1.toString());
 
-        sb2.append("" + "\n");
-        sb2.append("" + "\n");
-        sb2.append("" + "\n");
-        sb2.append("" + "\n");
+        sb2.append("0" + "\n");
+        sb2.append("0" + " " + getResources().getString(R.string.price_symbol) + "\n");
+        sb2.append("0" + " " +  getResources().getString(R.string.price_symbol) +  "\n");
+        sb2.append("0" + " " +  getResources().getString(R.string.price_symbol));
+        textViewSumValus.setText(sb2.toString());
     }
 
     private View.OnClickListener onNext() {

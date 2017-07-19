@@ -19,11 +19,10 @@
             android:clickable="false"
             android:id="@+id/image_news"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:minHeight="150dp"
             android:maxHeight="150dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             tools:src="@drawable/news_promotion"/>
 
         <TextView

@@ -103,9 +103,9 @@
     /*****************************Title*******************************/
 
     /****************************Bill Type************************/
-    <string name="bill_type_normal">บิลปกติ</string>
-    <string name="bill_type_keep">บิลรักษายอด</string>
-    <string name="bill_type_hold">บิลโฮล์ด</string>
+    <string name="bill_type_normal">ปกติ</string>
+    <string name="bill_type_keep">รักษายอด</string>
+    <string name="bill_type_hold">โฮล์ด</string>
     /****************************Bill Type************************/
 
     /************************Delivery*************************/
