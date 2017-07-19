@@ -125,6 +125,7 @@
 
     /************************Delivery*************************/
     <string name="delivery_choice">Delivery choice</string>
+    <string name="delivery">Delivery</string>
     <string name="delivery_address">Delivery address</string>
     <string name="massenger">Massenger (Recommends)</string>
     <string name="thai_post">Thai post (EMS)</string>

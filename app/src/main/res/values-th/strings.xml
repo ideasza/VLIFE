@@ -122,6 +122,7 @@
 
     /************************Delivery*************************/
     <string name="delivery_choice">เลือกวิธีจัดส่ง</string>
+    <string name="delivery">วิธีการจัดส่ง</string>
     <string name="delivery_address">ที่อยู่สำหรับจัดส่ง</string>
     <string name="massenger">แมสเซ็นเจอร์ (แนะนำ)</string>
     <string name="thai_post">ไปรษณีย์ไทย (EMS)</string>

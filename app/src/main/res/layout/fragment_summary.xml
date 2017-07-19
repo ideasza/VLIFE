@@ -1,13 +1,104 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="teerayut.dev.vlife.payment.summary.SummaryFragment">
 
+    <LinearLayout
+        android:id="@+id/layoutTop"
+        android:layout_above="@+id/layoutSummary"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="@string/title_order_list"
+            android:textColor="@color/colorPrimaryDark"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
     <RelativeLayout
+        android:id="@+id/layoutSummary"
+        android:layout_above="@+id/layoutBottom"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/gray_btn_bg_color">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:text="@string/address_delivery"
+                    android:textColor="@color/colorPrimaryDark"/>
+
+                <TextView
+                    android:id="@+id/summary_address_delivery"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:paddingLeft="4dp"
+                    android:text="-"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:text="@string/title_pay"
+                    android:textColor="@color/colorPrimaryDark"/>
+
+                <TextView
+                    android:id="@+id/summary_payment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:paddingLeft="4dp"
+                    android:text="-"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:text="@string/delivery"
+                    android:textColor="@color/colorPrimaryDark"/>
+
+                <TextView
+                    android:id="@+id/summary_delivery"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:paddingLeft="4dp"
+                    android:text="-"/>
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutBottom"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_gravity="bottom">
+        android:layout_alignParentBottom="true">
 
         <Button
             android:id="@+id/button_summary_apply"
@@ -19,4 +110,4 @@
 
     </RelativeLayout>
 
-</FrameLayout>
+</RelativeLayout>

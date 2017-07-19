@@ -20,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/delivery_choice"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold"/>
 
             <LinearLayout
@@ -80,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/delivery_address"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold"/>
 
             <LinearLayout
@@ -140,7 +140,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/title_bil_type"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold"/>
 
             <LinearLayout

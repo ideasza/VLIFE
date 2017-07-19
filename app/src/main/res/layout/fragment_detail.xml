@@ -25,7 +25,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/title_order_for"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"/>
 
                 <LinearLayout
@@ -80,7 +80,7 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="20dp"/>
+                    android:layout_height="10dp"/>
 
             </LinearLayout>
 
@@ -95,7 +95,7 @@
                     android:text="@string/title_order_list"
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"/>
 
                 <View
