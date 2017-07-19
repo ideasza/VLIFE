@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">VLIFE</string>
 
+    <string name="company_name">Vlife Co., Ltd.</string>
+
     <string name="openDrawer"></string>
     <string name="closeDrawer"></string>
 
@@ -108,6 +110,18 @@
     <string name="bill_type_keep">Keep</string>
     <string name="bill_type_hold">Hold</string>
     /****************************Bill Type************************/
+    
+    /**************************Payment channel***********************/
+    <string name="title_bank_tranfer">Bank Transfer</string>
+    <string name="bank_name_k_bank">KBANK</string>
+    <string name="bank_name_bbl">BKK</string>
+    <string name="bank_name_scb">SCB</string>
+    <string name="title_crdit_card">Credit Card</string>
+    <string name="hint_card_number">Card Number</string>
+    <string name="hint_card_month">Month</string>
+    <string name="hint_card_year">Year</string>
+    <string name="hint_card_ccv">CVV/CVN</string>
+    /**************************Payment channel***********************/
 
     /************************Delivery*************************/
     <string name="delivery_choice">Delivery choice</string>

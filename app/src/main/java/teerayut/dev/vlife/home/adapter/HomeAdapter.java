@@ -46,7 +46,11 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
         ProductItem item = itemModelList.get(position);
         holder.textViewName.setText(item.getName());
         holder.textViewPv.setText(context.getResources().getString(R.string.title_pv) + " " + item.getPv());
-        holder.textViewPrice.setText(item.getPrice() + " " + context.getResources().getString(R.string.price_symbol));
+
+        int price = Integer.parseInt(item.getPrice() + "");
+
+        holder.textViewPrice.setText(String.valueOf(String.format("%,d", price))
+                + " " + context.getResources().getString(R.string.price_symbol));
 
         Glide.with( context )
                 .load( item.getImage() )

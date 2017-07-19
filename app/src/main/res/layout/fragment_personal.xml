@@ -2,6 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    android:fitsSystemWindows="true"
+    android:windowSoftInputMode="adjustPan|adjustResize"
     tools:context="teerayut.dev.vlife.profile.profile.viewpager.tab1.PersonalFragment">
 
     <android.support.v4.widget.NestedScrollView
@@ -20,7 +24,9 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/TextLabel_Form">
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp"
+                android:theme="@style/TextLabel_Form_label">
 
                 <EditText
                     android:id="@+id/member_code"
@@ -37,7 +43,9 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/TextLabel_Form">
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp"
+                android:theme="@style/TextLabel_Form_label">
 
                 <EditText
                     android:id="@+id/member_name"
@@ -54,7 +62,9 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/TextLabel_Form">
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp"
+                android:theme="@style/TextLabel_Form_label">
 
                 <EditText
                     android:id="@+id/member_brithdate"
@@ -71,6 +81,8 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp"
                 android:theme="@style/TextLabel_Forget">
 
                 <EditText
@@ -87,6 +99,8 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp"
                 android:theme="@style/TextLabel_Forget">
 
                 <EditText
@@ -103,7 +117,9 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/TextLabel_Form">
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp"
+                android:theme="@style/TextLabel_Form_label">
 
                 <EditText
                     android:id="@+id/member_recommend_code"
@@ -120,7 +136,9 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/TextLabel_Form">
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp"
+                android:theme="@style/TextLabel_Form_label">
 
                 <EditText
                     android:id="@+id/member_recommend_name"
@@ -137,7 +155,9 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/TextLabel_Form">
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp"
+                android:theme="@style/TextLabel_Form_label">
 
                 <EditText
                     android:id="@+id/member_upline_code"
@@ -154,7 +174,9 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/TextLabel_Form">
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp"
+                android:theme="@style/TextLabel_Form_label">
 
                 <EditText
                     android:id="@+id/member_upline_name"
@@ -171,7 +193,9 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/TextLabel_Form">
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp"
+                android:theme="@style/TextLabel_Form_label">
 
                 <EditText
                     android:id="@+id/member_side"

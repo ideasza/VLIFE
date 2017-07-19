@@ -1,13 +1,90 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="teerayut.dev.vlife.payment.pay.PayFragment">
 
+    <android.support.v4.widget.NestedScrollView
+        android:layout_above="@+id/layoutBottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/delivery_address"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:orientation="vertical">
+
+                <RadioGroup
+                    android:id="@+id/group_payment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/radio_bank_tranfer"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/title_bank_tranfer"
+                        android:gravity="left|center"
+                        android:paddingLeft="8dp"
+                        style="@style/radionbutton"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"/>
+
+                    <RadioButton
+                        android:id="@+id/radio_credit"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="left|center"
+                        android:paddingLeft="8dp"
+                        style="@style/radionbutton"
+                        android:text="@string/title_crdit_card"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+            <include
+                android:id="@+id/bank_tranfer"
+                android:visibility="gone"
+                layout="@layout/form_bank_tranfer"/>
+
+            <include
+                android:id="@+id/credit_card"
+                android:visibility="gone"
+                layout="@layout/form_credit_card"/>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
     <RelativeLayout
+        android:id="@+id/layoutBottom"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_gravity="bottom">
+        android:layout_alignParentBottom="true">
 
         <Button
             android:id="@+id/button_pay_next"
@@ -19,4 +96,4 @@
 
     </RelativeLayout>
 
-</FrameLayout>
+</RelativeLayout>

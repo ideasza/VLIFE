@@ -108,6 +108,18 @@
     <string name="bill_type_hold">โฮล์ด</string>
     /****************************Bill Type************************/
 
+    /**************************Payment channel***********************/
+    <string name="title_bank_tranfer">โอนเงินผ่านธนาคาร</string>
+    <string name="bank_name_k_bank">กสิกรไทย</string>
+    <string name="bank_name_bbl">กรุงเทพฯ</string>
+    <string name="bank_name_scb">ไทยพาณิชย์</string>
+    <string name="title_crdit_card">บัตรเครดิต</string>
+    <string name="hint_card_number">หมายเลขบัตร</string>
+    <string name="hint_card_month">เดือน</string>
+    <string name="hint_card_year">ปี</string>
+    <string name="hint_card_ccv">CVV/CVN</string>
+    /**************************Payment channel***********************/
+
     /************************Delivery*************************/
     <string name="delivery_choice">เลือกวิธีจัดส่ง</string>
     <string name="delivery_address">ที่อยู่สำหรับจัดส่ง</string>

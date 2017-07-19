@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,10 +39,16 @@ public class PayFragment extends Fragment {
     }
 
     private onClickButtonNext clickButtonNext;
+    @BindView(R.id.bank_tranfer) View bankView;
+    @BindView(R.id.credit_card) View creditView;
+    @BindView(R.id.radio_bank_tranfer) RadioButton bankTranfer;
+    @BindView(R.id.radio_credit) RadioButton creditCard;
     @BindView(R.id.button_pay_next) Button buttonNext;
     private void bindView(View view) {
         ButterKnife.bind(this, view);
         buttonNext.setOnClickListener( onNext() );
+        bankTranfer.setOnClickListener( PaymentOnClickListener );
+        creditCard.setOnClickListener( PaymentOnClickListener );
     }
 
     private View.OnClickListener onNext() {
@@ -67,4 +74,19 @@ public class PayFragment extends Fragment {
     public interface onClickButtonNext{
         void OnClickButtonNext(View view);
     }
+
+    RadioButton.OnClickListener PaymentOnClickListener = new RadioButton.OnClickListener() {
+        public void onClick(View v) {
+            if (bankTranfer.isChecked()) {
+                bankView.setVisibility(View.VISIBLE);
+                creditView.setVisibility(View.GONE);
+                //viewCurrentAddress();
+            } else {
+                bankTranfer.setChecked(false);
+                bankView.setVisibility(View.GONE);
+                creditView.setVisibility(View.VISIBLE);
+                //viewInsertAddress();
+            }
+        }
+    };
 }

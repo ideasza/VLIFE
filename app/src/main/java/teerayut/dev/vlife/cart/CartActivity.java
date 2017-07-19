@@ -97,8 +97,8 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.Click
                 price += (cartItem.getQuantity() * Integer.parseInt(cartItem.getProduct().getPrice() + ""));
             }
 
-            textPV.setText(String.valueOf(pv));
-            textTotalPrice.setText(String.valueOf(price) + " " + getResources().getString(R.string.price_symbol));
+            textPV.setText(String.valueOf(String.format("%,d", pv)));
+            textTotalPrice.setText(String.valueOf(String.format("%,d", price)) + " " + getResources().getString(R.string.price_symbol));
         } else {
             containerCartEmpty.setVisibility(View.VISIBLE);
             textPV.setText("0");
