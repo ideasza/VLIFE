@@ -53,7 +53,6 @@ public class RegisterActivity extends AppCompatActivity implements RegisterInter
     }
 
     private void setInstance() {
-
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {

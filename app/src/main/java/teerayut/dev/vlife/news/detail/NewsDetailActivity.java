@@ -44,7 +44,7 @@ public class NewsDetailActivity extends AppCompatActivity {
 
     private void getDataIntent() {
         item = (NewsItem) getIntent().getSerializableExtra(Config.KEY_NEWS_ITEM_DETAIL);
-        toolbar.setTitle("");
+        toolbar.setTitle(item.getNewsTitle());
         Glide.with( this )
                 .load( item.getNewsImage() )
                 .into( img );

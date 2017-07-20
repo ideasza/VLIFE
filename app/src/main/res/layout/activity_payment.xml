@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="teerayut.dev.vlife.payment.PaymentActivity">
+    tools:context=".cart.payment.PaymentActivity">
 
     <LinearLayout
         android:layout_above="@+id/layoutBottom"

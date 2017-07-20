@@ -1,0 +1,171 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="teerayut.dev.vlife.paid.PaidFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextLabel_Forget">
+
+            <EditText
+                android:id="@+id/number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/order_number"
+                android:textColor="@color/colorPrimaryDark"
+                android:imeOptions="actionNext"
+                android:inputType="text|textNoSuggestions"
+                android:singleLine="true"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextLabel_Forget">
+
+            <EditText
+                android:id="@+id/building"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/order_total"
+                android:textColor="@color/colorPrimaryDark"
+                android:imeOptions="actionNext"
+                android:inputType="text|textNoSuggestions"
+                android:singleLine="true"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextLabel_Forget">
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/address_name"
+                android:textColor="@color/colorPrimaryDark"
+                android:imeOptions="actionNext"
+                android:inputType="text|textNoSuggestions|textCapCharacters"
+                android:singleLine="true"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextLabel_Forget">
+
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/address_phone"
+                android:textColor="@color/colorPrimaryDark"
+                android:imeOptions="actionNext"
+                android:inputType="text|textNoSuggestions|textCapCharacters"
+                android:singleLine="true"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:theme="@style/TextLabel_Forget">
+
+                <com.reginald.editspinner.EditSpinner
+                    android:id="@+id/payment_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:theme="@style/TextLabel_Forget"
+                    android:hint="@string/paid_date"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:inputType="none"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:dropDownDrawable="@drawable/ic_arrow_drop_down_white_24dp"
+                    android:drawableTint="@color/colorPrimaryDark"
+                    app:dropDownDrawableSpacing="15dp"
+                    app:dropDownDrawableWidth="25dp"
+                    app:dropDownDrawableHeight="25dp"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:theme="@style/TextLabel_Forget">
+
+                <com.reginald.editspinner.EditSpinner
+                    android:id="@+id/payment_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:theme="@style/TextLabel_Forget"
+                    android:hint="@string/paid_time"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:inputType="none"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:dropDownDrawable="@drawable/ic_arrow_drop_down_white_24dp"
+                    android:drawableTint="@color/colorPrimaryDark"
+                    app:dropDownDrawableSpacing="15dp"
+                    app:dropDownDrawableWidth="25dp"
+                    app:dropDownDrawableHeight="25dp"/>
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/paid_picture"/>
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:text="@string/upload_file"
+                android:textColor="@color/White"
+                android:drawableLeft="@drawable/ic_folder_white_48dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:text="@string/button_apply"
+            android:textColor="@color/White"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

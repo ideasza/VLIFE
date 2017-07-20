@@ -186,4 +186,20 @@
     <string name="member_code">รหัสสมาชิก</string>
     /***********************Member**************************/
 
+    /***********************Commission**********************/
+    <string name="title_commission_day">วัน</string>
+    <string name="title_commission_month">เดือน</string>
+    <string name="title_commission_year">ปี</string>
+    <string name="title_commission_travel">ท่องเที่ยว</string>
+    /***********************Commission**********************/
+
+    /************************Paid*****************************/
+    <string name="order_number">เลขที่สั่งซื้อสินค้า</string>
+    <string name="order_total">ยอดเงิน</string>
+    <string name="paid_date">วันที่ชำระเงิน</string>
+    <string name="paid_time">เวลาที่ชำระเงิน</string>
+    <string name="paid_picture">หลักฐานการโอนเงิน</string>
+    <string name="upload_file">อัพโหลดไฟล์</string>
+    /************************Paid*****************************/
+
 </resources>

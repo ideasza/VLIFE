@@ -21,6 +21,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import teerayut.dev.vlife.R;
 import teerayut.dev.vlife.main.MainActivity;
+import teerayut.dev.vlife.profile.commission.CommissionFragment;
 import teerayut.dev.vlife.profile.order_history.OrderHistoryFragment;
 import teerayut.dev.vlife.profile.profile.ProfileFragment;
 import teerayut.dev.vlife.utils.ActivityResultBus;
@@ -59,6 +60,7 @@ public class ProfileActivity extends AppCompatActivity {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.frame, new ProfileFragment()).addToBackStack(null).commit();
+        toolbar.setTitle(getResources().getString(R.string.main_menu_profile));
     }
 
     private void setProfileMenu() {
@@ -112,6 +114,7 @@ public class ProfileActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.profile_profile :
+                toolbar.setTitle(getResources().getString(R.string.main_menu_profile));
                 if (currentFragment instanceof ProfileFragment) {
                     drawerLayout.closeDrawers();
                 } else {
@@ -119,6 +122,7 @@ public class ProfileActivity extends AppCompatActivity {
                 }
                 break;
             case R.id.profile_order_history :
+                toolbar.setTitle(getResources().getString(R.string.profile_menu_buy_history));
                 if (currentFragment instanceof OrderHistoryFragment) {
                     drawerLayout.closeDrawers();
                 } else {
@@ -136,6 +140,12 @@ public class ProfileActivity extends AppCompatActivity {
             case R.id.profile_upline :
                 break;
             case R.id.profile_com :
+                toolbar.setTitle(getResources().getString(R.string.profile_menu_comission));
+                if (currentFragment instanceof CommissionFragment) {
+                    drawerLayout.closeDrawers();
+                } else {
+                    transaction.replace(R.id.frame, new CommissionFragment(), "CommissionFragment").addToBackStack(null).commit();
+                }
                 break;
             default:
                 break;

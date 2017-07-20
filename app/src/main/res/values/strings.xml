@@ -110,7 +110,7 @@
     <string name="bill_type_keep">Keep</string>
     <string name="bill_type_hold">Hold</string>
     /****************************Bill Type************************/
-    
+
     /**************************Payment channel***********************/
     <string name="title_bank_tranfer">Bank Transfer</string>
     <string name="bank_name_k_bank">KBANK</string>
@@ -190,5 +190,21 @@
     /***********************Member**************************/
     <string name="member_code">Member Code</string>
     /***********************Member**************************/
+
+    /***********************Commission**********************/
+    <string name="title_commission_day">Day</string>
+    <string name="title_commission_month">Month</string>
+    <string name="title_commission_year">Year</string>
+    <string name="title_commission_travel">Travel</string>
+    /***********************Commission**********************/
+
+    /************************Paid*****************************/
+    <string name="order_number">Order Number</string>
+    <string name="order_total">Total</string>
+    <string name="paid_date">Date</string>
+    <string name="paid_time">Time</string>
+    <string name="paid_picture">Picture</string>
+    <string name="upload_file">Upload file</string>
+    /************************Paid*****************************/
 
 </resources>

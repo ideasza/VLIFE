@@ -3,12 +3,10 @@ package teerayut.dev.vlife.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import teerayut.dev.vlife.R;
 import teerayut.dev.vlife.main.MainActivity;
-import teerayut.dev.vlife.payment.summary.SummaryFragment;
 
 /**
  * Created by OzoeSK on 7/5/2017.

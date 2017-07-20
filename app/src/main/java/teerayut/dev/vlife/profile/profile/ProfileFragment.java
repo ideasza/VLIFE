@@ -61,7 +61,7 @@ public class ProfileFragment extends Fragment {
     }
 
     @BindView(R.id.image_profile) CircleImageView imageView;
-    @BindView(R.id.change_image) RelativeLayout changeImage;
+    @BindView(R.id.change_image) CircleImageView changeImage;
     @BindView(R.id.profile_name) TextView username;
     @BindView(R.id.viewpager) ViewPager viewPager;
     @BindView(R.id.detail_tabs) TabLayout tabLayout;

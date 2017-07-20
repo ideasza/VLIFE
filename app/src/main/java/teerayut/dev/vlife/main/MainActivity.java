@@ -35,6 +35,7 @@ import teerayut.dev.vlife.authentication.AuthenticationActivity;
 import teerayut.dev.vlife.home.HomeFragment;
 import teerayut.dev.vlife.home.Item.CartItem;
 import teerayut.dev.vlife.news.NewsFragment;
+import teerayut.dev.vlife.paid.PaidFragment;
 import teerayut.dev.vlife.profile.ProfileActivity;
 import teerayut.dev.vlife.register.RegisterActivity;
 import teerayut.dev.vlife.utils.ActivityResultBus;
@@ -171,9 +172,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.menu_purchase:
                 toolbar.setTitle(navigationView.getMenu().getItem(3).getTitle());
-                Toast.makeText(getApplicationContext(),"Trash Selected", Toast.LENGTH_SHORT).show();
+                if (currentFragment instanceof PaidFragment) {
+                    drawerLayout.closeDrawers();
+                } else {
+                    transaction.replace(R.id.frame, new PaidFragment(), "PaidFragment").addToBackStack(null).commit();
+                }
                 break;
-
             case R.id.menu_login :
                 startActivityForResult(new Intent(MainActivity.this, AuthenticationActivity.class), Config.REQUEST_LOGIN);
                 break;
