@@ -13,6 +13,6 @@ public class SummaryPresenter implements SummaryInterface.Presenter {
 
     @Override
     public void sendOrder() {
-        view.onGoToHomePage();
+        view.onSuccess("");
     }
 }

@@ -8,6 +8,7 @@ import android.graphics.Color;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import teerayut.dev.vlife.R;
 import teerayut.dev.vlife.main.MainActivity;
+import teerayut.dev.vlife.payment.summary.SummaryFragment;
 
 /**
  * Created by OzoeSK on 7/5/2017.
@@ -55,19 +56,19 @@ public class Alert {
                 .show();
     }
 
-    public static void dialogSuccess(Context context, int msgID) {
-        new SweetAlertDialog(context, SweetAlertDialog.SUCCESS_TYPE)
-                .setTitleText(context.getResources().getString(R.string.dialog_title_success))
-                .setContentText(context.getResources().getString(msgID))
-                .setCancelText(context.getResources().getString(R.string.dialog_btn_ok))
-                .showCancelButton(false)
-                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                    @Override
-                    public void onClick(SweetAlertDialog dialog) {
-                        dialog.dismiss();
-                    }
-                })
-                .setCancelable(false);
+    public static void dialogSuccess(final Context context, int msgID, final Intent intent) {
+        sweetAlertDialog = new SweetAlertDialog(context, SweetAlertDialog.SUCCESS_TYPE);
+        sweetAlertDialog.setTitleText(context.getResources().getString(R.string.dialog_title_success));
+        sweetAlertDialog.setContentText(context.getResources().getString(R.string.dialog_msg_apply_success));
+        sweetAlertDialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+            @Override
+            public void onClick(SweetAlertDialog sweetAlertDialog) {
+                sweetAlertDialog.dismiss();
+                context.startActivity(intent);
+            }
+        });
+        sweetAlertDialog.setConfirmText(context.getResources().getString(R.string.dialog_btn_ok));
+        sweetAlertDialog.show();
     }
 
     public static void dialogNetworkWarning(final Context context) {

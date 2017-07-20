@@ -63,10 +63,10 @@ public class DetailFragment extends Fragment {
         ButterKnife.bind(this, view);
         setView();
         buttonNext.setOnClickListener( onNext() );
-        setCartItem();
+        setListItem();
     }
 
-    private void setCartItem() {
+    private void setListItem() {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
