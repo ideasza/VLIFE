@@ -158,12 +158,8 @@ public class MainActivity extends AppCompatActivity {
                     transaction.replace(R.id.frame, new HomeFragment(), "HomeFragment").addToBackStack(null).commit();
                 }
                 break;
-            case R.id.menu_profile:
-                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
-                finish();
-                break;
             case R.id.menu_news:
-                toolbar.setTitle(navigationView.getMenu().getItem(2).getTitle());
+                toolbar.setTitle(navigationView.getMenu().getItem(1).getTitle());
                 if (currentFragment instanceof NewsFragment) {
                     drawerLayout.closeDrawers();
                 } else {
@@ -171,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case R.id.menu_purchase:
-                toolbar.setTitle(navigationView.getMenu().getItem(3).getTitle());
+                toolbar.setTitle(navigationView.getMenu().getItem(2).getTitle());
                 if (currentFragment instanceof PaidFragment) {
                     drawerLayout.closeDrawers();
                 } else {
@@ -180,6 +176,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.menu_login :
                 startActivityForResult(new Intent(MainActivity.this, AuthenticationActivity.class), Config.REQUEST_LOGIN);
+                break;
+            case R.id.menu_profile:
+                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+                finish();
                 break;
             case R.id.menu_register:
                 startActivityForResult(new Intent(MainActivity.this, RegisterActivity.class), Config.REQUEST_REGISTER);

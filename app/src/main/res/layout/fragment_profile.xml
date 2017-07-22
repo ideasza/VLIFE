@@ -40,7 +40,7 @@
             android:fitsSystemWindows="true"
             android:background="@color/colorPrimaryDark"
             app:contentScrim="?attr/colorPrimaryDark"
-            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed">
+            app:layout_scrollFlags="enterAlways|enterAlwaysCollapsed">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/image_profile"

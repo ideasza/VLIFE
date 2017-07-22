@@ -198,7 +198,7 @@
             android:id="@+id/button_sending_update"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:backgroundTint="@color/colorPrimaryDark"
+            app:backgroundTint="@color/colorPrimaryDark"
             android:text="@string/button_update"
             android:textColor="@color/White"/>
 
