@@ -1,8 +1,13 @@
 <resources>
     <string name="app_name">VLIFE</string>
 
+    <string name="company_name">Vlife Co., Ltd.</string>
+
     <string name="openDrawer"></string>
     <string name="closeDrawer"></string>
+
+    <string name="open_Drawer"></string>
+    <string name="close_Drawer"></string>
 
     /********************Authentication page********************/
     <string name="username">ชื่อผู้ใช้</string>
@@ -201,5 +206,8 @@
     <string name="paid_picture">หลักฐานการโอนเงิน</string>
     <string name="upload_file">อัพโหลดไฟล์</string>
     /************************Paid*****************************/
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
