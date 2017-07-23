@@ -21,10 +21,10 @@
             android:id="@+id/profile_my_point"
             android:icon="@drawable/ic_my_point_48dp"
             android:title="@string/profile_menu_point"/>
-        <item
+        <!--<item
             android:id="@+id/profile_redeem_history"
             android:icon="@drawable/ic_history_white_48dp"
-            android:title="@string/profile_menu_redeem_history"/>
+            android:title="@string/profile_menu_redeem_history"/>-->
         <item
             android:id="@+id/profile_recomend"
             android:icon="@drawable/ic_diagram_48dp"

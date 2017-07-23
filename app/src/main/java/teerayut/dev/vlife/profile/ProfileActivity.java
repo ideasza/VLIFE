@@ -1,7 +1,6 @@
 package teerayut.dev.vlife.profile;
 
 import android.content.Intent;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,17 +14,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import teerayut.dev.vlife.R;
 import teerayut.dev.vlife.main.MainActivity;
-import teerayut.dev.vlife.profile.clam_history.ClamHistoryFragment;
+import teerayut.dev.vlife.profile.point.PointFragment;
+import teerayut.dev.vlife.profile.point.clam_history.ClamHistoryFragment;
 import teerayut.dev.vlife.profile.commission.CommissionFragment;
 import teerayut.dev.vlife.profile.hold.HoldFragment;
 import teerayut.dev.vlife.profile.order_history.OrderHistoryFragment;
-import teerayut.dev.vlife.profile.point.PointFragment;
+import teerayut.dev.vlife.profile.point.point_history.PointHistoryFragment;
 import teerayut.dev.vlife.profile.profile.ProfileFragment;
 import teerayut.dev.vlife.profile.recommend.RecommendFragment;
 import teerayut.dev.vlife.profile.upline.UplineFragment;
@@ -150,14 +149,14 @@ public class ProfileActivity extends AppCompatActivity {
                     transaction.replace(R.id.frame, new PointFragment(), "PointFragment").addToBackStack(null).commit();
                 }
                 break;
-            case R.id.profile_redeem_history :
+            /*case R.id.profile_redeem_history :
                 toolbar.setTitle(getResources().getString(R.string.profile_menu_redeem_history));
                 if (currentFragment instanceof ClamHistoryFragment) {
                     drawerLayout.closeDrawers();
                 } else {
                     transaction.replace(R.id.frame, new ClamHistoryFragment(), "ClamHistoryFragment").addToBackStack(null).commit();
                 }
-                break;
+                break;*/
             case R.id.profile_recomend :
                 toolbar.setTitle(getResources().getString(R.string.profile_menu_recomend));
                 if (currentFragment instanceof RecommendFragment) {

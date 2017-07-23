@@ -1,63 +1,83 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="teerayut.dev.vlife.profile.point.PointFragment">
+    android:fitsSystemWindows="true"
+    tools:context=".news.detail.NewsDetailActivity">
 
-    <LinearLayout
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-        <LinearLayout
+    <android.support.design.widget.TabLayout
+        android:id="@+id/detail_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="bottom"
+        android:background="?attr/colorPrimary"
+        app:layout_anchor="@+id/app_bar"
+        app:layout_anchorGravity="bottom"
+        app:tabGravity="fill"
+        app:tabMode="fixed"
+        app:tabMaxWidth="0dp"/>
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/activity_vertical_margin"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:background="@color/colorPrimaryDark"
+            app:contentScrim="?attr/colorPrimaryDark"
+            app:layout_scrollFlags="enterAlways|enterAlwaysCollapsed">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:background="@drawable/shape_pink"
-                android:gravity="center">
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:padding="4dp"
+                    android:text="4,716"
+                    android:textSize="26dp"
+                    android:background="@drawable/badge_cart_item"
+                    android:textColor="@color/colorPrimaryDark"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/White"
-                    android:text="4,716"
-                    android:textSize="24dp"/>
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:padding="4dp"
+                    android:text="วิธีการแลกคะแนน"
+                    android:background="@drawable/badge_cart_item"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:drawableRight="@drawable/ic_chevron_right_black_24dp"/>
 
-            </RelativeLayout>
+            </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="5dp"/>
+        </android.support.design.widget.CollapsingToolbarLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:padding="6dp"
-                android:text="วิธีการแลกคะแนน"
-                android:background="@drawable/badge_cart_item"
-                android:textColor="@color/colorPrimaryDark"
-                android:drawableRight="@drawable/ic_chevron_right_black_24dp"/>
+    </android.support.design.widget.AppBarLayout>
 
-        </LinearLayout>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </android.support.v7.widget.RecyclerView>
-
-    </LinearLayout>
-
-    <include layout="@layout/view_unavailable"/>
-
-</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

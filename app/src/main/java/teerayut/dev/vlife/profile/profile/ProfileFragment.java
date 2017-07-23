@@ -141,8 +141,6 @@ public class ProfileFragment extends Fragment {
                     /*Uri selectedImage = data.getData();*/
                     imageView.setImageURI(pictureUri);
                     //Log.e("Camera", data.getData().toString());
-
-
                 }
                 break;
             default:break;
