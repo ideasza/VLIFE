@@ -34,6 +34,9 @@
     <string name="dialog_msg_apply_error">ไม่สามารถส่งรายการสั่งซื้อได้</string>
     <string name="dialog_msg_apply_success">ทำรายการสั่งซื้อแล้ว</string>
     <string name="dialog_choose_gallery_or_camera">เลือกจากแกลลอรี่หรือถ่ายรูป</string>
+    <string name="dialog_msg_email_empty">กรุณากรอกอีเมลที่ใช้สมัครสมาชิก</string>
+    <string name="dialog_msg_no_email_register">ไม่พบอีเมลนี้</string>
+    <string name="dialog_msg_sent_email_success">ส่งรหัสผ่านไปยังอีเมลของคุณแล้ว</string>
 
     <string name="dialog_btn_cancel">ยกเลิก</string>
     <string name="dialog_btn_ok">ตกลง</string>
@@ -64,6 +67,7 @@
 
     /*************************Forget password*********************/
     <string name="edittext_hint_forget">อีเมล</string>
+    <string name="text_to_reset_password">เราต้องการเพียงอีเมลที่ลงทะเบียนเพื่อส่งคำแนะนำ\nในการรีเซ็ตรหัสผ่านของคุณ</string>
     /*************************Forget password*********************/
 
     /**************************Service unvailable*********************/

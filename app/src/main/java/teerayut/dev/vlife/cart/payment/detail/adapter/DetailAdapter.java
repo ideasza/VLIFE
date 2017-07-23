@@ -34,7 +34,7 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ViewHolder
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context) .inflate(R.layout.cardview_history, parent, false);
+        View view = LayoutInflater.from(context) .inflate(R.layout.cardview_payment_summary, parent, false);
         return new ViewHolder(view);
     }
 

@@ -41,8 +41,7 @@
             android:padding="4dp"
             android:text="Lorem ipsum dolor sit amet"
             android:maxLength="50"
-            android:drawableRight="@drawable/ms_ic_chevron_right"
-            android:drawableTint="@color/colorPrimaryDark"/>
+            android:drawableRight="@drawable/ic_chevron_right_black_24dp"/>
 
     </LinearLayout>
 

@@ -62,7 +62,9 @@ public class Alert {
             @Override
             public void onClick(SweetAlertDialog sweetAlertDialog) {
                 sweetAlertDialog.dismiss();
-                context.startActivity(intent);
+                if (intent != null) {
+                    context.startActivity(intent);
+                }
             }
         });
         sweetAlertDialog.setConfirmText(context.getResources().getString(R.string.dialog_btn_ok));

@@ -65,7 +65,6 @@ public class RegisterSendingAddressFragment extends Fragment {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.e("Button confirm", "Confirm");
                 clickButtonNext.OnClickButtonNext(view);
             }
         };

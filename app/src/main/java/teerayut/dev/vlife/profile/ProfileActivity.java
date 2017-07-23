@@ -21,9 +21,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import teerayut.dev.vlife.R;
 import teerayut.dev.vlife.main.MainActivity;
+import teerayut.dev.vlife.profile.clam_history.ClamHistoryFragment;
 import teerayut.dev.vlife.profile.commission.CommissionFragment;
+import teerayut.dev.vlife.profile.hold.HoldFragment;
 import teerayut.dev.vlife.profile.order_history.OrderHistoryFragment;
+import teerayut.dev.vlife.profile.point.PointFragment;
 import teerayut.dev.vlife.profile.profile.ProfileFragment;
+import teerayut.dev.vlife.profile.recommend.RecommendFragment;
+import teerayut.dev.vlife.profile.upline.UplineFragment;
 import teerayut.dev.vlife.utils.ActivityResultBus;
 import teerayut.dev.vlife.utils.ActivityResultEvent;
 
@@ -130,14 +135,44 @@ public class ProfileActivity extends AppCompatActivity {
                 }
                 break;
             case R.id.profile_bill_hold :
+                toolbar.setTitle(getResources().getString(R.string.profile_menu_bill_hold));
+                if (currentFragment instanceof HoldFragment) {
+                    drawerLayout.closeDrawers();
+                } else {
+                    transaction.replace(R.id.frame, new HoldFragment(), "HoldFragment").addToBackStack(null).commit();
+                }
                 break;
             case R.id.profile_my_point :
+                toolbar.setTitle(getResources().getString(R.string.profile_menu_point));
+                if (currentFragment instanceof PointFragment) {
+                    drawerLayout.closeDrawers();
+                } else {
+                    transaction.replace(R.id.frame, new PointFragment(), "PointFragment").addToBackStack(null).commit();
+                }
                 break;
             case R.id.profile_redeem_history :
+                toolbar.setTitle(getResources().getString(R.string.profile_menu_redeem_history));
+                if (currentFragment instanceof ClamHistoryFragment) {
+                    drawerLayout.closeDrawers();
+                } else {
+                    transaction.replace(R.id.frame, new ClamHistoryFragment(), "ClamHistoryFragment").addToBackStack(null).commit();
+                }
                 break;
             case R.id.profile_recomend :
+                toolbar.setTitle(getResources().getString(R.string.profile_menu_recomend));
+                if (currentFragment instanceof RecommendFragment) {
+                    drawerLayout.closeDrawers();
+                } else {
+                    transaction.replace(R.id.frame, new RecommendFragment(), "RecommendFragment").addToBackStack(null).commit();
+                }
                 break;
             case R.id.profile_upline :
+                toolbar.setTitle(getResources().getString(R.string.profile_menu_upline));
+                if (currentFragment instanceof UplineFragment) {
+                    drawerLayout.closeDrawers();
+                } else {
+                    transaction.replace(R.id.frame, new UplineFragment(), "UplineFragment").addToBackStack(null).commit();
+                }
                 break;
             case R.id.profile_com :
                 toolbar.setTitle(getResources().getString(R.string.profile_menu_comission));

@@ -26,21 +26,34 @@
             android:layout_marginBottom="16dp"
             android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="180dp"
-                android:layout_height="120dp"
+            <TextView
+                android:id="@+id/img_logo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center"
-                android:layout_gravity="center"
-                android:src="@drawable/forget"/>
+                android:text="@string/app_name"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="36sp"/>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="16dp"/>
+                android:layout_height="5dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/text_to_reset_password"
+                android:textColor="@color/colorPrimaryDark"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/TextLabel_Forget">
+                android:theme="@style/TextLabel_Forget">
 
                 <EditText
                     android:id="@+id/forget_input"
