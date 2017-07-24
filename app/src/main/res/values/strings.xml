@@ -211,4 +211,12 @@
     <string name="upload_file">Upload file</string>
     /************************Paid*****************************/
 
+    /************************Order history***********************/
+    <string name="history_title_number">Number</string>
+    /************************Order history***********************/
+
+    /*************************Hold***********************/
+    <string name="hold_title_pieces">Pieces</string>
+    /*************************Hold***********************/
+
 </resources>

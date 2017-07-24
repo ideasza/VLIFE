@@ -1,20 +1,17 @@
-package teerayut.dev.vlife.profile.order_history.item;
+package teerayut.dev.vlife.profile.hold.item;
 
-import com.android.tonyvu.sc.model.Saleable;
-
-import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.List;
 
 import teerayut.dev.vlife.home.Item.ProductItem;
 
 /**
- * Created by teerayut.k on 7/16/2017.
+ * Created by teerayut.k on 7/24/2017.
  */
 
-public class OrderHistoryItem{
+public class HoldItem {
 
     private String orderNumber;
+    private String orderAmount;
     private String orderType;
     private String orderDate;
     private String memberCode;
@@ -23,16 +20,20 @@ public class OrderHistoryItem{
 
     private List<ProductItem> productItems;
 
-    public OrderHistoryItem() {
-
-    }
-
     public String getOrderNumber() {
         return orderNumber;
     }
 
     public void setOrderNumber(String orderNumber) {
         this.orderNumber = orderNumber;
+    }
+
+    public String getOrderAmount() {
+        return orderAmount;
+    }
+
+    public void setOrderAmount(String orderAmount) {
+        this.orderAmount = orderAmount;
     }
 
     public String getOrderType() {
