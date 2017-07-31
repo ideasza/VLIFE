@@ -11,6 +11,10 @@ public class PointItem {
     private String pointType;
     private String point;
 
+    public PointItem() {
+
+    }
+
     public String getOrderNumber() {
         return orderNumber;
     }
