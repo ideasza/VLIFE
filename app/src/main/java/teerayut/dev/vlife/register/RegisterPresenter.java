@@ -1,18 +1,19 @@
 package teerayut.dev.vlife.register;
 
+import teerayut.dev.vlife.base.BaseMvpPresenter;
+
 /**
  * Created by teerayut.k on 7/15/2017.
  */
 
-public class RegisterPresenter implements RegisterInterface.Presenter {
+public class RegisterPresenter extends BaseMvpPresenter<RegisterInterface.View> implements RegisterInterface.Presenter {
 
-    private RegisterInterface.View view;
-    public RegisterPresenter(RegisterInterface.View view) {
-        this.view = view;
+    public static RegisterInterface.Presenter create() {
+        return new RegisterPresenter();
     }
 
     @Override
     public void nextViewPager(int currentPage) {
-        view.onNextViewPager(currentPage + 1);
+        getView().onNextViewPager(currentPage + 1);
     }
 }

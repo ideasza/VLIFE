@@ -14,29 +14,42 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import teerayut.dev.vlife.R;
+import teerayut.dev.vlife.base.BaseMvpActivity;
 import teerayut.dev.vlife.utils.Alert;
 
-public class ForgetActivity extends AppCompatActivity implements ForgetInterface.View {
+public class ForgetActivity extends BaseMvpActivity<ForgetInterface.Presenter> implements ForgetInterface.View {
 
-    private ForgetInterface.Presenter presenter;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forget);
-        bindView();
+    public ForgetInterface.Presenter createPresenter() {
+        return ForgetPresenter.create();
+    }
+
+    @Override
+    public int getLayoutView() {
+        return R.layout.activity_forget;
     }
 
     @BindView(R.id.forget_input) EditText input_email;
     @BindView(R.id.toolbar) Toolbar toolbar;
-    private void bindView() {
+    @Override
+    public void bindView() {
         ButterKnife.bind(this);
+    }
+
+    @Override
+    public void setupInstance() {
+
+    }
+
+    @Override
+    public void setupView() {
         setToolbar();
-        setInstance();
         resetPassword();
     }
 
-    private void setInstance() {
-        presenter = new ForgetPresenter(this);
+    @Override
+    public void initialize() {
+
     }
 
     private void setToolbar() {
@@ -52,7 +65,7 @@ public class ForgetActivity extends AppCompatActivity implements ForgetInterface
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
                     InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(input_email.getWindowToken(), 0);
-                    presenter.onResetPassword(input_email.getText().toString());
+                    getPresenter().onResetPassword(input_email.getText().toString());
                     return true;
                 }
                 return false;

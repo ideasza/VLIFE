@@ -3,38 +3,38 @@ package teerayut.dev.vlife.authentication;
 import android.content.Context;
 
 import teerayut.dev.vlife.R;
+import teerayut.dev.vlife.base.BaseMvpPresenter;
 
 /**
  * Created by teerayut.k on 7/13/2017.
  */
 
-public class AuthenticationPresenter implements AuthenticationInterface.Presenter{
+public class AuthenticationPresenter extends BaseMvpPresenter<AuthenticationInterface.View> implements AuthenticationInterface.Presenter{
 
-    private AuthenticationInterface.View view;
-    public AuthenticationPresenter(AuthenticationInterface.View view) {
-        this.view = view;
+    public static AuthenticationInterface.Presenter create() {
+        return new AuthenticationPresenter();
     }
 
     @Override
     public void authen(Context context, String username, String password) {
         if (username.equals("") || password.equals("")) {
-            view.onFail(context.getResources().getString(R.string.dialog_msg_login_empty));
+            getView().onFail(context.getResources().getString(R.string.dialog_msg_login_empty));
         } else {
             if (!username.equals("0000018") && !password.equals("1234")) {
-                view.onFail(context.getResources().getString(R.string.dialog_msg_login_fail));
+                getView().onFail(context.getResources().getString(R.string.dialog_msg_login_fail));
             } else {
-                view.onSuccess();
+                getView().onSuccess();
             }
         }
     }
 
     @Override
     public void forget() {
-        view.onGoToForget();
+        getView().onGoToForget();
     }
 
     @Override
     public void register() {
-        view.onGoToSignUP();
+        getView().onGoToSignUP();
     }
 }

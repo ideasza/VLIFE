@@ -22,6 +22,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import teerayut.dev.vlife.R;
+import teerayut.dev.vlife.base.BaseMvpFragment;
 import teerayut.dev.vlife.news.adapter.NewsAdapter;
 import teerayut.dev.vlife.news.detail.NewsDetailActivity;
 import teerayut.dev.vlife.news.item.NewsItem;
@@ -32,7 +33,7 @@ import teerayut.dev.vlife.utils.Config;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NewsFragment extends Fragment implements NewsInterface.View, NewsAdapter.OnClickNewsItemListener {
+public class NewsFragment extends BaseMvpFragment<NewsInterface.Presenter> implements NewsInterface.View, NewsAdapter.OnClickNewsItemListener {
 
     public NewsFragment() {
         // Required empty public constructor
@@ -47,16 +48,30 @@ public class NewsFragment extends Fragment implements NewsInterface.View, NewsAd
     }
 
     private NewsAdapter adapter;
-    private NewsInterface.Presenter presenter;
     private List<NewsItem> newsItemList = new ArrayList<NewsItem>();
     @BindView(R.id.btn_try_again) Button buttonTryAgain;
     @BindView(R.id.recyclerview) RecyclerView recyclerView;
     @BindView(R.id.container_service_unavailable) FrameLayout serviceUnvailable;
     @BindView(R.id.swipeRefreshLayout) SwipeRefreshLayout swipeRefreshLayout;
-    private void bindView(View view) {
+    @Override
+    public void bindView(View view) {
         ButterKnife.bind(this, view);
         setView();
-        setInstance();
+    }
+
+    @Override
+    public void setupInstance() {
+
+    }
+
+    @Override
+    public void setupView() {
+        setView();
+    }
+
+    @Override
+    public void initialize() {
+
     }
 
     private void setView() {
@@ -72,14 +87,9 @@ public class NewsFragment extends Fragment implements NewsInterface.View, NewsAd
             @Override
             public void onRefresh() {
                 recyclerView.setAdapter(null);
-                presenter.requestNews();
+                getPresenter().requestNews();
             }
         });
-    }
-
-    private void setInstance() {
-        presenter = new NewsPresenter(this);
-        presenter.requestNews();
     }
 
     @Override
@@ -124,6 +134,16 @@ public class NewsFragment extends Fragment implements NewsInterface.View, NewsAd
         ActivityResultBus.getInstance().unregister(mActivityResultSubscriber);
     }
 
+    @Override
+    public NewsInterface.Presenter createPresenter() {
+        return NewsPresenter.create();
+    }
+
+    @Override
+    public int getLayoutView() {
+        return 0;
+    }
+
     private Object mActivityResultSubscriber = new Object() {
         @Subscribe
         public void onActivityResultReceived(ActivityResultEvent event) {
@@ -138,7 +158,7 @@ public class NewsFragment extends Fragment implements NewsInterface.View, NewsAd
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.requestNews();
+                getPresenter().requestNews();
             }
         };
     }

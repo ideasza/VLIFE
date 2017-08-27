@@ -16,38 +16,55 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.bit.szw.widget.StepView;
 import teerayut.dev.vlife.R;
+import teerayut.dev.vlife.base.BaseMvpActivity;
 import teerayut.dev.vlife.cart.payment.adapter.ViewPagerAdapter;
 import teerayut.dev.vlife.cart.payment.delivery.DeliveryFragment;
 import teerayut.dev.vlife.cart.payment.detail.DetailFragment;
 import teerayut.dev.vlife.cart.payment.pay.PayFragment;
 
-public class PaymentActivity extends AppCompatActivity implements PaymentInterface.View, DeliveryFragment.onClickButtonNext,
+public class PaymentActivity extends BaseMvpActivity<PaymentInterface.Presenter> implements PaymentInterface.View, DeliveryFragment.onClickButtonNext,
         DetailFragment.onClickButtonNext, PayFragment.onClickButtonNext {
 
     private int currentPage = 0;
     private ViewPagerAdapter adapter;
-    private PaymentInterface.Presenter presenter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_payment);
-        bindView();
-        setView();
+    public PaymentInterface.Presenter createPresenter() {
+        return PaymentPresenter.create();
+    }
+
+    @Override
+    public int getLayoutView() {
+        return R.layout.activity_payment;
     }
 
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.stepview) StepView stepView;
     @BindView(R.id.pager) ViewPager pager;
-    private void bindView() {
+    @Override
+    public void bindView() {
         ButterKnife.bind(this);
+    }
+
+    @Override
+    public void setupInstance() {
+
+    }
+
+    @Override
+    public void setupView() {
+        setView();
+    }
+
+    @Override
+    public void initialize() {
+
     }
 
     private void setView() {
         setToolbar();
         setIntance();
         setStepView(1);
-        presenter = new PaymentPresenter(this);
     }
 
     private void setToolbar() {
@@ -133,13 +150,13 @@ public class PaymentActivity extends AppCompatActivity implements PaymentInterfa
     public void OnClickButtonNext(View view) {
         switch (view.getId()) {
             case R.id.button_delivery_next :
-                presenter.nextViewPager(pager.getCurrentItem());
+                getPresenter().nextViewPager(pager.getCurrentItem());
                 break;
             case R.id.button_detail_next :
-                presenter.nextViewPager(pager.getCurrentItem());
+                getPresenter().nextViewPager(pager.getCurrentItem());
                 break;
             case R.id.button_pay_next :
-                presenter.nextViewPager(pager.getCurrentItem());
+                getPresenter().nextViewPager(pager.getCurrentItem());
                 break;
         }
     }

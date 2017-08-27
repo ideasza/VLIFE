@@ -32,6 +32,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import teerayut.dev.vlife.R;
 import teerayut.dev.vlife.authentication.AuthenticationActivity;
+import teerayut.dev.vlife.base.BaseMvpActivity;
 import teerayut.dev.vlife.home.HomeFragment;
 import teerayut.dev.vlife.home.Item.CartItem;
 import teerayut.dev.vlife.news.NewsFragment;
@@ -47,7 +48,7 @@ import teerayut.dev.vlife.utils.MyApplication;
  * Created by teerayut.k on 7/9/2017.
  */
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseMvpActivity<MainInterface.Presenter> implements MainInterface.View {
 
     private Snackbar snackbar;
     private MenuItem menuItemClicked;
@@ -64,20 +65,39 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.drawer) DrawerLayout drawerLayout;
     @BindView(R.id.navigation_view) NavigationView navigationView;
-    private void bindView() {
+    @Override
+    public void bindView() {
         ButterKnife.bind(this);
     }
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        bindView();
-        setView();
+    public void setupInstance() {
 
-        if (savedInstanceState == null) {
+    }
+
+    @Override
+    public void setupView() {
+        setToolbar();
+        setMainMenu();
+        loginSession();
+    }
+
+    @Override
+    public void initialize() {
+        /*if (savedInstanceState == null) {
             loadHomePage();
-        }
+        }*/
+        loadHomePage();
+    }
+
+    @Override
+    public MainInterface.Presenter createPresenter() {
+        return MainPresenter.create();
+    }
+
+    @Override
+    public int getLayoutView() {
+        return R.layout.activity_main;
     }
 
     @Override
@@ -89,12 +109,6 @@ public class MainActivity extends AppCompatActivity {
         } else if (requestCode == Config.REQUEST_LOGIN) {
             loginSession();
         }
-    }
-
-    private void setView() {
-        setToolbar();
-        setMainMenu();
-        loginSession();
     }
 
     private void loadHomePage() {

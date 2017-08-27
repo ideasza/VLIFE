@@ -33,6 +33,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import teerayut.dev.vlife.R;
+import teerayut.dev.vlife.base.BaseMvpFragment;
 import teerayut.dev.vlife.cart.CartActivity;
 import teerayut.dev.vlife.home.Item.CartItem;
 import teerayut.dev.vlife.home.Item.ProductItem;
@@ -45,10 +46,9 @@ import teerayut.dev.vlife.utils.ExtactCartItem;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment implements HomeInterface.View {
+public class HomeFragment extends BaseMvpFragment<HomeInterface.Presenter> implements HomeInterface.View {
 
     private HomeAdapter adapter;
-    private HomeInterface.Presenter presenter;
     private int badgeQuantity = 0;
     private Cart cart = CartHelper.getCart();
     private List<CartItem> cartItemList = Collections.emptyList();
@@ -57,28 +57,34 @@ public class HomeFragment extends Fragment implements HomeInterface.View {
         // Required empty public constructor
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        bindView(view);
-        return view;
-    }
-
     @BindView(R.id.btn_try_again) Button buttonTryAgain;
     @BindView(R.id.recyclerview) RecyclerView recyclerView;
     @BindView(R.id.swipeRefreshLayout) SwipeRefreshLayout swipeRefreshLayout;
     @BindView(R.id.container_service_unavailable) FrameLayout containerUnvailable;
-    private void bindView(View view) {
+    @Override
+    public void bindView(View view) {
         ButterKnife.bind(this, view);
+    }
+
+    @Override
+    public void setupInstance() {
+
+    }
+
+    @Override
+    public void setupView() {
         setView();
+    }
+
+    @Override
+    public void initialize() {
+        getPresenter().requestItem();
     }
 
     private void setView() {
         containerUnvailable.setVisibility(View.VISIBLE);
         buttonTryAgain.setOnClickListener( onTryAgain() );
         setHasOptionsMenu(true);
-        setIntance();
 
         swipeRefreshLayout.setColorSchemeResources(
                 R.color.colorPrimaryDark,
@@ -89,14 +95,9 @@ public class HomeFragment extends Fragment implements HomeInterface.View {
             @Override
             public void onRefresh() {
                 recyclerView.setAdapter(null);
-                presenter.requestItem();
+                getPresenter().requestItem();
             }
         });
-    }
-
-    private void setIntance() {
-        presenter = new HomePresenter(this);
-        presenter.requestItem();
     }
 
     @Override
@@ -183,6 +184,16 @@ public class HomeFragment extends Fragment implements HomeInterface.View {
         ActivityResultBus.getInstance().unregister(mActivityResultSubscriber);
     }
 
+    @Override
+    public HomeInterface.Presenter createPresenter() {
+        return HomePresenter.create();
+    }
+
+    @Override
+    public int getLayoutView() {
+        return R.layout.fragment_home;
+    }
+
     private Object mActivityResultSubscriber = new Object() {
         @Subscribe
         public void onActivityResultReceived(ActivityResultEvent event) {
@@ -216,7 +227,7 @@ public class HomeFragment extends Fragment implements HomeInterface.View {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.requestItem();
+                getPresenter().requestItem();
             }
         };
     }

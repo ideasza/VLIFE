@@ -2,20 +2,22 @@ package teerayut.dev.vlife.authentication;
 
 import android.content.Context;
 
+import teerayut.dev.vlife.base.BaseMvpInterface;
+
 /**
  * Created by teerayut.k on 7/13/2017.
  */
 
-public interface AuthenticationInterface {
+public class AuthenticationInterface {
 
-    public interface View {
+    public interface View extends BaseMvpInterface.View {
         void onFail(String fail);
         void onSuccess();
         void onGoToSignUP();
         void onGoToForget();
     }
 
-    public interface Presenter {
+    public interface Presenter extends BaseMvpInterface.Presenter<AuthenticationInterface.View> {
         void authen(Context context, String username, String password);
         void forget();
         void register();

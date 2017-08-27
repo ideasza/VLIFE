@@ -22,6 +22,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import teerayut.dev.vlife.R;
+import teerayut.dev.vlife.base.BaseMvpFragment;
 import teerayut.dev.vlife.home.Item.CartItem;
 import teerayut.dev.vlife.main.MainActivity;
 import teerayut.dev.vlife.cart.payment.detail.adapter.DetailAdapter;
@@ -31,7 +32,7 @@ import teerayut.dev.vlife.utils.ExtactCartItem;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SummaryFragment extends Fragment implements SummaryInterface.View{
+public class SummaryFragment extends BaseMvpFragment<SummaryInterface.Presenter> implements SummaryInterface.View{
 
 
     public static SummaryFragment newInstance() {
@@ -46,14 +47,14 @@ public class SummaryFragment extends Fragment implements SummaryInterface.View{
         // Required empty public constructor
     }
 
-    private SummaryInterface.Presenter presenter;
+    @Override
+    public SummaryInterface.Presenter createPresenter() {
+        return SummaryPresenter.create();
+    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_summary, container, false);
-        bindView(view);
-        return view;
+    public int getLayoutView() {
+        return R.layout.fragment_summary;
     }
 
     @BindView(R.id.recyclerview) RecyclerView recyclerView;
@@ -61,16 +62,27 @@ public class SummaryFragment extends Fragment implements SummaryInterface.View{
     @BindView(R.id.summary_delivery) TextView deliverYBy;
     @BindView(R.id.summary_address_delivery) TextView addressDelivery;
     @BindView(R.id.button_summary_apply) Button buttonApply;
-    private void bindView(View view) {
+    @Override
+    public void bindView(View view) {
         ButterKnife.bind(this, view);
+
+    }
+
+    @Override
+    public void setupInstance() {
+
+    }
+
+    @Override
+    public void setupView() {
         buttonApply.setOnClickListener( onApply() );
-        setInstance();
         setListItem();
         setDetailSummary();
     }
 
-    private void setInstance() {
-        presenter = new SummaryPresenter(this);
+    @Override
+    public void initialize() {
+
     }
 
     private void setListItem() {
@@ -129,7 +141,7 @@ public class SummaryFragment extends Fragment implements SummaryInterface.View{
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.sendOrder();
+                getPresenter().sendOrder();
             }
         };
     }

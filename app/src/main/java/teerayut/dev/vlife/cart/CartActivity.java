@@ -22,6 +22,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import teerayut.dev.vlife.R;
+import teerayut.dev.vlife.base.BaseMvpActivity;
 import teerayut.dev.vlife.cart.adapter.CartAdapter;
 import teerayut.dev.vlife.home.Item.CartItem;
 import teerayut.dev.vlife.cart.payment.PaymentActivity;
@@ -29,7 +30,7 @@ import teerayut.dev.vlife.utils.AnimateButton;
 import teerayut.dev.vlife.utils.Config;
 import teerayut.dev.vlife.utils.ExtactCartItem;
 
-public class CartActivity extends AppCompatActivity implements CartAdapter.ClickListener{
+public class CartActivity extends BaseMvpActivity<CartInterface.Presenter> implements CartInterface.View, CartAdapter.ClickListener{
 
     private int pv = 0;
     private int price = 0;
@@ -38,11 +39,13 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.Click
     private List<CartItem> cartItemList = Collections.emptyList();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cart);
-        bindView();
-        setView();
+    public CartInterface.Presenter createPresenter() {
+        return CartPresenter.create();
+    }
+
+    @Override
+    public int getLayoutView() {
+        return R.layout.activity_cart;
     }
 
     @BindView(R.id.toolbar) Toolbar toolbar;
@@ -51,14 +54,26 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.Click
     @BindView(R.id.textViewTotal) TextView textTotalPrice;
     @BindView(R.id.button_payment) Button buttonPayment;
     @BindView(R.id.container_cart_empty) FrameLayout containerCartEmpty;
-    private void bindView() {
+    @Override
+    public void bindView() {
         ButterKnife.bind(this);
     }
 
-    private void setView() {
+    @Override
+    public void setupInstance() {
+
+    }
+
+    @Override
+    public void setupView() {
         setToolbar();
         setCartItem();
         buttonPayment.setOnClickListener( onPayment() );
+    }
+
+    @Override
+    public void initialize() {
+
     }
 
     private void setToolbar() {

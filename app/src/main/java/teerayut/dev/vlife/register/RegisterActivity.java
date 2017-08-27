@@ -17,33 +17,51 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.bit.szw.widget.StepView;
 import teerayut.dev.vlife.R;
+import teerayut.dev.vlife.base.BaseMvpActivity;
 import teerayut.dev.vlife.register.adapter.ViewPagerAdapter;
 import teerayut.dev.vlife.register.address.RegisterAddressFragment;
 import teerayut.dev.vlife.register.register_main.RegisterMainFragment;
 import teerayut.dev.vlife.register.register_partner.RegisterPartnerFragment;
 import teerayut.dev.vlife.register.sending_address.RegisterSendingAddressFragment;
 
-public class RegisterActivity extends AppCompatActivity implements RegisterInterface.View, RegisterMainFragment.onClickButtonNext,
+public class RegisterActivity extends BaseMvpActivity<RegisterInterface.Presenter> implements RegisterInterface.View, RegisterMainFragment.onClickButtonNext,
         RegisterPartnerFragment.onClickButtonNext, RegisterAddressFragment.onClickButtonNext, RegisterSendingAddressFragment.onClickButtonNext{
 
     private ViewPagerAdapter adapter;
-    private RegisterInterface.Presenter presenter;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-        bindView();
+    public RegisterInterface.Presenter createPresenter() {
+        return RegisterPresenter.create();
+    }
+
+    @Override
+    public int getLayoutView() {
+        return R.layout.activity_register;
     }
 
     @BindView(R.id.stepview) StepView stepView;
     @BindView(R.id.pager) ViewPager viewPager;
     @BindView(R.id.toolbar) Toolbar toolbar;
-    private void bindView() {
+    @Override
+    public void bindView() {
         ButterKnife.bind(this);
+    }
+
+    @Override
+    public void setupInstance() {
+
+    }
+
+    @Override
+    public void setupView() {
         setToolbar();
-        setInstance();
+        setViewPager();
         setStepView(1);
-        presenter = new RegisterPresenter(this);
+    }
+
+    @Override
+    public void initialize() {
+
     }
 
     private void setToolbar() {
@@ -52,7 +70,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterInter
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    private void setInstance() {
+    private void setViewPager() {
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -113,13 +131,13 @@ public class RegisterActivity extends AppCompatActivity implements RegisterInter
     public void OnClickButtonNext(View view) {
         switch (view.getId()) {
             case R.id.button_main_next :
-                presenter.nextViewPager(viewPager.getCurrentItem());
+                getPresenter().nextViewPager(viewPager.getCurrentItem());
                 break;
             case R.id.button_partner_next :
-                presenter.nextViewPager(viewPager.getCurrentItem());
+                getPresenter().nextViewPager(viewPager.getCurrentItem());
                 break;
             case R.id.button_address_next :
-                presenter.nextViewPager(viewPager.getCurrentItem());
+                getPresenter().nextViewPager(viewPager.getCurrentItem());
                 break;
             case R.id.button_sending_address_next :
                 break;

@@ -1,24 +1,26 @@
 package teerayut.dev.vlife.forgetpassword;
 
+import teerayut.dev.vlife.base.BaseMvpPresenter;
+
 /**
  * Created by teerayut.k on 7/23/2017.
  */
 
-public class ForgetPresenter implements ForgetInterface.Presenter {
+public class ForgetPresenter extends BaseMvpPresenter<ForgetInterface.View> implements ForgetInterface.Presenter {
 
-    private ForgetInterface.View view;
-    public ForgetPresenter(ForgetInterface.View view) {
-        this.view = view;
+    public static ForgetInterface.Presenter create() {
+        return new ForgetPresenter();
     }
+
     @Override
     public void onResetPassword(String email) {
-        view.onLoad();
+        getView().onLoad();
         if (email.isEmpty()) {
-            view.onDismiss();
-            view.onFail("empty");
+            getView().onDismiss();
+            getView().onFail("empty");
         } else {
-            view.onDismiss();
-            view.onSuccess();
+            getView().onDismiss();
+            getView().onSuccess();
         }
     }
 }

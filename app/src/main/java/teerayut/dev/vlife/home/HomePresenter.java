@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import teerayut.dev.vlife.base.BaseMvpPresenter;
 import teerayut.dev.vlife.home.Item.ProductItem;
 import teerayut.dev.vlife.utils.Config;
 
@@ -11,15 +12,13 @@ import teerayut.dev.vlife.utils.Config;
  * Created by teerayut.k on 7/9/2017.
  */
 
-public class HomePresenter implements HomeInterface.Presenter {
-
-    private HomeInterface.View view;
+public class HomePresenter extends BaseMvpPresenter<HomeInterface.View> implements HomeInterface.Presenter {
 
     private ProductItem itemModel;
     private List<ProductItem> itemModelList = new ArrayList<ProductItem>();
 
-    public HomePresenter(HomeInterface.View view) {
-        this.view = view;
+    public static HomeInterface.Presenter create() {
+        return new HomePresenter();
     }
 
     @Override
@@ -82,6 +81,6 @@ public class HomePresenter implements HomeInterface.Presenter {
         itemModel.setImage(Config.PRODUCT_URL_7);
         itemModelList.add(itemModel);
 
-        view.setItemToRecyclerView(itemModelList);
+        getView().setItemToRecyclerView(itemModelList);
     }
 }

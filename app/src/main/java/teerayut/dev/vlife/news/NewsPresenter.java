@@ -3,6 +3,7 @@ package teerayut.dev.vlife.news;
 import java.util.ArrayList;
 import java.util.List;
 
+import teerayut.dev.vlife.base.BaseMvpPresenter;
 import teerayut.dev.vlife.news.item.NewsItem;
 import teerayut.dev.vlife.utils.Config;
 
@@ -10,13 +11,13 @@ import teerayut.dev.vlife.utils.Config;
  * Created by teerayut.k on 7/12/2017.
  */
 
-public class NewsPresenter implements NewsInterface.Presenter {
+public class NewsPresenter extends BaseMvpPresenter<NewsInterface.View> implements NewsInterface.Presenter {
 
     private NewsItem item;
-    private NewsInterface.View view;
     private List<NewsItem> newsItemList = new ArrayList<NewsItem>();
-    public NewsPresenter(NewsInterface.View view) {
-        this.view = view;
+
+    public static NewsInterface.Presenter create() {
+        return new NewsPresenter();
     }
 
     @Override
@@ -59,6 +60,6 @@ public class NewsPresenter implements NewsInterface.Presenter {
         item.setNewsImage(Config.NEWS_URL_1);
         newsItemList.add(item);
 
-        view.setItemToRecyclerView(newsItemList);
+        getView().setItemToRecyclerView(newsItemList);
     }
 }

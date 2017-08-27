@@ -18,6 +18,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import teerayut.dev.vlife.R;
+import teerayut.dev.vlife.base.BaseMvpActivity;
 import teerayut.dev.vlife.forgetpassword.ForgetActivity;
 import teerayut.dev.vlife.register.RegisterActivity;
 import teerayut.dev.vlife.utils.Alert;
@@ -25,14 +26,16 @@ import teerayut.dev.vlife.utils.AnimateButton;
 import teerayut.dev.vlife.utils.Config;
 import teerayut.dev.vlife.utils.MyApplication;
 
-public class AuthenticationActivity extends AppCompatActivity implements AuthenticationInterface.View{
+public class AuthenticationActivity extends BaseMvpActivity<AuthenticationInterface.Presenter> implements AuthenticationInterface.View{
 
-    private AuthenticationInterface.Presenter presenter;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_authentication);
-        bindView();
+    public AuthenticationInterface.Presenter createPresenter() {
+        return AuthenticationPresenter.create();
+    }
+
+    @Override
+    public int getLayoutView() {
+        return R.layout.activity_authentication;
     }
 
     @BindView(R.id.forgetpassword) TextView forget;
@@ -42,25 +45,9 @@ public class AuthenticationActivity extends AppCompatActivity implements Authent
     @BindView(R.id.user_pwd) EditText userPassword;
     @BindView(R.id.button_sign_in) Button login;
     @BindView(R.id.toolbar) Toolbar toolbar;
-    private void bindView() {
+    @Override
+    public void bindView() {
         ButterKnife.bind(this);
-        setToolbar();
-        setInstance();
-        login.setOnClickListener( onLogin() );
-        regisTer.setOnClickListener( onRegister() );
-        checkBox.setOnClickListener( onRemember() );
-        forget.setOnClickListener( onForget() );
-    }
-
-    private void setToolbar() {
-        toolbar.setTitle("");
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
-
-    private void setInstance() {
-        presenter = new AuthenticationPresenter(this);
-        checkRemember();
 
         userName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -85,6 +72,31 @@ public class AuthenticationActivity extends AppCompatActivity implements Authent
                 return false;
             }
         });
+    }
+
+    @Override
+    public void setupInstance() {
+        checkRemember();
+    }
+
+    @Override
+    public void setupView() {
+        setToolbar();
+        login.setOnClickListener( onLogin() );
+        regisTer.setOnClickListener( onRegister() );
+        checkBox.setOnClickListener( onRemember() );
+        forget.setOnClickListener( onForget() );
+    }
+
+    @Override
+    public void initialize() {
+
+    }
+
+    private void setToolbar() {
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void checkRemember() {
@@ -134,7 +146,7 @@ public class AuthenticationActivity extends AppCompatActivity implements Authent
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.authen(AuthenticationActivity.this, userName.getText().toString(), userPassword.getText().toString());
+                getPresenter().authen(AuthenticationActivity.this, userName.getText().toString(), userPassword.getText().toString());
             }
         };
     }
@@ -144,7 +156,7 @@ public class AuthenticationActivity extends AppCompatActivity implements Authent
             @Override
             public void onClick(View view) {
                 regisTer.startAnimation(new AnimateButton().animbutton());
-                presenter.register();
+                getPresenter().register();
             }
         };
     }
@@ -168,7 +180,7 @@ public class AuthenticationActivity extends AppCompatActivity implements Authent
             @Override
             public void onClick(View view) {
                 forget.startAnimation(new AnimateButton().animbutton());
-                presenter.forget();
+                getPresenter().forget();
             }
         };
     }

@@ -33,7 +33,7 @@ import teerayut.dev.vlife.utils.DateRangePickerFragment;
  * A simple {@link Fragment} subclass.
  */
 public class DayCommissionFragment extends Fragment
-        implements DayCommissionInterface.View, DateRangePickerFragment.OnDateRangeSelectedListener {
+        implements DayCommissionInterface.View, DatePickerDialog.OnDateSetListener,TimePickerDialog.OnTimeSetListener {
 
 
     public DayCommissionFragment() {
@@ -89,23 +89,37 @@ public class DayCommissionFragment extends Fragment
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //DateRangePickerFragment dateRangePickerFragment= DateRangePickerFragment.newInstance(onDateSetListener, false);
-                //dateRangePickerFragment.show(getFragmentManager(),"datePicker");
+                Calendar now = Calendar.getInstance();
+                DatePickerDialog dpd = com.borax12.materialdaterangepicker.date.DatePickerDialog.newInstance(
+                        onDateSetListener(),
+                        now.get(Calendar.YEAR),
+                        now.get(Calendar.MONTH),
+                        now.get(Calendar.DAY_OF_MONTH)
+                );
+                dpd.setAutoHighlight(true);
+                dpd.show(getActivity().getFragmentManager(), "Datepickerdialog");
             }
         };
     }
 
-    private Calendar calendar;
-    private DatePickerDialog.OnDateSetListener onDateSetListener =
-            new DatePickerDialog.OnDateSetListener() {
-                @Override
-                public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth, int yearEnd, int monthOfYearEnd, int dayOfMonthEnd) {
+    private DatePickerDialog.OnDateSetListener onDateSetListener() {
+        new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth, int yearEnd, int monthOfYearEnd, int dayOfMonthEnd) {
 
-                }
-            };
+            }
+        };
+        return null;
+    }
+
 
     @Override
-    public void onDateRangeSelected(int startDay, int startMonth, int startYear, int endDay, int endMonth, int endYear) {
+    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth, int yearEnd, int monthOfYearEnd, int dayOfMonthEnd) {
+
+    }
+
+    @Override
+    public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute, int hourOfDayEnd, int minuteEnd) {
 
     }
 }

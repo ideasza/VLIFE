@@ -25,12 +25,13 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import teerayut.dev.vlife.R;
+import teerayut.dev.vlife.base.BaseMvpFragment;
 import teerayut.dev.vlife.cart.payment.delivery.item.ThailandItem;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DeliveryFragment extends Fragment implements DeliveryInterface.View {
+public class DeliveryFragment extends BaseMvpFragment<DeliveryInterface.Presenter> implements DeliveryInterface.View {
     /**
      * Insert form
      */
@@ -58,8 +59,18 @@ public class DeliveryFragment extends Fragment implements DeliveryInterface.View
     }
 
     private View view;
-    private DeliveryInterface.Presenter presenter;
     private onClickButtonNext clickButtonNext;
+
+    @Override
+    public DeliveryInterface.Presenter createPresenter() {
+        return DeliveryPresenter.create();
+    }
+
+    @Override
+    public int getLayoutView() {
+        return R.layout.fragment_delivery;
+    }
+
     @BindView(R.id.group_delivery) RadioGroup groupDelivery;
     @BindView(R.id.group_address) RadioGroup groupAddress;
     @BindView(R.id.radio_msn) RadioButton radioMassenger;
@@ -71,22 +82,28 @@ public class DeliveryFragment extends Fragment implements DeliveryInterface.View
     @BindView(R.id.image_delivery) ImageView imageDelivery;
     @BindView(R.id.button_delivery_next) Button buttonNext;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_delivery, container, false);
-        bindView(view);
-        return view;
+    public void bindView(View view) {
+        ButterKnife.bind(this, view);
     }
 
-    private void bindView(View view) {
-        ButterKnife.bind(this, view);
+    @Override
+    public void setupInstance() {
+
+    }
+
+    @Override
+    public void setupView() {
         imageDelivery.setVisibility(View.GONE);
         radioMassenger.setOnClickListener( OptionDeliveryOnClickListener );
         radioEMS.setOnClickListener( OptionDeliveryOnClickListener );
         radioAddress.setOnClickListener( OptionOnClickListener );
         radioAdd.setOnClickListener( OptionOnClickListener );
         buttonNext.setOnClickListener( onNext() );
-        setInstance();
+    }
+
+    @Override
+    public void initialize() {
+
     }
 
     RadioButton.OnClickListener OptionOnClickListener = new RadioButton.OnClickListener() {
@@ -100,7 +117,7 @@ public class DeliveryFragment extends Fragment implements DeliveryInterface.View
                 existAddress.setVisibility(View.GONE);
                 insertAddress.setVisibility(View.VISIBLE);
                 viewInsertAddress();
-                presenter.onLoadProvince();
+                getPresenter().onLoadProvince();
             }
         }
     };
@@ -117,10 +134,6 @@ public class DeliveryFragment extends Fragment implements DeliveryInterface.View
             }
         }
     };
-
-    private void setInstance() {
-        presenter = new DeliveryPresenter(this);
-    }
 
     @Override
     public void onAttach(Context context) {
@@ -152,7 +165,7 @@ public class DeliveryFragment extends Fragment implements DeliveryInterface.View
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ThailandItem item = thailandItemList.get(position);
-                presenter.onLoadDistrict(item.getId());
+                getPresenter().onLoadDistrict(item.getId());
             }
         });
     }
@@ -166,7 +179,7 @@ public class DeliveryFragment extends Fragment implements DeliveryInterface.View
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ThailandItem item = thailandItemList.get(position);
-                presenter.onLoadSubDistrict(item.getId());
+                getPresenter().onLoadSubDistrict(item.getId());
             }
         });
     }

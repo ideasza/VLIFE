@@ -1,18 +1,19 @@
 package teerayut.dev.vlife.cart.payment.summary;
 
+import teerayut.dev.vlife.base.BaseMvpPresenter;
+
 /**
  * Created by teerayut.k on 7/12/2017.
  */
 
-public class SummaryPresenter implements SummaryInterface.Presenter {
+public class SummaryPresenter extends BaseMvpPresenter<SummaryInterface.View> implements SummaryInterface.Presenter {
 
-    private SummaryInterface.View view;
-    public SummaryPresenter(SummaryInterface.View view) {
-        this.view = view;
+    public static SummaryInterface.Presenter create() {
+        return new SummaryPresenter();
     }
 
     @Override
     public void sendOrder() {
-        view.onSuccess("");
+        getView().onSuccess("");
     }
 }

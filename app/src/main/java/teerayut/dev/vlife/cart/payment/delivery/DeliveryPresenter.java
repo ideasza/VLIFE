@@ -3,19 +3,21 @@ package teerayut.dev.vlife.cart.payment.delivery;
 import java.util.ArrayList;
 import java.util.List;
 
+import teerayut.dev.vlife.base.BaseMvpPresenter;
 import teerayut.dev.vlife.cart.payment.delivery.item.ThailandItem;
 
 /**
  * Created by teerayut.k on 7/13/2017.
  */
 
-public class DeliveryPresenter implements DeliveryInterface.Presenter {
+public class DeliveryPresenter extends BaseMvpPresenter<DeliveryInterface.View> implements DeliveryInterface.Presenter {
 
     private ThailandItem item;
     private DeliveryInterface.View view;
     private List<ThailandItem> thailandItemList = new ArrayList<ThailandItem>();
-    public DeliveryPresenter(DeliveryInterface.View view) {
-        this.view = view;
+
+    public static DeliveryInterface.Presenter create() {
+        return new DeliveryPresenter();
     }
 
     @Override
