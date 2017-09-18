@@ -58,12 +58,14 @@
                 </android.support.design.widget.TextInputLayout>
 
                 <ImageView
+                    android:id="@+id/recomend_search"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_weight="0.1"
                     android:layout_gravity="bottom"
+                    android:background="@color/colorAccent"
                     android:src="@drawable/ic_search_white_48dp"
-                    android:tint="@color/colorPrimaryDark"/>
+                    android:tint="@color/white"/>
 
             </LinearLayout>
 
@@ -74,19 +76,18 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
-                android:gravity="bottom"
-                android:theme="@style/TextLabel_Forget">
+                android:gravity="bottom">
 
                 <EditText
                     android:id="@+id/recomend_name"
                     android:layout_width="fill_parent"
                     android:layout_height="40dp"
                     android:paddingLeft="8dp"
-                    android:background="@drawable/widget_border"
+                    android:background="@drawable/widget_border_disable"
                     android:singleLine="true"
                     android:hint="@string/register_main_recommend_name"
                     android:textColor="@color/colorPrimaryDark"
-                    android:inputType="text|textNoSuggestions|textCapCharacters"
+                    android:inputType="none"
                     android:imeOptions="actionNext"/>
             </android.support.design.widget.TextInputLayout>
 
@@ -116,12 +117,14 @@
                 </android.support.design.widget.TextInputLayout>
 
                 <ImageView
+                    android:id="@+id/upline_search"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_weight="0.1"
                     android:layout_gravity="bottom"
                     android:src="@drawable/ic_search_white_48dp"
-                    android:tint="@color/colorPrimaryDark"/>
+                    android:tint="@color/white"
+                    android:background="@color/colorAccent"/>
 
             </LinearLayout>
 
@@ -132,17 +135,16 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
-                android:gravity="bottom"
-                android:theme="@style/TextLabel_Forget">
+                android:gravity="bottom">
 
                 <EditText
                     android:id="@+id/upline_name"
                     android:layout_width="fill_parent"
                     android:layout_height="40dp"
-                    android:background="@drawable/widget_border"
+                    android:background="@drawable/widget_border_disable"
                     android:hint="@string/register_main_upline_name"
                     android:imeOptions="actionNext"
-                    android:inputType="text|textNoSuggestions|textCapCharacters"
+                    android:inputType="none"
                     android:paddingLeft="8dp"
                     android:singleLine="true"
                     android:textColor="@color/colorPrimaryDark" />
@@ -188,7 +190,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radio_address"
+                    android:id="@+id/radio_left"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -199,7 +201,7 @@
                     android:textColor="@color/colorPrimaryDark"/>
 
                 <RadioButton
-                    android:id="@+id/radio_add"
+                    android:id="@+id/radio_right"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -297,6 +299,10 @@
 
             </RadioGroup>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -327,11 +333,12 @@
                 <ImageView
                     android:id="@+id/datePicker"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
-                    android:layout_gravity="center"
+                    android:layout_height="40dp"
+                    android:layout_weight="0.1"
+                    android:layout_gravity="bottom"
                     android:src="@drawable/ic_date_range_white_48dp"
-                    android:tint="@color/colorPrimaryDark"/>
+                    android:tint="@color/white"
+                    android:background="@color/colorAccent"/>
 
             </LinearLayout>
 
@@ -393,7 +400,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="40dp"
                     android:paddingLeft="8dp"
-                    android:background="@drawable/widget_border"
+                    android:background="@drawable/widget_border_normal"
                     android:singleLine="true"
                     android:hint="@string/register_main_phone"
                     android:textColor="@color/colorPrimaryDark"
@@ -415,13 +422,13 @@
                     android:id="@+id/register_mobile"
                     android:layout_width="fill_parent"
                     android:layout_height="40dp"
-                    android:paddingLeft="8dp"
                     android:background="@drawable/widget_border"
-                    android:singleLine="true"
                     android:hint="@string/register_main_mobile"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:imeOptions="actionNext"
                     android:inputType="phone"
-                    android:imeOptions="actionNext"/>
+                    android:paddingLeft="8dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimaryDark" />
             </android.support.design.widget.TextInputLayout>
 
             <View
@@ -432,14 +439,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
                 android:gravity="bottom"
-                android:theme="@style/TextLabel_Forget">
+                android:theme="@style/TextLabel_Form">
 
                 <EditText
                     android:id="@+id/register_email"
                     android:layout_width="fill_parent"
                     android:layout_height="40dp"
                     android:paddingLeft="8dp"
-                    android:background="@drawable/widget_border"
+                    android:background="@drawable/widget_border_normal"
                     android:singleLine="true"
                     android:hint="@string/register_main_email"
                     android:textColor="@color/colorPrimaryDark"

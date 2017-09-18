@@ -102,7 +102,7 @@ public class RegisterActivity extends BaseMvpActivity<RegisterInterface.Presente
         lables.add("");
         stepView.setStepText(lables);
         stepView.setVerticalSpace(5);
-        stepView.setDrawableSize(38);
+        stepView.setDrawableSize(40);
         stepView.setCurrentStep(page);
         stepView.setLineHeight(4);
         stepView.setCurrentDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.step_current));

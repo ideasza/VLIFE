@@ -11,14 +11,14 @@ import teerayut.dev.vlife.base.BaseMvpInterface;
 public class AuthenticationInterface {
 
     public interface View extends BaseMvpInterface.View {
-        void onFail(String fail);
+        void onFail(int fail);
         void onSuccess();
         void onGoToSignUP();
         void onGoToForget();
     }
 
     public interface Presenter extends BaseMvpInterface.Presenter<AuthenticationInterface.View> {
-        void authen(Context context, String username, String password);
+        void authen(String username, String password);
         void forget();
         void register();
     }

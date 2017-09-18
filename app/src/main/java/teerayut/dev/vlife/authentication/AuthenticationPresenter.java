@@ -16,12 +16,12 @@ public class AuthenticationPresenter extends BaseMvpPresenter<AuthenticationInte
     }
 
     @Override
-    public void authen(Context context, String username, String password) {
+    public void authen(String username, String password) {
         if (username.equals("") || password.equals("")) {
-            getView().onFail(context.getResources().getString(R.string.dialog_msg_login_empty));
+            getView().onFail(R.string.dialog_msg_login_empty);
         } else {
             if (!username.equals("0000018") && !password.equals("1234")) {
-                getView().onFail(context.getResources().getString(R.string.dialog_msg_login_fail));
+                getView().onFail(R.string.dialog_msg_login_fail);
             } else {
                 getView().onSuccess();
             }

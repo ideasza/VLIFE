@@ -112,8 +112,8 @@ public class AuthenticationActivity extends BaseMvpActivity<AuthenticationInterf
     }
 
     @Override
-    public void onFail(String fail) {
-        Alert.dialogError(AuthenticationActivity.this, R.string.dialog_msg_login_fail);
+    public void onFail(int fail) {
+        Alert.dialogError(AuthenticationActivity.this, fail);
     }
 
     @Override
@@ -146,7 +146,7 @@ public class AuthenticationActivity extends BaseMvpActivity<AuthenticationInterf
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getPresenter().authen(AuthenticationActivity.this, userName.getText().toString(), userPassword.getText().toString());
+                getPresenter().authen(userName.getText().toString(), userPassword.getText().toString());
             }
         };
     }
