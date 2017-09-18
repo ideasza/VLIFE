@@ -31,37 +31,38 @@
             android:paddingRight="16dp"
             android:orientation="vertical">
 
-            <android.support.design.widget.TextInputLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/TextLabel_Form">
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:background="@drawable/widget_border">
 
-                <com.reginald.editspinner.EditSpinner
+                <Spinner
                     android:id="@+id/prefix_spinner"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:theme="@style/TextLabel_Form"
-                    android:hint="@string/register_main_prefix_name"
-                    android:editable="false"
-                    android:focusable="false"
-                    android:inputType="none"
-                    android:textColor="@color/colorPrimaryDark"
-                    app:dropDownDrawable="@drawable/ic_arrow_drop_down_black_24dp"
-                    android:drawableTint="@color/Black"
-                    app:dropDownDrawableSpacing="15dp"
-                    app:dropDownDrawableWidth="25dp"
-                    app:dropDownDrawableHeight="25dp"/>
-            </android.support.design.widget.TextInputLayout>
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingLeft="8dp"
+                    android:backgroundTint="@color/colorPrimaryDark"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Form">
 
                 <EditText
                     android:id="@+id/register_name"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:singleLine="true"
                     android:hint="@string/register_main_name"
                     android:textColor="@color/colorPrimaryDark"
@@ -112,6 +113,10 @@
 
             </RadioGroup>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -119,14 +124,17 @@
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="58dp"
+                    android:gravity="bottom"
                     android:layout_weight="0.8"
                     android:theme="@style/TextLabel_Form">
 
                     <EditText
                         android:id="@+id/birth_date"
                         android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
+                        android:paddingLeft="8dp"
+                        android:background="@drawable/widget_border"
                         android:singleLine="true"
                         android:hint="@string/register_main_birthdate"
                         android:textColor="@color/colorPrimaryDark"
@@ -147,37 +155,42 @@
 
             </LinearLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/TextLabel_Form">
+                android:layout_height="15dp"/>
 
-                <com.reginald.editspinner.EditSpinner
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:background="@drawable/widget_border">
+
+                <Spinner
                     android:id="@+id/nationality_spinner"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableTint="@color/Black"
-                    android:editable="false"
-                    android:focusable="false"
-                    android:hint="@string/register_main_nationality"
-                    android:inputType="none"
-                    android:textColor="@color/colorPrimaryDark"
-                    app:dropDownDrawable="@drawable/ic_arrow_drop_down_black_24dp"
-                    app:dropDownDrawableHeight="25dp"
-                    app:dropDownDrawableSpacing="15dp"
-                    app:dropDownDrawableWidth="25dp"
-                    app:theme="@style/TextLabel_Form" />
-            </android.support.design.widget.TextInputLayout>
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingLeft="8dp"
+                    android:backgroundTint="@color/colorPrimaryDark"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Form">
 
                 <EditText
                     android:id="@+id/register_idcard"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:singleLine="true"
                     android:hint="@string/register_main_id"
                     android:textColor="@color/colorPrimaryDark"
@@ -185,15 +198,22 @@
                     android:imeOptions="actionNext"/>
             </android.support.design.widget.TextInputLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Form">
 
                 <EditText
                     android:id="@+id/register_phone"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:singleLine="true"
                     android:hint="@string/register_main_phone"
                     android:textColor="@color/colorPrimaryDark"
@@ -201,15 +221,22 @@
                     android:imeOptions="actionNext"/>
             </android.support.design.widget.TextInputLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Form">
 
                 <EditText
                     android:id="@+id/register_mobile"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:singleLine="true"
                     android:hint="@string/register_main_mobile"
                     android:textColor="@color/colorPrimaryDark"
@@ -217,15 +244,22 @@
                     android:imeOptions="actionNext"/>
             </android.support.design.widget.TextInputLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Form">
 
                 <EditText
                     android:id="@+id/register_email"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:singleLine="true"
                     android:hint="@string/register_main_email"
                     android:textColor="@color/colorPrimaryDark"
@@ -233,15 +267,22 @@
                     android:imeOptions="actionNext"/>
             </android.support.design.widget.TextInputLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Form">
 
                 <EditText
                     android:id="@+id/register_line_id"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:singleLine="true"
                     android:hint="@string/register_main_line_id"
                     android:textColor="@color/colorPrimaryDark"
@@ -249,15 +290,22 @@
                     android:imeOptions="actionNext"/>
             </android.support.design.widget.TextInputLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Form">
 
                 <EditText
                     android:id="@+id/register_facebook"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:singleLine="true"
                     android:hint="@string/register_main_facebook"
                     android:textColor="@color/colorPrimaryDark"
@@ -265,15 +313,22 @@
                     android:imeOptions="actionNext"/>
             </android.support.design.widget.TextInputLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Form">
 
                 <EditText
                     android:id="@+id/register_we_chat"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:singleLine="true"
                     android:hint="@string/register_main_wechat"
                     android:textColor="@color/colorPrimaryDark"
@@ -287,14 +342,14 @@
     <RelativeLayout
         android:id="@+id/layoutBottom"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
 
         <Button
             android:id="@+id/button_partner_next"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimaryDark"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:text="@string/button_next"
             android:textColor="@color/White"/>
     </RelativeLayout>

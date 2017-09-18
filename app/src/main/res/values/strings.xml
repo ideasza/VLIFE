@@ -223,4 +223,10 @@
     <string name="hold_title_pieces">Pieces</string>
     /*************************Hold***********************/
 
+    /*****************************************************/
+    <string name="spinner_select_province">Please select province</string>
+    <string name="spinner_select_district">Please select district</string>
+    <string name="spinner_select_subdistrict">Please select sub district</string>
+    /*****************************************************/
+
 </resources>

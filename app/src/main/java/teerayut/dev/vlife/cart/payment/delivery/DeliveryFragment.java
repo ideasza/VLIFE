@@ -16,9 +16,9 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.reginald.editspinner.EditSpinner;
 
 import java.util.List;
 
@@ -27,6 +27,7 @@ import butterknife.ButterKnife;
 import teerayut.dev.vlife.R;
 import teerayut.dev.vlife.base.BaseMvpFragment;
 import teerayut.dev.vlife.cart.payment.delivery.item.ThailandItem;
+import teerayut.dev.vlife.customadapter.SpinnerCustomAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,12 +44,15 @@ public class DeliveryFragment extends BaseMvpFragment<DeliveryInterface.Presente
     private EditText editTextSoi;
     private EditText editTextRoad;
     private EditText editTextZipcode;
-    private EditSpinner sub_districtSpinner;
-    private EditSpinner districtSpinner;
-    private EditSpinner provinceSpinner;
+    private Spinner sub_districtSpinner;
+    private Spinner districtSpinner;
+    private Spinner provinceSpinner;
     /**
      * End
      */
+
+    private String deliveryBy;
+    private SpinnerCustomAdapter spinnerCustomAdapter;
 
     public DeliveryFragment() {
         // Required empty public constructor
@@ -125,9 +129,11 @@ public class DeliveryFragment extends BaseMvpFragment<DeliveryInterface.Presente
     RadioButton.OnClickListener OptionDeliveryOnClickListener = new RadioButton.OnClickListener() {
         public void onClick(View v) {
             if (radioMassenger.isChecked()) {
+                deliveryBy = "Massenger";
                 imageDelivery.setVisibility(View.VISIBLE);
                 imageDelivery.setImageDrawable(getResources().getDrawable(R.drawable.kerry));
             } else {
+                deliveryBy = "EMS";
                 radioMassenger.setChecked(false);
                 imageDelivery.setVisibility(View.VISIBLE);
                 imageDelivery.setImageDrawable(getResources().getDrawable(R.drawable.ems));
@@ -158,40 +164,71 @@ public class DeliveryFragment extends BaseMvpFragment<DeliveryInterface.Presente
 
     @Override
     public void setProvince(final List<ThailandItem> thailandItemList) {
-        ListAdapter adapter = new ArrayAdapter<ThailandItem>(getActivity(), android.R.layout.simple_spinner_dropdown_item, thailandItemList);
-        provinceSpinner.setAdapter(adapter);
+        spinnerCustomAdapter = new SpinnerCustomAdapter(getActivity(), R.layout.spinner_item, thailandItemList, getResources(), "province");
 
-        provinceSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        provinceSpinner.setAdapter(spinnerCustomAdapter);
+        provinceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ThailandItem item = thailandItemList.get(position);
-                getPresenter().onLoadDistrict(item.getId());
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                if (position > 0) {
+                    ((TextView) view.findViewById(R.id.row_item)).setTextColor(getResources().getColor(R.color.Black));
+                    /*DataItem item = dataItemList.get(position);
+                    province = item.getDataId();
+                    getPresenter().requestDistrict(Config.KEY_DISTRICT, item.getDataCode());*/
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
     }
 
     @Override
     public void setDistrict(final List<ThailandItem> thailandItemList) {
-        ListAdapter adapter = new ArrayAdapter<ThailandItem>(getActivity(), android.R.layout.simple_spinner_dropdown_item, thailandItemList);
-        districtSpinner.setAdapter(adapter);
+        spinnerCustomAdapter = new SpinnerCustomAdapter(getActivity(), R.layout.spinner_item, thailandItemList, getResources(), "province");
 
-        districtSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        districtSpinner.setAdapter(spinnerCustomAdapter);
+        districtSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ThailandItem item = thailandItemList.get(position);
-                getPresenter().onLoadSubDistrict(item.getId());
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                if (position > 0) {
+                    ((TextView) view.findViewById(R.id.row_item)).setTextColor(getResources().getColor(R.color.Black));
+                    /*DataItem item = dataItemList.get(position);
+                    province = item.getDataId();
+                    getPresenter().requestDistrict(Config.KEY_DISTRICT, item.getDataCode());*/
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
     }
 
     @Override
     public void setSubDistrict(List<ThailandItem> thailandItemList) {
-        ListAdapter adapter = new ArrayAdapter<ThailandItem>(getActivity(), android.R.layout.simple_spinner_dropdown_item, thailandItemList);
-        sub_districtSpinner.setAdapter(adapter);
+        spinnerCustomAdapter = new SpinnerCustomAdapter(getActivity(), R.layout.spinner_item, thailandItemList, getResources(), "province");
 
-        sub_districtSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        sub_districtSpinner.setAdapter(spinnerCustomAdapter);
+        sub_districtSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                if (position > 0) {
+                    ((TextView) view.findViewById(R.id.row_item)).setTextColor(getResources().getColor(R.color.Black));
+                    /*DataItem item = dataItemList.get(position);
+                    province = item.getDataId();
+                    getPresenter().requestDistrict(Config.KEY_DISTRICT, item.getDataCode());*/
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
@@ -220,8 +257,8 @@ public class DeliveryFragment extends BaseMvpFragment<DeliveryInterface.Presente
     }
 
     private void viewInsertAddress() {
-        provinceSpinner = (EditSpinner) insertAddress.findViewById(R.id.province_spinner);
-        districtSpinner = (EditSpinner) insertAddress.findViewById(R.id.district_spinner);
-        sub_districtSpinner = (EditSpinner) insertAddress.findViewById(R.id.sub_district_spinner);
+        provinceSpinner = (Spinner) insertAddress.findViewById(R.id.province_spinner);
+        districtSpinner = (Spinner) insertAddress.findViewById(R.id.district_spinner);
+        sub_districtSpinner = (Spinner) insertAddress.findViewById(R.id.sub_district_spinner);
     }
 }

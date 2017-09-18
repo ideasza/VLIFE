@@ -31,11 +31,11 @@ import teerayut.dev.vlife.utils.ExtactCartItem;
  */
 public class DetailFragment extends Fragment {
 
-    private int sumPV = 0;
+    /*private int sumPV = 0;
     private int sumPrice = 0;
     private DetailAdapter adapter;
     private Cart cart = CartHelper.getCart();
-    private List<CartItem> cartItemList = Collections.emptyList();
+    private List<CartItem> cartItemList = Collections.emptyList();*/
 
     public DetailFragment() {
         // Required empty public constructor
@@ -54,18 +54,18 @@ public class DetailFragment extends Fragment {
     }
 
     private onClickButtonNext clickButtonNext;
-    @BindView(R.id.sumTitle) TextView textViewSumTitle;
-    @BindView(R.id.sumValues) TextView textViewSumValus;
+    //@BindView(R.id.sumTitle) TextView textViewSumTitle;
+    //@BindView(R.id.sumValues) TextView textViewSumValus;
     @BindView(R.id.button_detail_next) Button buttonNext;
-    @BindView(R.id.recyclerview) RecyclerView recyclerView;
+    //@BindView(R.id.recyclerview) RecyclerView recyclerView;
     private void bindView(View view) {
         ButterKnife.bind(this, view);
-        setView();
+        //setView();
         buttonNext.setOnClickListener( onNext() );
-        setListItem();
+        //setListItem();
     }
 
-    private void setListItem() {
+    /*private void setListItem() {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
@@ -89,8 +89,8 @@ public class DetailFragment extends Fragment {
             recyclerView.setAdapter(adapter);
             for (CartItem item : cartItemList) {
                 int quantity = item.getQuantity();
-                int pv = Integer.parseInt(item.getProduct().getPv());
-                int price = Integer.parseInt(item.getProduct().getPrice() + "");
+                int pv = Integer.parseInt(item.getProduct().getPRODUCT_PV().replace(".00", ""));
+                int price = item.getProduct().getPrice().intValue();
                 sumPV += (pv * quantity);
                 sumPrice += (price * quantity);
             }
@@ -106,7 +106,7 @@ public class DetailFragment extends Fragment {
             sb2.append("0" + " " +  getResources().getString(R.string.price_symbol));
             textViewSumValus.setText(sb2.toString());
         }
-    }
+    }*/
 
     private View.OnClickListener onNext() {
         return new View.OnClickListener() {

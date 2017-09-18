@@ -39,14 +39,17 @@
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="58dp"
+                    android:gravity="bottom"
                     android:layout_weight="0.8"
                     android:theme="@style/TextLabel_Forget">
 
                     <EditText
                         android:id="@+id/recomend_code"
                         android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
+                        android:paddingLeft="8dp"
+                        android:background="@drawable/widget_border"
                         android:singleLine="true"
                         android:hint="@string/register_main_recommend_code"
                         android:textColor="@color/colorPrimaryDark"
@@ -57,22 +60,29 @@
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
-                    android:layout_gravity="center"
+                    android:layout_weight="0.1"
+                    android:layout_gravity="bottom"
                     android:src="@drawable/ic_search_white_48dp"
                     android:tint="@color/colorPrimaryDark"/>
 
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Forget">
 
                 <EditText
                     android:id="@+id/recomend_name"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:singleLine="true"
                     android:hint="@string/register_main_recommend_name"
                     android:textColor="@color/colorPrimaryDark"
@@ -87,14 +97,17 @@
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="58dp"
+                    android:gravity="bottom"
                     android:layout_weight="0.8"
                     android:theme="@style/TextLabel_Forget">
 
                     <EditText
                         android:id="@+id/upline_code"
                         android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
+                        android:paddingLeft="8dp"
+                        android:background="@drawable/widget_border"
                         android:singleLine="true"
                         android:hint="@string/register_main_upline_code"
                         android:textColor="@color/colorPrimaryDark"
@@ -105,50 +118,55 @@
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
-                    android:layout_gravity="center"
+                    android:layout_weight="0.1"
+                    android:layout_gravity="bottom"
                     android:src="@drawable/ic_search_white_48dp"
                     android:tint="@color/colorPrimaryDark"/>
 
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Forget">
 
                 <EditText
                     android:id="@+id/upline_name"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:singleLine="true"
+                    android:layout_height="40dp"
+                    android:background="@drawable/widget_border"
                     android:hint="@string/register_main_upline_name"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:imeOptions="actionNext"
                     android:inputType="text|textNoSuggestions|textCapCharacters"
-                    android:imeOptions="actionNext"/>
+                    android:paddingLeft="8dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimaryDark" />
             </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/TextLabel_Forget">
+                android:layout_height="15dp"/>
 
-                <com.reginald.editspinner.EditSpinner
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:background="@drawable/widget_border">
+
+                <Spinner
                     android:id="@+id/type_spinner"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:theme="@style/TextLabel_Forget"
-                    android:hint="@string/register_main_type"
-                    android:editable="false"
-                    android:focusable="false"
-                    android:inputType="none"
-                    android:textColor="@color/colorPrimaryDark"
-                    app:dropDownDrawable="@drawable/ic_arrow_drop_down_white_24dp"
-                    android:drawableTint="@color/colorPrimaryDark"
-                    app:dropDownDrawableSpacing="15dp"
-                    app:dropDownDrawableWidth="25dp"
-                    app:dropDownDrawableHeight="25dp"/>
-            </android.support.design.widget.TextInputLayout>
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingLeft="8dp"
+                    android:backgroundTint="@color/colorPrimaryDark"/>
+
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -193,37 +211,42 @@
 
             </RadioGroup>
 
-            <android.support.design.widget.TextInputLayout
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/TextLabel_Forget">
+                android:layout_height="15dp"/>
 
-                <com.reginald.editspinner.EditSpinner
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:background="@drawable/widget_border">
+
+                <Spinner
                     android:id="@+id/prefix_spinner"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:theme="@style/TextLabel_Forget"
-                    android:hint="@string/register_main_prefix_name"
-                    android:editable="false"
-                    android:focusable="false"
-                    android:inputType="none"
-                    android:textColor="@color/colorPrimaryDark"
-                    app:dropDownDrawable="@drawable/ic_arrow_drop_down_white_24dp"
-                    android:drawableTint="@color/colorPrimaryDark"
-                    app:dropDownDrawableSpacing="15dp"
-                    app:dropDownDrawableWidth="25dp"
-                    app:dropDownDrawableHeight="25dp"/>
-            </android.support.design.widget.TextInputLayout>
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingLeft="8dp"
+                    android:backgroundTint="@color/colorPrimaryDark"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Forget">
 
                 <EditText
                     android:id="@+id/register_name"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:singleLine="true"
                     android:hint="@string/register_main_name"
                     android:textColor="@color/colorPrimaryDark"
@@ -281,14 +304,17 @@
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="58dp"
+                    android:gravity="bottom"
                     android:layout_weight="0.8"
                     android:theme="@style/TextLabel_Forget">
 
                     <EditText
                         android:id="@+id/birth_date"
                         android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
+                        android:paddingLeft="8dp"
+                        android:background="@drawable/widget_border"
                         android:singleLine="true"
                         android:hint="@string/register_main_birthdate"
                         android:textColor="@color/colorPrimaryDark"
@@ -309,37 +335,42 @@
 
             </LinearLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/TextLabel_Forget">
+                android:layout_height="15dp"/>
 
-                <com.reginald.editspinner.EditSpinner
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:background="@drawable/widget_border">
+
+                <Spinner
                     android:id="@+id/nationality_spinner"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:theme="@style/TextLabel_Forget"
-                    android:hint="@string/register_main_nationality"
-                    android:editable="false"
-                    android:focusable="false"
-                    android:inputType="none"
-                    android:textColor="@color/colorPrimaryDark"
-                    app:dropDownDrawable="@drawable/ic_arrow_drop_down_white_24dp"
-                    android:drawableTint="@color/colorPrimaryDark"
-                    app:dropDownDrawableSpacing="15dp"
-                    app:dropDownDrawableWidth="25dp"
-                    app:dropDownDrawableHeight="25dp"/>
-            </android.support.design.widget.TextInputLayout>
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingLeft="8dp"
+                    android:backgroundTint="@color/colorPrimaryDark"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Forget">
 
                 <EditText
                     android:id="@+id/register_idcard"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:singleLine="true"
                     android:hint="@string/register_main_id"
                     android:textColor="@color/colorPrimaryDark"
@@ -347,15 +378,22 @@
                     android:imeOptions="actionNext"/>
             </android.support.design.widget.TextInputLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Form">
 
                 <EditText
                     android:id="@+id/register_phone"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:singleLine="true"
                     android:hint="@string/register_main_phone"
                     android:textColor="@color/colorPrimaryDark"
@@ -363,15 +401,22 @@
                     android:imeOptions="actionNext"/>
             </android.support.design.widget.TextInputLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Forget">
 
                 <EditText
                     android:id="@+id/register_mobile"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:singleLine="true"
                     android:hint="@string/register_main_mobile"
                     android:textColor="@color/colorPrimaryDark"
@@ -379,15 +424,22 @@
                     android:imeOptions="actionNext"/>
             </android.support.design.widget.TextInputLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Forget">
 
                 <EditText
                     android:id="@+id/register_email"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:singleLine="true"
                     android:hint="@string/register_main_email"
                     android:textColor="@color/colorPrimaryDark"
@@ -395,15 +447,22 @@
                     android:imeOptions="actionNext"/>
             </android.support.design.widget.TextInputLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Form">
 
                 <EditText
                     android:id="@+id/register_line_id"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:singleLine="true"
                     android:hint="@string/register_main_line_id"
                     android:textColor="@color/colorPrimaryDark"
@@ -411,15 +470,22 @@
                     android:imeOptions="actionNext"/>
             </android.support.design.widget.TextInputLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Form">
 
                 <EditText
                     android:id="@+id/register_facebook"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:singleLine="true"
                     android:hint="@string/register_main_facebook"
                     android:textColor="@color/colorPrimaryDark"
@@ -427,15 +493,22 @@
                     android:imeOptions="actionNext"/>
             </android.support.design.widget.TextInputLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Form">
 
                 <EditText
                     android:id="@+id/register_we_chat"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:singleLine="true"
                     android:hint="@string/register_main_wechat"
                     android:textColor="@color/colorPrimaryDark"
@@ -450,14 +523,14 @@
     <RelativeLayout
         android:id="@+id/layoutBottom"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
 
         <Button
             android:id="@+id/button_main_next"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimaryDark"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:text="@string/button_next"
             android:textColor="@color/White"/>
     </RelativeLayout>

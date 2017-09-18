@@ -34,11 +34,12 @@
             android:paddingTop="@dimen/default_padding_margin"
             android:paddingStart="@dimen/default_padding_margin"
             android:paddingEnd="@dimen/default_padding_margin" >
+
             <TextView
                 android:id="@+id/product_name"
-                android:layout_width="wrap_content"
-                android:clickable="false"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clickable="false"
                 android:layout_marginBottom="@dimen/default_padding_margin"
                 android:text="Hoegaarden"/>
 
@@ -74,6 +75,17 @@
                     android:textColor="@color/colorPrimaryDark"/>
 
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/product_best"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:gravity="right"
+                android:layout_marginBottom="@dimen/default_padding_margin"
+                android:text="BEST SELLER"
+                android:textStyle="bold"
+                android:textColor="@color/Gold"/>
 
         </LinearLayout>
 

@@ -3,6 +3,7 @@ package teerayut.dev.vlife.home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -37,17 +38,23 @@ import teerayut.dev.vlife.base.BaseMvpFragment;
 import teerayut.dev.vlife.cart.CartActivity;
 import teerayut.dev.vlife.home.Item.CartItem;
 import teerayut.dev.vlife.home.Item.ProductItem;
+import teerayut.dev.vlife.home.Item.ProductItemGroup;
 import teerayut.dev.vlife.home.adapter.HomeAdapter;
+import teerayut.dev.vlife.main.MainActivity;
 import teerayut.dev.vlife.utils.ActivityResultBus;
 import teerayut.dev.vlife.utils.ActivityResultEvent;
+import teerayut.dev.vlife.utils.Alert;
 import teerayut.dev.vlife.utils.Config;
 import teerayut.dev.vlife.utils.ExtactCartItem;
+import teerayut.dev.vlife.utils.MyApplication;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends BaseMvpFragment<HomeInterface.Presenter> implements HomeInterface.View {
 
+    private final String token = "Bearer OWcauRCV3S351CJWV1nfOmmu1jBm5xrMZPHIADMEm96b99ajEf";
+    private Snackbar snackbar;
     private HomeAdapter adapter;
     private int badgeQuantity = 0;
     private Cart cart = CartHelper.getCart();
@@ -55,6 +62,10 @@ public class HomeFragment extends BaseMvpFragment<HomeInterface.Presenter> imple
     private List<ProductItem> itemModelList = new ArrayList<ProductItem>();
     public HomeFragment() {
         // Required empty public constructor
+    }
+
+    public static HomeFragment newInstance() {
+        return new HomeFragment();
     }
 
     @BindView(R.id.btn_try_again) Button buttonTryAgain;
@@ -68,7 +79,7 @@ public class HomeFragment extends BaseMvpFragment<HomeInterface.Presenter> imple
 
     @Override
     public void setupInstance() {
-
+        adapter = new HomeAdapter(getActivity());
     }
 
     @Override
@@ -78,7 +89,25 @@ public class HomeFragment extends BaseMvpFragment<HomeInterface.Presenter> imple
 
     @Override
     public void initialize() {
-        getPresenter().requestItem();
+        getPresenter().requestItem(token);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(Config.KEY_PRODUCT, getPresenter().getProductItemGroup());
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        getPresenter().setProductItemGroup((ProductItemGroup) savedInstanceState.getParcelable(Config.KEY_PRODUCT));
+    }
+
+    @Override
+    public void restoreView(Bundle savedInstanceState) {
+        super.restoreView(savedInstanceState);
+        getPresenter().setProductItemToAdapter(getPresenter().getProductItemGroup());
     }
 
     private void setView() {
@@ -95,7 +124,7 @@ public class HomeFragment extends BaseMvpFragment<HomeInterface.Presenter> imple
             @Override
             public void onRefresh() {
                 recyclerView.setAdapter(null);
-                getPresenter().requestItem();
+                getPresenter().requestItem(token);
             }
         });
     }
@@ -115,7 +144,6 @@ public class HomeFragment extends BaseMvpFragment<HomeInterface.Presenter> imple
             for (int i = 0; i < cartItemList.size(); i ++) {
                 final CartItem cartItem = cartItemList.get(i);
                 badgeQuantity += Integer.parseInt(cartItem.getQuantity() + "");
-                //Log.e("Item cart", cartItem.getProduct().getName() + " : " + cartItem.getQuantity());
             }
             imageView.setImageDrawable(getResources().getDrawable(R.drawable.badge_cart_item));
             textViewCount.setText("" + badgeQuantity);
@@ -138,7 +166,8 @@ public class HomeFragment extends BaseMvpFragment<HomeInterface.Presenter> imple
             swipeRefreshLayout.setRefreshing(false);
         }
         this.itemModelList = itemModels;
-        adapter = new HomeAdapter(getActivity(), itemModels);
+        //adapter = new HomeAdapter(getActivity(), itemModels);
+        adapter.setProductItem(itemModelList);
         int itemSpace = (int) getResources().getDimension( R.dimen.default_padding_margin );
         recyclerView.addItemDecoration( new StaggeredGridLayoutMargin(Config.COLUMN_COUNT, itemSpace ) );
         StaggeredGridLayoutManager layout = new StaggeredGridLayoutManager( Config.COLUMN_COUNT, StaggeredGridLayoutManager.VERTICAL );
@@ -160,6 +189,26 @@ public class HomeFragment extends BaseMvpFragment<HomeInterface.Presenter> imple
     public void showAvailable() {
         recyclerView.setVisibility( View.VISIBLE );
         containerUnvailable.setVisibility( View.GONE );
+    }
+
+    @Override
+    public void onLoad() {
+        Alert.dialogLoading(getActivity());
+    }
+
+    @Override
+    public void onDismiss() {
+        Alert.dialogDimiss();
+    }
+
+    @Override
+    public void onSuccess() {
+
+    }
+
+    @Override
+    public void onFail(String fail) {
+
     }
 
     @Override
@@ -211,7 +260,7 @@ public class HomeFragment extends BaseMvpFragment<HomeInterface.Presenter> imple
                 cart.remove(item, 1);
                 badgeQuantity = 0;
                 getActivity().invalidateOptionsMenu();
-        }
+            }
 
             @Override
             public void onClickAddToCart(ProductItem item, int position) {
@@ -220,6 +269,11 @@ public class HomeFragment extends BaseMvpFragment<HomeInterface.Presenter> imple
                 badgeQuantity = 0;
                 getActivity().invalidateOptionsMenu();
             }
+
+            @Override
+            public void onClickItem(View view, int position) {
+
+            }
         };
     }
 
@@ -227,7 +281,7 @@ public class HomeFragment extends BaseMvpFragment<HomeInterface.Presenter> imple
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getPresenter().requestItem();
+                getPresenter().requestItem(token);
             }
         };
     }

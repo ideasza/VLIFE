@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.android.tonyvu.sc.model.Cart;
 import com.android.tonyvu.sc.util.CartHelper;
 
+import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
 
@@ -108,12 +109,11 @@ public class CartActivity extends BaseMvpActivity<CartInterface.Presenter> imple
         if (cartItems.size() > 0) {
             for (int i = 0; i < cartItems.size(); i++) {
                 cartItem = cartItemList.get(i);
-                pv += (cartItem.getQuantity() * new Double(cartItemList.get(i).getProduct().getPv()).intValue());
-                price += (cartItem.getQuantity() * Integer.parseInt(cartItem.getProduct().getPrice() + ""));
+                pv += (cartItem.getQuantity() * new Double(cartItemList.get(i).getProduct().getPRODUCT_PV()).intValue());
+                price += (cartItem.getQuantity() * cartItem.getProduct().getPrice().intValue());
             }
-
-            textPV.setText(String.valueOf(String.format("%,d", pv)));
-            textTotalPrice.setText(String.valueOf(String.format("%,d", price)) + " " + getResources().getString(R.string.price_symbol));
+            textPV.setText(Config.decimalFormat.format(Double.parseDouble(pv + "")));
+            textTotalPrice.setText(Config.decimalFormat.format(Double.parseDouble(price + "")) + " " + getResources().getString(R.string.price_symbol));
         } else {
             containerCartEmpty.setVisibility(View.VISIBLE);
             textPV.setText("0");

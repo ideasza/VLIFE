@@ -9,10 +9,13 @@ import teerayut.dev.vlife.base.BaseMvpInterface;
 public class MainInterface {
 
     public interface View extends BaseMvpInterface.View {
-
+        void setAccessToken(String token);
+        String getAccessToken();
     }
 
     public interface Presenter extends BaseMvpInterface.Presenter<MainInterface.View> {
-
+        void getAccessToken();
+        void setAccessToken(String token);
+        String getToken();
     }
 }

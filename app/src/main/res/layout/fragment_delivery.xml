@@ -5,9 +5,10 @@
     tools:context=".cart.payment.delivery.DeliveryFragment">
 
     <android.support.v4.widget.NestedScrollView
-        android:layout_above="@+id/layoutBottom"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -136,66 +137,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/title_bil_type"
-                android:textSize="16sp"
-                android:textStyle="bold"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:orientation="vertical">
-
-                <RadioGroup
-                    android:id="@+id/group_bill_type"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <RadioButton
-                        android:id="@+id/radio_normal"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:text="@string/bill_type_normal"
-                        android:gravity="left|center"
-                        android:paddingLeft="8dp"
-                        style="@style/radionbutton"/>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp"/>
-
-                    <RadioButton
-                        android:id="@+id/radio_keep"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:gravity="left|center"
-                        android:paddingLeft="8dp"
-                        style="@style/radionbutton"
-                        android:text="@string/bill_type_keep"/>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp"/>
-
-                    <RadioButton
-                        android:id="@+id/radio_hold"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:gravity="left|center"
-                        android:paddingLeft="8dp"
-                        style="@style/radionbutton"
-                        android:text="@string/bill_type_hold"/>
-
-                </RadioGroup>
-
-            </LinearLayout>
-
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
@@ -203,14 +144,14 @@
     <RelativeLayout
         android:id="@+id/layoutBottom"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
 
         <Button
             android:id="@+id/button_delivery_next"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimaryDark"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:text="@string/button_next"
             android:textColor="@color/White"/>
     </RelativeLayout>

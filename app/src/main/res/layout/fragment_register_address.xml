@@ -33,13 +33,16 @@
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Forget">
 
                 <EditText
                     android:id="@+id/number"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:hint="@string/address_number"
                     android:textColor="@color/colorPrimaryDark"
                     android:imeOptions="actionNext"
@@ -47,15 +50,22 @@
                     android:singleLine="true"/>
             </android.support.design.widget.TextInputLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Form">
 
                 <EditText
                     android:id="@+id/building"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:hint="@string/address_building"
                     android:textColor="@color/colorPrimaryDark"
                     android:imeOptions="actionNext"
@@ -63,15 +73,22 @@
                     android:singleLine="true"/>
             </android.support.design.widget.TextInputLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Form">
 
                 <EditText
                     android:id="@+id/village"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:hint="@string/address_village"
                     android:textColor="@color/colorPrimaryDark"
                     android:imeOptions="actionNext"
@@ -79,15 +96,22 @@
                     android:singleLine="true"/>
             </android.support.design.widget.TextInputLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Form">
 
                 <EditText
                     android:id="@+id/soi"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:hint="@string/address_soi"
                     android:textColor="@color/colorPrimaryDark"
                     android:imeOptions="actionNext"
@@ -95,15 +119,22 @@
                     android:singleLine="true"/>
             </android.support.design.widget.TextInputLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Form">
 
                 <EditText
                     android:id="@+id/road"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:hint="@string/address_road"
                     android:textColor="@color/colorPrimaryDark"
                     android:imeOptions="actionNext"
@@ -111,81 +142,78 @@
                     android:singleLine="true"/>
             </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/TextLabel_Forget">
+                android:layout_height="15dp"/>
 
-                <com.reginald.editspinner.EditSpinner
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:background="@drawable/widget_border">
+
+                <Spinner
                     android:id="@+id/province_spinner"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:theme="@style/TextLabel_Forget"
-                    android:hint="@string/address_province"
-                    android:editable="false"
-                    android:focusable="false"
-                    android:inputType="none"
-                    android:textColor="@color/colorPrimaryDark"
-                    app:dropDownDrawable="@drawable/ic_arrow_drop_down_white_24dp"
-                    android:drawableTint="@color/colorPrimaryDark"
-                    app:dropDownDrawableSpacing="15dp"
-                    app:dropDownDrawableWidth="25dp"
-                    app:dropDownDrawableHeight="25dp"/>
-            </android.support.design.widget.TextInputLayout>
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingLeft="8dp"
+                    android:backgroundTint="@color/colorPrimaryDark"/>
 
-            <android.support.design.widget.TextInputLayout
+            </LinearLayout>
+
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/TextLabel_Forget">
+                android:layout_height="15dp"/>
 
-                <com.reginald.editspinner.EditSpinner
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:background="@drawable/widget_border">
+
+                <Spinner
                     android:id="@+id/district_spinner"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:theme="@style/TextLabel_Forget"
-                    android:hint="@string/address_district"
-                    android:editable="false"
-                    android:focusable="false"
-                    android:inputType="none"
-                    android:textColor="@color/colorPrimaryDark"
-                    app:dropDownDrawable="@drawable/ic_arrow_drop_down_white_24dp"
-                    android:drawableTint="@color/colorPrimaryDark"
-                    app:dropDownDrawableSpacing="15dp"
-                    app:dropDownDrawableWidth="25dp"
-                    app:dropDownDrawableHeight="25dp"/>
-            </android.support.design.widget.TextInputLayout>
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingLeft="8dp"
+                    android:backgroundTint="@color/colorPrimaryDark"/>
 
-            <android.support.design.widget.TextInputLayout
+            </LinearLayout>
+
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/TextLabel_Forget">
+                android:layout_height="15dp"/>
 
-                <com.reginald.editspinner.EditSpinner
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:background="@drawable/widget_border">
+
+                <Spinner
                     android:id="@+id/sub_district_spinner"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:theme="@style/TextLabel_Forget"
-                    android:hint="@string/address_sub_district"
-                    android:editable="false"
-                    android:focusable="false"
-                    android:inputType="none"
-                    android:textColor="@color/colorPrimaryDark"
-                    app:dropDownDrawable="@drawable/ic_arrow_drop_down_white_24dp"
-                    android:drawableTint="@color/colorPrimaryDark"
-                    app:dropDownDrawableSpacing="15dp"
-                    app:dropDownDrawableWidth="25dp"
-                    app:dropDownDrawableHeight="25dp"/>
-            </android.support.design.widget.TextInputLayout>
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingLeft="8dp"
+                    android:backgroundTint="@color/colorPrimaryDark"/>
+
+            </LinearLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="58dp"
+                android:gravity="bottom"
                 android:theme="@style/TextLabel_Forget">
 
                 <EditText
                     android:id="@+id/zipcode"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="8dp"
+                    android:background="@drawable/widget_border"
                     android:hint="@string/address_zipcode"
                     android:textColor="@color/colorPrimaryDark"
                     android:imeOptions="actionDone"
@@ -199,14 +227,14 @@
     <RelativeLayout
         android:id="@+id/layoutBottom"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
 
         <Button
             android:id="@+id/button_address_next"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimaryDark"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:text="@string/button_next"
             android:textColor="@color/White"/>
     </RelativeLayout>

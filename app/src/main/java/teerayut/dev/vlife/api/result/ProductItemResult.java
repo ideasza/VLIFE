@@ -1,19 +1,12 @@
-package teerayut.dev.vlife.home.Item;
+package teerayut.dev.vlife.api.result;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-import com.android.tonyvu.sc.model.Saleable;
-
-import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
- * Created by teerayut.k on 7/10/2017.
+ * Created by teerayut.k on 9/6/2017.
  */
 
-public class ProductItem implements Saleable, Serializable {
-    private static final long serialVersionUID = -4073256626483275668L;
+public class ProductItemResult {
 
     private int PRODUCT_ID;
     private String PRODUCT_NAME1;
@@ -28,25 +21,6 @@ public class ProductItem implements Saleable, Serializable {
     private String PRODUCT_STATUS_BESTSELLER;
     private String PRODUCT_IMAGE;
     private int GROUP_ID;
-    private boolean added;
-
-    public boolean isAdded() {
-        return added;
-    }
-
-    public void setAdded(boolean added) {
-        this.added = added;
-    }
-
-    @Override
-    public BigDecimal getPrice() {
-        return PRODUCT_PRICE;
-    }
-
-    @Override
-    public String getName() {
-        return PRODUCT_NAME1;
-    }
 
     public int getPRODUCT_ID() {
         return PRODUCT_ID;
@@ -54,6 +28,10 @@ public class ProductItem implements Saleable, Serializable {
 
     public void setPRODUCT_ID(int PRODUCT_ID) {
         this.PRODUCT_ID = PRODUCT_ID;
+    }
+
+    public String getPRODUCT_NAME1() {
+        return PRODUCT_NAME1;
     }
 
     public void setPRODUCT_NAME1(String PRODUCT_NAME1) {
@@ -100,6 +78,10 @@ public class ProductItem implements Saleable, Serializable {
         this.PRODUCT_DETAIL4 = PRODUCT_DETAIL4;
     }
 
+    public BigDecimal getPRODUCT_PRICE() {
+        return PRODUCT_PRICE;
+    }
+
     public void setPRODUCT_PRICE(BigDecimal PRODUCT_PRICE) {
         this.PRODUCT_PRICE = PRODUCT_PRICE;
     }
@@ -142,33 +124,5 @@ public class ProductItem implements Saleable, Serializable {
 
     public void setGROUP_ID(int GROUP_ID) {
         this.GROUP_ID = GROUP_ID;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null) return false;
-        if (!(o instanceof ProductItem)) return false;
-
-        return (this.PRODUCT_ID == ((ProductItem) o).getPRODUCT_ID());
-    }
-
-    public int hashCode() {
-        final int prime = 31;
-        int hash = 1;
-        hash = hash * prime + PRODUCT_ID;
-        hash = hash * prime + (PRODUCT_NAME1 == null ? 0 : PRODUCT_NAME1.hashCode());
-        hash = hash * prime + (PRODUCT_NAME2 == null ? 0 : PRODUCT_NAME2.hashCode());
-        hash = hash * prime + (PRODUCT_DETAIL1 == null ? 0 : PRODUCT_DETAIL1.hashCode());
-        hash = hash * prime + (PRODUCT_DETAIL2 == null ? 0 : PRODUCT_DETAIL2.hashCode());
-        hash = hash * prime + (PRODUCT_DETAIL3 == null ? 0 : PRODUCT_DETAIL3.hashCode());
-        hash = hash * prime + (PRODUCT_DETAIL4 == null ? 0 : PRODUCT_DETAIL4.hashCode());
-        hash = hash * prime + (PRODUCT_PRICE == null ? 0 : PRODUCT_PRICE.hashCode());
-        hash = hash * prime + (PRODUCT_PV == null ? 0 : PRODUCT_PV.hashCode());
-        hash = hash * prime + (PRODUCT_STATUS_RECOMMEND == null ? 0 : PRODUCT_STATUS_RECOMMEND.hashCode());
-        hash = hash * prime + (PRODUCT_STATUS_BESTSELLER == null ? 0 : PRODUCT_STATUS_BESTSELLER.hashCode());
-        hash = hash * prime + (PRODUCT_IMAGE == null ? 0 : PRODUCT_IMAGE.hashCode());
-        hash = hash * prime + GROUP_ID;
-
-        return hash;
     }
 }

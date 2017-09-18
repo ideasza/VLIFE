@@ -14,13 +14,16 @@
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="58dp"
+            android:gravity="bottom"
             android:theme="@style/TextLabel_Forget">
 
             <EditText
                 android:id="@+id/number"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
+                android:paddingLeft="8dp"
+                android:background="@drawable/widget_border"
                 android:hint="@string/order_number"
                 android:textColor="@color/colorPrimaryDark"
                 android:imeOptions="actionNext"
@@ -28,15 +31,22 @@
                 android:singleLine="true"/>
         </android.support.design.widget.TextInputLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"/>
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="58dp"
+            android:gravity="bottom"
             android:theme="@style/TextLabel_Forget">
 
             <EditText
                 android:id="@+id/building"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
+                android:paddingLeft="8dp"
+                android:background="@drawable/widget_border"
                 android:hint="@string/order_total"
                 android:textColor="@color/colorPrimaryDark"
                 android:imeOptions="actionNext"
@@ -44,15 +54,22 @@
                 android:singleLine="true"/>
         </android.support.design.widget.TextInputLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"/>
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="58dp"
+            android:gravity="bottom"
             android:theme="@style/TextLabel_Forget">
 
             <EditText
                 android:id="@+id/name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
+                android:paddingLeft="8dp"
+                android:background="@drawable/widget_border"
                 android:hint="@string/address_name"
                 android:textColor="@color/colorPrimaryDark"
                 android:imeOptions="actionNext"
@@ -60,28 +77,39 @@
                 android:singleLine="true"/>
         </android.support.design.widget.TextInputLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp" />
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="58dp"
+            android:gravity="bottom"
             android:theme="@style/TextLabel_Forget">
 
             <EditText
                 android:id="@+id/phone"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
+                android:paddingLeft="8dp"
+                android:background="@drawable/widget_border"
                 android:hint="@string/address_phone"
-                android:textColor="@color/colorPrimaryDark"
                 android:imeOptions="actionNext"
-                android:inputType="text|textNoSuggestions|textCapCharacters"
-                android:singleLine="true"/>
+                android:inputType="text"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimaryDark" />
         </android.support.design.widget.TextInputLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="15dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <android.support.design.widget.TextInputLayout
+            <!--<android.support.design.widget.TextInputLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -102,9 +130,45 @@
                     app:dropDownDrawableSpacing="15dp"
                     app:dropDownDrawableWidth="25dp"
                     app:dropDownDrawableHeight="25dp"/>
-            </android.support.design.widget.TextInputLayout>
+            </android.support.design.widget.TextInputLayout>-->
 
-            <android.support.design.widget.TextInputLayout
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/widget_border">
+
+                <Spinner
+                    android:id="@+id/payment_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingLeft="8dp"
+                    android:backgroundTint="@color/colorPrimaryDark"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/widget_border">
+
+                <Spinner
+                    android:id="@+id/payment_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingLeft="8dp"
+                    android:backgroundTint="@color/colorPrimaryDark"/>
+
+            </LinearLayout>
+
+            <!--<android.support.design.widget.TextInputLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -125,7 +189,7 @@
                     app:dropDownDrawableSpacing="15dp"
                     app:dropDownDrawableWidth="25dp"
                     app:dropDownDrawableHeight="25dp"/>
-            </android.support.design.widget.TextInputLayout>
+            </android.support.design.widget.TextInputLayout>-->
 
         </LinearLayout>
 

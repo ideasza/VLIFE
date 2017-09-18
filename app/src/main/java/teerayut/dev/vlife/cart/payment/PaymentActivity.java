@@ -118,7 +118,7 @@ public class PaymentActivity extends BaseMvpActivity<PaymentInterface.Presenter>
         lables.add("");
         stepView.setStepText(lables);
         stepView.setVerticalSpace(5);
-        stepView.setDrawableSize(38);
+        stepView.setDrawableSize(40);
         stepView.setCurrentStep(page);
         stepView.setLineHeight(4);
         stepView.setCurrentDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.step_current));

@@ -37,7 +37,7 @@ public class DeliveryPresenter extends BaseMvpPresenter<DeliveryInterface.View> 
         item = new ThailandItem("5", "อยุธยา");
         thailandItemList.add(item);
 
-        view.setProvince(thailandItemList);
+        getView().setProvince(thailandItemList);
     }
 
     @Override
@@ -59,7 +59,7 @@ public class DeliveryPresenter extends BaseMvpPresenter<DeliveryInterface.View> 
         item = new ThailandItem("5", "เมือง");
         thailandItemList.add(item);
 
-        view.setDistrict(thailandItemList);
+        getView().setDistrict(thailandItemList);
 
     }
 
@@ -82,6 +82,6 @@ public class DeliveryPresenter extends BaseMvpPresenter<DeliveryInterface.View> 
         item = new ThailandItem("5", "เมืองอยุธยา");
         thailandItemList.add(item);
 
-        view.setSubDistrict(thailandItemList);
+        getView().setSubDistrict(thailandItemList);
     }
 }

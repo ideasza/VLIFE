@@ -20,6 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import teerayut.dev.vlife.R;
 import teerayut.dev.vlife.home.Item.ProductItem;
+import teerayut.dev.vlife.register.RegisterInterface;
 
 /**
  * Created by teerayut.k on 7/9/2017.
@@ -30,8 +31,11 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
     private Context context;
     private OnClickListener listener;
     private List<ProductItem> itemModelList = new ArrayList<ProductItem>();
-    public HomeAdapter(FragmentActivity activity, List<ProductItem> itemModels) {
+    public HomeAdapter(FragmentActivity activity) {
         this.context = activity;
+    }
+
+    public void setProductItem(List<ProductItem> itemModels) {
         this.itemModelList = itemModels;
     }
 
@@ -45,17 +49,15 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
     public void onBindViewHolder(ViewHolder holder, int position) {
         ProductItem item = itemModelList.get(position);
         holder.textViewName.setText(item.getName());
-        holder.textViewPv.setText(context.getResources().getString(R.string.title_pv) + " " + item.getPv());
-
-        int price = Integer.parseInt(item.getPrice() + "");
-
-        holder.textViewPrice.setText(String.valueOf(String.format("%,d", price))
-                + " " + context.getResources().getString(R.string.price_symbol));
+        holder.textViewPv.setText(context.getResources().getString(R.string.title_pv) + " " + item.getPRODUCT_PV());
 
         Glide.with( context )
-                .load( item.getImage() )
+                .load( item.getPRODUCT_IMAGE() )
                 .placeholder(R.drawable.no_image)
                 .into( holder.imageViewProduct );
+
+        holder.textViewPrice.setText(String.valueOf(item.getPrice())
+                + " " + context.getResources().getString(R.string.price_symbol));
 
         holder.setOnClickItemListener(onClick(item));
 
@@ -66,6 +68,12 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
             holder.buttonAdded.setVisibility( View.GONE );
             holder.buttonAdd.setVisibility( View.VISIBLE );
         }
+
+        if (Integer.parseInt(item.getPRODUCT_STATUS_BESTSELLER()) == 1) {
+            holder.textViewBest.setText("BEST SELLER");
+        } else {
+            holder.textViewBest.setText("");
+        }
     }
 
     public void setOnClickListener(OnClickListener listener) {
@@ -73,6 +81,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
     }
 
     public interface  OnClickListener {
+        void onClickItem(View view, int position);
         void onClickAdded(ProductItem item, int position);
         void onClickAddToCart(ProductItem item, int position);
     }
@@ -94,6 +103,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
                     listener.onClickAdded( item, position );
                 }
             }
+
+            @Override
+            public void onClickItem(View view, int position) {
+                if (listener != null) {
+                    listener.onClickItem(view, position);
+                }
+            }
         };
     }
 
@@ -106,6 +122,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
 
         private OnClickItemListener listener;
 
+        @BindView(R.id.product_best) TextView textViewBest;
         @BindView(R.id.product_image) ImageView imageViewProduct;
         @BindView(R.id.product_name) TextView textViewName;
         @BindView(R.id.product_pv) TextView textViewPv;
@@ -117,6 +134,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
             ButterKnife.bind(this, itemView);
             buttonAdd.setOnClickListener( onClickAddToCart() );
             buttonAdded.setOnClickListener( onClickAdded() );
+            itemView.setOnClickListener( onClickItem() );
         }
 
         public void setOnClickItemListener(OnClickItemListener listener) {
@@ -126,6 +144,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
         public interface OnClickItemListener {
             void onClickAddToCart(ViewHolder view, int position );
             void onClickAdded(ViewHolder view, int position );
+            void onClickItem(View view, int position);
         }
 
         private void toggleButton(){
@@ -160,6 +179,17 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
                         listener.onClickAddToCart( ViewHolder.this, getAdapterPosition() );
                     }
                     toggleButton();
+                }
+            };
+        }
+
+        private View.OnClickListener onClickItem() {
+            return new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (listener != null) {
+                        listener.onClickItem(view, getPosition());
+                    }
                 }
             };
         }

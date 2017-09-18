@@ -13,6 +13,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 import com.android.tonyvu.sc.model.Cart;
 import com.android.tonyvu.sc.util.CartHelper;
 
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 
@@ -58,6 +60,7 @@ public class MainActivity extends BaseMvpActivity<MainInterface.Presenter> imple
 
     private boolean clickBackAain = false;
 
+    private String token;
     private int badgeQuantity = 0;
     private Cart cart = CartHelper.getCart();
     List<CartItem> cartItemList = Collections.emptyList();
@@ -84,9 +87,22 @@ public class MainActivity extends BaseMvpActivity<MainInterface.Presenter> imple
 
     @Override
     public void initialize() {
-        /*if (savedInstanceState == null) {
-            loadHomePage();
+        /*try {
+            Calendar c = Calendar.getInstance();
+            c.setTimeInMillis(Long.parseLong(MyApplication.getInstance().getPrefManager().getPreferrence(Config.KEY_EXPIRE)));
+            int dayNum = c.get(Calendar.DAY_OF_MONTH);
+            if (dayNum > 30) {
+                getPresenter().getAccessToken();
+                setAccessToken(getPresenter().getToken());
+            } else {
+                setAccessToken(getPresenter().getToken());
+            }
+        } catch (Exception ex) {
+            getPresenter().getAccessToken();
+            setAccessToken(getPresenter().getToken());
         }*/
+        //getPresenter().getAccessToken();
+        //setAccessToken(getPresenter().getToken());
         loadHomePage();
     }
 
@@ -98,6 +114,25 @@ public class MainActivity extends BaseMvpActivity<MainInterface.Presenter> imple
     @Override
     public int getLayoutView() {
         return R.layout.activity_main;
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(Config.KEY_TOKEN, getPresenter().getToken());
+    }
+
+    @Override
+    public void restoreView(Bundle savedInstanceState) {
+        super.restoreView(savedInstanceState);
+        MyApplication.getInstance().getPrefManager().setPreferrence(Config.KEY_TOKEN,
+                getPresenter().getToken());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        getPresenter().setAccessToken((String) savedInstanceState.getString(Config.KEY_TOKEN));
     }
 
     @Override
@@ -114,7 +149,7 @@ public class MainActivity extends BaseMvpActivity<MainInterface.Presenter> imple
     private void loadHomePage() {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.frame, new HomeFragment()).addToBackStack(null).commit();
+        transaction.replace(R.id.frame, HomeFragment.newInstance(), "HomeFragment").addToBackStack(null).commit();
     }
 
     private void setToolbar() {
@@ -169,7 +204,7 @@ public class MainActivity extends BaseMvpActivity<MainInterface.Presenter> imple
                 if (currentFragment instanceof HomeFragment) {
                     drawerLayout.closeDrawers();
                 } else {
-                    transaction.replace(R.id.frame, new HomeFragment(), "HomeFragment").addToBackStack(null).commit();
+                    transaction.replace(R.id.frame, HomeFragment.newInstance(), "HomeFragment").addToBackStack(null).commit();
                 }
                 break;
             case R.id.menu_news:
@@ -278,4 +313,14 @@ public class MainActivity extends BaseMvpActivity<MainInterface.Presenter> imple
         return true;
     }
 
+    @Override
+    public void setAccessToken(String token) {
+        Log.e("New token", token);
+        this.token = token;
+    }
+
+    @Override
+    public String getAccessToken() {
+        return token;
+    }
 }

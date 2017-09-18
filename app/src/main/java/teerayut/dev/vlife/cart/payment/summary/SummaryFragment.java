@@ -39,6 +39,7 @@ public class SummaryFragment extends BaseMvpFragment<SummaryInterface.Presenter>
         return new SummaryFragment();
     }
 
+    private int sumPV, sumPrice;
     private DetailAdapter adapter;
     private SweetAlertDialog sweetAlertDialog;
     private Cart cart = CartHelper.getCart();
@@ -98,25 +99,25 @@ public class SummaryFragment extends BaseMvpFragment<SummaryInterface.Presenter>
         if (cartItemList.size() > 0) {
             adapter = new DetailAdapter(getActivity(), cartItemList);
             recyclerView.setAdapter(adapter);
-            /*for (CartItem item : cartItemList) {
+            for (CartItem item : cartItemList) {
                 int quantity = item.getQuantity();
-                int pv = Integer.parseInt(item.getProduct().getPv());
-                int price = Integer.parseInt(item.getProduct().getPrice() + "");
+                int pv = Integer.parseInt(item.getProduct().getPRODUCT_PV().replace("0.00", ""));
+                int price = item.getProduct().getPrice().intValue();
                 sumPV += (pv * quantity);
                 sumPrice += (price * quantity);
             }
-            sb2.append(String.valueOf(String.format("%,d", sumPV)) + "\n");
+            /*sb2.append(String.valueOf(String.format("%,d", sumPV)) + "\n");
             sb2.append(String.valueOf(String.format("%,d", sumPrice)) + " " + getResources().getString(R.string.price_symbol) + "\n");
             sb2.append("0" + " " + getResources().getString(R.string.price_symbol) + "\n");
             sb2.append(String.valueOf(String.format("%,d", sumPrice))  + " " + getResources().getString(R.string.price_symbol));
             textViewSumValus.setText(sb2.toString());*/
-        } else {
-            /*sb2.append("0" + "\n");
+        } /*else {
+            sb2.append("0" + "\n");
             sb2.append("0" + " " + getResources().getString(R.string.price_symbol) + "\n");
             sb2.append("0" + " " +  getResources().getString(R.string.price_symbol) +  "\n");
             sb2.append("0" + " " +  getResources().getString(R.string.price_symbol));
-            textViewSumValus.setText(sb2.toString());*/
-        }
+            textViewSumValus.setText(sb2.toString());
+        }*/
     }
 
     private void setDetailSummary() {

@@ -40,11 +40,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
         final CartItem cartItem = cartItemList.get(position);
         holder.textViewProductName.setText(cartItem.getProduct().getName());
-        holder.textViewProductPV.setText(context.getResources().getString(R.string.title_pv) + ": " + cartItem.getProduct().getPv());
-
-        int price = Integer.parseInt(cartItem.getProduct().getPrice() + "");
-
-        holder.textViewProductPrice.setText(String.valueOf(String.format("%,d", price)) + " " + context.getResources().getString(R.string.price_symbol));
+        holder.textViewProductPV.setText(context.getResources().getString(R.string.title_pv) + ": " + cartItem.getProduct().getPRODUCT_PV());
+        holder.textViewProductPrice.setText(String.valueOf(cartItem.getProduct().getPrice()) + " " + context.getResources().getString(R.string.price_symbol));
         holder.textViewProductAmount.setText(String.valueOf(cartItem.getQuantity()));
 
         if (cartItem.getQuantity() == 1) {

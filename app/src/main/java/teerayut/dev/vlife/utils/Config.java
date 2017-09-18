@@ -1,10 +1,14 @@
 package teerayut.dev.vlife.utils;
 
+import java.text.DecimalFormat;
+
 /**
  * Created by OzoeSK on 7/5/2017.
  */
 
 public class Config {
+
+    public static final DecimalFormat decimalFormat = new DecimalFormat("#,###.00");
 
     public static final int COLUMN_COUNT = 2;
     public static final int COLUMN_ONE = 1;
@@ -25,6 +29,14 @@ public class Config {
     public static final String KEY_SESSION_LOGIN = "LOGEDIN";
     public static final String KEY_NEWS_ITEM_DETAIL = "NEWS_DETAIL";
 
+    public static final String KEY_TOKEN = "TOKEN";
+    public static final String KEY_EXPIRE = "EXPIRE";
+
+    public static final String KEY_PRODUCT = "PRODUCT";
+
+    public static final String SUCCESS = "SUCCESS";
+    public static final String FAIL = "FAIL";
+
     public static final String PRODUCT_URL_1 = "http://ducky-shopping.com/vlife-mlm/uploads/product/1498451910_islym.jpg"; //I-SLYM
     public static final String PRODUCT_URL_2 = "http://ducky-shopping.com/vlife-mlm/uploads/product/1498452053_%E0%B8%A2%E0%B8%B2%E0%B8%A2%E0%B9%89%E0%B8%AD%E0%B8%A1%E0%B8%9C%E0%B8%A1.jpg"; //SYOSS
     public static final String PRODUCT_URL_3 = "http://ducky-shopping.com/vlife-mlm/uploads/product/1498452147_product-0056-69879312-bb651ed5e8b45254d61a273dff7ecda6-catalog_233.jpg"; //LIEVE
@@ -38,4 +50,6 @@ public class Config {
     public static final String NEWS_URL_3 = "http://ducky-shopping.com/vlife-web/images/images/news-promotion_14.png";
     public static final String NEWS_URL_4 = "http://ducky-shopping.com/vlife-web/images/images/news-banner.png";
     public static final String NEWS_URL_5 = "http://ducky-shopping.com/vlife-web/images/images/banner1-1.png";
+
+
 }

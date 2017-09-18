@@ -1,11 +1,17 @@
 package teerayut.dev.vlife.home;
 
+import com.hwangjr.rxbus.RxBus;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import teerayut.dev.vlife.api.ConvertItem;
+import teerayut.dev.vlife.api.ServiceManager;
+import teerayut.dev.vlife.api.result.ProductItemResultGroup;
 import teerayut.dev.vlife.base.BaseMvpPresenter;
 import teerayut.dev.vlife.home.Item.ProductItem;
+import teerayut.dev.vlife.home.Item.ProductItemGroup;
 import teerayut.dev.vlife.utils.Config;
 
 /**
@@ -14,73 +20,68 @@ import teerayut.dev.vlife.utils.Config;
 
 public class HomePresenter extends BaseMvpPresenter<HomeInterface.View> implements HomeInterface.Presenter {
 
+    private ServiceManager serviceManager;
     private ProductItem itemModel;
+    private ProductItemGroup itemGroup;
     private List<ProductItem> itemModelList = new ArrayList<ProductItem>();
 
     public static HomeInterface.Presenter create() {
         return new HomePresenter();
     }
 
+    public HomePresenter() {
+        serviceManager = ServiceManager.getInstance();
+    }
+
+    public void setManager( ServiceManager manager ){
+        serviceManager = manager;
+    }
+
     @Override
-    public void requestItem() {
-        itemModelList.clear();
+    public void onViewCreate() {
+        RxBus.get().register( this );
+    }
 
-        itemModel = new ProductItem();
-        itemModel.setId("0001");
-        itemModel.setName("I-SLYM");
-        itemModel.setPv("250");
-        itemModel.setPrice(BigDecimal.valueOf(1200));
-        itemModel.setImage(Config.PRODUCT_URL_1);
-        itemModelList.add(itemModel);
+    @Override
+    public void onViewDestroy() {
+        RxBus.get().unregister( this );
+    }
 
-        itemModel = new ProductItem();
-        itemModel.setId("0002");
-        itemModel.setName("SYOSS");
-        itemModel.setPv("50");
-        itemModel.setPrice(BigDecimal.valueOf(250));
-        itemModel.setImage(Config.PRODUCT_URL_2);
-        itemModelList.add(itemModel);
+    @Override
+    public void requestItem(String token) {
+        getView().onLoad();
+        serviceManager.requestProduct(token, new ServiceManager.ServiceManagerCallback<ProductItemResultGroup>() {
+            @Override
+            public void onSuccess(ProductItemResultGroup result) {
+                getView().onDismiss();
+                ProductItemGroup productItemGroup = ConvertItem.createProductItemGroupFromResult(result);
+                itemGroup = productItemGroup;
+                setProductItemGroup(itemGroup);
+                itemModelList = ConvertItem.createListProductItemFromResultGroup(result.getPRODUCT());
+                getView().setItemToRecyclerView(itemModelList);
+            }
 
-        itemModel = new ProductItem();
-        itemModel.setId("0003");
-        itemModel.setName("LIEVE");
-        itemModel.setPv("200");
-        itemModel.setPrice(BigDecimal.valueOf(600));
-        itemModel.setImage(Config.PRODUCT_URL_3);
-        itemModelList.add(itemModel);
+            @Override
+            public void onFailure(Throwable t) {
+                getView().onDismiss();
+                getView().onFail(t.getMessage());
+            }
+        });
+    }
 
-        itemModel = new ProductItem();
-        itemModel.setId("0004");
-        itemModel.setName("VITRA");
-        itemModel.setPv("150");
-        itemModel.setPrice(BigDecimal.valueOf(300));
-        itemModel.setImage(Config.PRODUCT_URL_4);
-        itemModelList.add(itemModel);
+    @Override
+    public void setProductItemGroup(ProductItemGroup group) {
+        this.itemGroup = group;
+    }
 
-        itemModel = new ProductItem();
-        itemModel.setId("0005");
-        itemModel.setName("GARNIAR");
-        itemModel.setPv("120");
-        itemModel.setPrice(BigDecimal.valueOf(500));
-        itemModel.setImage(Config.PRODUCT_URL_5);
-        itemModelList.add(itemModel);
+    @Override
+    public ProductItemGroup getProductItemGroup() {
+        return itemGroup;
+    }
 
-        itemModel = new ProductItem();
-        itemModel.setId("0006");
-        itemModel.setName("LE'SKIN MILK");
-        itemModel.setPv("50");
-        itemModel.setPrice(BigDecimal.valueOf(390));
-        itemModel.setImage(Config.PRODUCT_URL_6);
-        itemModelList.add(itemModel);
-
-        itemModel = new ProductItem();
-        itemModel.setId("0007");
-        itemModel.setName("FG PASTEL");
-        itemModel.setPv("100");
-        itemModel.setPrice(BigDecimal.valueOf(500));
-        itemModel.setImage(Config.PRODUCT_URL_7);
-        itemModelList.add(itemModel);
-
+    @Override
+    public void setProductItemToAdapter(ProductItemGroup group) {
+        itemModelList = group.getPRODUCT();
         getView().setItemToRecyclerView(itemModelList);
     }
 }

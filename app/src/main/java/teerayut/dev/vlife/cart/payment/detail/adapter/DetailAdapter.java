@@ -42,20 +42,20 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ViewHolder
     public void onBindViewHolder(ViewHolder holder, int position) {
         CartItem item = cartItemList.get(position);
         Glide.with( context )
-                .load( item.getProduct().getImage() )
+                .load( item.getProduct().getPRODUCT_IMAGE() )
                 .placeholder(R.drawable.no_image)
                 .into( holder.thumbs );
         holder.productName.setText(item.getProduct().getName());
-        holder.productPV.setText(context.getResources().getString(R.string.title_pv) + " " + item.getProduct().getPv());
+        holder.productPV.setText(context.getResources().getString(R.string.title_pv) + " " + item.getProduct().getPRODUCT_PV());
         holder.productPrice.setText(item.getProduct().getPrice() + " " + context.getResources().getString(R.string.price_symbol));
         holder.productAmount.setText(String.valueOf(item.getQuantity()));
 
         int quantity = item.getQuantity();
-        int pv = Integer.parseInt(item.getProduct().getPv());
-        int price = Integer.parseInt(item.getProduct().getPrice() + "");
+        int pv = Integer.parseInt(item.getProduct().getPRODUCT_PV().replace(".00", ""));
+        int price = item.getProduct().getPrice().intValue();
 
-        holder.totalPV.setText(context.getResources().getString(R.string.title_sum_point) + " " + String.valueOf(String.format("%,d", (pv * quantity))));
-        holder.totalPrice.setText(context.getResources().getString(R.string.title_sum_total) + " " +  String.valueOf(String.format("%,d",(price * quantity))
+        holder.totalPV.setText(String.valueOf(String.format("%,d", (pv * quantity))));
+        holder.totalPrice.setText(String.valueOf(String.format("%,d",(price * quantity))
                 + " " + context.getResources().getString(R.string.price_symbol)));
     }
 
